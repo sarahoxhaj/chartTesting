@@ -28,7 +28,7 @@
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'FirstView',
   data() {
     return {
       email: '',
@@ -45,7 +45,6 @@ export default {
       }
     },
     dismissAlert() {
-      // Dismiss the alert by setting showAlert to false
       this.showAlert = false;
     }
   }

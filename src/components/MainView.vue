@@ -7,23 +7,66 @@
         </nav>
     </div>
 
-    <!-- <div class="mt-5" style="margin-left: 50px;">
-        <img src="@/assets/vis150.png" style="width: 50rem; height: 20rem;"/>
-    </div> -->
+    <div style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 80px; margin-left: 20px; position: relative;">
+        <img :src="currentImage" alt="Your Image"
+            style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
 
-    <!-- <div style="border:solid; width: 47rem; height: 30rem; margin-top: 100px; margin-left: 20px;">
-       <p>test</p>
-    </div>  -->
+        <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-left-fill" viewBox="0 0 16 16"
+            style="position: absolute; top: 110%; left: 45%; transform: translateX(-50%); margin-top: 10px; width: 2rem; height: 2rem;">
+            <path
+                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+        </svg>
 
-    <div style="border:solid; width: 47rem; height: 30rem; margin-top: 100px; margin-left: 20px; position: relative;">
-        <img src="@/assets/vis1.png" alt="Your Image" style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-      </div>
-      
+        <svg @click="nextImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+            style="position: absolute; top: 110%; left: 50%; transform: translateX(-50%); margin-top: 10px; width: 2rem; height: 2rem;">
+            <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
 
+
+    </div>
 </template>
   
 <script>
 export default {
     name: "MainView",
+    data() {
+        return {
+            images: [], 
+            currentIndex: 0, 
+        };
+    },
+    computed: {
+        currentImage() {
+            return this.images[this.currentIndex];
+        },
+        isFirstImage() {
+            return this.currentIndex === 0;
+        },
+        isLastImage() {
+            return this.currentIndex === this.images.length - 1;
+        }
+    },
+    created() {
+        this.loadImages();
+    },
+    methods: {
+        loadImages() {
+            const context = require.context('@/assets/', false, /\.(png|jpe?g|svg)$/);
+            this.images = context.keys().map(key => context(key));
+        },
+        prevImage() {
+            if (!this.isFirstImage) {
+                this.currentIndex--;
+            }
+        },
+        nextImage() {
+            if (!this.isLastImage) {
+                this.currentIndex++;
+            }
+        }
+    }
 };
 </script>

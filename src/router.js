@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld from "./components/FirstView.vue";
 import MainView from "./components/MainView.vue"; // Create a new component for the "hello" view
 
 const routes = [
