@@ -10,8 +10,12 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
+    "emailjs-com": "^3.2.0",
+    "firebase": "^10.11.0",
+    "fs": "^0.0.1-security",
     "vue": "^3.2.13",
-    "vue-router": "^4.3.1"
+    "vue-router": "^4.3.1",
+    "vuefire": "^3.1.23"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HelloWorld from "./components/FirstView.vue";
-import MainView from "./components/MainView.vue"; // Create a new component for the "hello" view
+import MainView from "./components/MainView.vue"; 
+import TestResult from "./components/TestResult.vue"
 
 const routes = [
   { path: "/", component: HelloWorld },
-  { path: "/mainView", component: MainView }, // Define a route for the "hello" view
+  { path: "/mainView", component: MainView},
+  { path: "/testResult", component: TestResult}, 
 ];
 
 const router = createRouter({
