@@ -18,7 +18,9 @@
                         <path
                             d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                     </svg>
-                    <p style="margin-top: 520px; margin-left: 150px;"><b>{{ isLastImage ? 'Submit result' : 'Next image'
+                    <p @click="nextImage" style="margin-top: 520px; margin-left: 150px; cursor: default;"><b>{{ isLastImage
+                        ? 'Submit result'
+                        : 'Next image'
                     }}</b></p>
                 </div>
                 <div style="margin-top: 25px; margin-left: 20px; text-align: left;">
@@ -33,7 +35,7 @@
                 <div>
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        Simple bar chart
+                        Simple - 1D bar chart
                     </label>
                 </div>
                 <div style="margin-top: 20px;">
@@ -214,15 +216,35 @@ export default {
             }
         },
         nextImage() {
-            if (!this.isLastImage) {
-                this.currentIndex++;
-                this.logCheckboxStates();
-                this.clearCheckboxes();
-                this.comment = '';
+            const checkboxes = document.querySelectorAll('.form-check-input');
+            let isChecked = false;
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    isChecked = true;
+                }
+            });
+            if (isChecked) {
+                if (!this.isLastImage) {
+                    this.currentIndex++;
+                    this.logCheckboxStates();
+                    this.clearCheckboxes();
+                    this.comment = '';
+                } else {
+                    this.$router.push('/testResult');
+                }
+            } else {
+                alert("Please select at least one feature before proceeding.");
             }
-            else {
-                this.$router.push('/testResult');
-            }
+
+            // if (!this.isLastImage) {
+            //     this.currentIndex++;
+            //     this.logCheckboxStates();
+            //     this.clearCheckboxes();
+            //     this.comment = '';
+            // }
+            // else {
+            //     this.$router.push('/testResult');
+            // }
         },
         clearCheckboxes() {
             const checkboxes = document.querySelectorAll('.form-check-input');
@@ -255,7 +277,8 @@ export default {
 </script>
 
 <style>
-  body, html {
+body,
+html {
     overflow-y: hidden;
-  }
+}
 </style>
