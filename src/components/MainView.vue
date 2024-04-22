@@ -1,31 +1,27 @@
 <template>
-    <div style="position: fixed;">
-        <div>
-            <nav class="navbar navbar-default navbar-fixed-top"
-                style="background-color: #C4E1D5; height: 3rem;  width: 90rem;">
-                <div class="container d-flex justify-content-center">
-                    <h5 class="mt-1">Please select all features that apply to the displayed chart.</h5>
-                    <p v-if="name" style="margin-top: 20px;">Name: {{ name }}</p>
-                </div>
-            </nav>
-        </div>
-
+    <div>
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem;  width: 90rem;">
+            <div class="container d-flex justify-content-center">
+                <h5 class="mt-1">Please select all features that apply to the displayed chart.</h5>
+                <p v-if="name" style="margin-top: 20px;">Name: {{ name }}</p>
+            </div>
+        </nav>
         <div style="display: flex;">
             <div
-                style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 80px; margin-left: 20px; position: relative;">
+                style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 60px; margin-left: 20px; position: relative;">
                 <img :src="currentImage" alt="Your Image"
                     style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
                 <div>
                     <svg @click="nextImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-caret-right-fill" viewBox="0 0 16 16"
-                        style="position: absolute; top: 110%; left: 50%; transform: translateX(-50%); margin-top: 10px; width: 2rem; height: 2rem;">
+                        style="position: absolute; top: 110%; left: 50%; transform: translateX(-50%); margin-top: -10px; width: 2rem; height: 2rem;">
                         <path
                             d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                     </svg>
-                    <p style="margin-top: 540px; margin-left: 150px;"><b>{{ isLastImage ? 'Submit result' : 'Next image'
+                    <p style="margin-top: 520px; margin-left: 150px;"><b>{{ isLastImage ? 'Submit result' : 'Next image'
                     }}</b></p>
                 </div>
-                <div style="margin-top: 40px; margin-left: 20px; text-align: left;">
+                <div style="margin-top: 25px; margin-left: 20px; text-align: left;">
                     <p><small>* Nested bar charts are those type of charts where bars overlap one another.</small></p>
                     <p style="margin-top: -20px;"><small>* No-gap bar charts are those type of charts where there is little
                             or
@@ -33,7 +29,7 @@
                 </div>
             </div>
 
-            <div class="form-check" style="margin-top: 80px; margin-left: 80px; text-align: left;">
+            <div class="form-check" style="margin-top: 60px; margin-left: 80px; text-align: left;">
                 <div>
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
@@ -71,7 +67,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-check" style="margin-top: 60px; margin-left: 90px; text-align: left;">
+            <div class="form-check" style="margin-top: 40px; margin-left: 90px; text-align: left;">
                 <div style="margin-top: 20px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
@@ -164,17 +160,13 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
-        <div>
-            <div class="form-group"
-                style="margin-top: -10px; margin-left: 860px; text-align: left; width: 30rem; height: 23rem;">
-                <textarea style="resize: none;" id="w3review" name="w3review" rows="4" cols="55" placeholder=" comment"
-                    v-model="comment"></textarea>
-            </div>
+        <div class="form-group"
+            style="margin-top: -10px; margin-left: 860px; text-align: left; width: 30rem; height: 23rem;">
+            <textarea style="resize: none;" id="w3review" name="w3review" rows="4" cols="55" placeholder=" comment"
+                v-model="comment"></textarea>
         </div>
     </div>
 </template>
@@ -261,3 +253,9 @@ export default {
     }
 };
 </script>
+
+<style>
+  body, html {
+    overflow-y: hidden;
+  }
+</style>

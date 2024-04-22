@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div hidden>
         <p>Name: {{ userName }}</p>
         <div v-for="(data, key) in testData" :key="key" style="text-align: left;">
             <p>{{ key }}</p>
@@ -13,6 +13,13 @@
             </div>
         </div>
     </div>
+    <div class="hello d-flex justify-content-center" style="margin-top: 180px;">
+        <div class="card bg-success bg-opacity-25" style="width: 25rem; height: 6rem;">
+          <div class="card-body">
+            <h4 class="card-text mt-3">Thank you for participating!</h4>
+          </div>
+        </div>
+      </div>
 </template>
 
 <script>
