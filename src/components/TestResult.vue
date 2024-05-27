@@ -11,24 +11,28 @@
             <div v-if="data.comment">
                 <p>Comment: {{ data.comment }}</p>
             </div>
+            <div v-if="data.complexity !== undefined">
+                <p>Complexity: {{ data.complexity }}</p>
+            </div>
+            <div v-if="data.commentComplexity">
+                <p>Comment on Complexity: {{ data.commentComplexity }}</p>
+            </div>
         </div>
     </div>
     <div class="hello d-flex justify-content-center" style="margin-top: 180px;">
         <div class="card bg-success bg-opacity-25" style="width: 25rem; height: 6rem;">
-          <div class="card-body">
-            <h4 class="card-text mt-3">Thank you for participating!</h4>
-          </div>
+            <div class="card-body">
+                <h4 class="card-text mt-3">Thank you for participating!</h4>
+            </div>
         </div>
-      </div>
+    </div>
 </template>
 
 <script>
-import { firebaseApp } from "@/firebase"; 
+import { firebaseApp } from "@/firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-
 export default {
-
     name: "TestResult",
     data() {
         return {
@@ -39,6 +43,8 @@ export default {
     created() {
         const storedCheckboxes = JSON.parse(sessionStorage.getItem('selectedCheckboxes')) || {};
         const storedComments = JSON.parse(sessionStorage.getItem('imageComments')) || {};
+        const storedComplexities = JSON.parse(sessionStorage.getItem('imageComplexities')) || {};
+        const storedCommentComplexities = JSON.parse(sessionStorage.getItem('imageCommentComplexities')) || {};
 
         const name = sessionStorage.getItem('name');
         if (name) {
@@ -49,12 +55,16 @@ export default {
             this.testData[key] = { // Directly assign properties
                 selectedCheckboxes: storedCheckboxes[key],
                 comment: storedComments[key],
+                complexity: storedComplexities[key],
+                commentComplexity: storedCommentComplexities[key]
             };
         }
         this.saveDataToFirebase();
 
         sessionStorage.removeItem('selectedCheckboxes');
         sessionStorage.removeItem('imageComments');
+        sessionStorage.removeItem('imageComplexities');
+        sessionStorage.removeItem('imageCommentComplexities');
     },
     methods: {
         async saveDataToFirebase() {
@@ -62,13 +72,14 @@ export default {
                 const db = getFirestore(firebaseApp);
                 const testDataCollection = collection(db, "testData");
 
-                // Loop through testData and add documents to Firestore
                 for (const key in this.testData) {
                     await addDoc(testDataCollection, {
-                        key: key,
+                        userName: this.userName,
                         selectedCheckboxes: this.testData[key].selectedCheckboxes,
                         comment: this.testData[key].comment,
-                        userName: this.userName
+                        complexity: this.testData[key].complexity,
+                        commentComplexity: this.testData[key].commentComplexity,
+                        key: key
                     });
                 }
                 console.log("Data saved to Firebase successfully!");
@@ -78,4 +89,4 @@ export default {
         }
     },
 };
-</script> 
+</script>

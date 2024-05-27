@@ -11,160 +11,202 @@
                 style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 60px; margin-left: 20px; position: relative;">
                 <img :src="currentImage" alt="Your Image"
                     style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-                <div>
-                    <svg @click="nextImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+            </div>
+
+
+            <div v-if="showButton" style="margin-top: 150px; margin-left: 100px; text-align: left;">
+
+                <h5 class="mb-4">How complex do you find this chart?</h5>
+                <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" value="3"
+                    v-model="complexity">
+                <div id="labels" style="display: flex; justify-content: space-between; margin-top:-10px;">
+                    <span><small>1</small></span>
+                    <span><small>2</small></span>
+                    <span><small>3</small></span>
+                    <span><small>4</small></span>
+                    <span><small>5</small></span>
+                </div>
+
+                <div style="margin-top:60px;">
+                    <p>Please explain your choice</p>
+                    <div>
+                        <textarea style="resize: none;" id="complexityText" rows="3" cols="55" placeholder=" comment"
+                            v-model="commentComplexity"></textarea>
+                    </div>
+                </div>
+
+                <button @click="toggleVisibility" type="button" class="btn btn-outline-success"
+                    style="margin-left:400px; margin-top:20px;">Next</button>
+            </div>
+
+
+
+
+            <div v-else class="form-check" style="position: relative;">
+                <div style="margin-top:40px; margin-left: 80px; text-align: left;">
+                    <h5>Bar Chart type</h5>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Simple - 1D
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Grouped
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Stacked
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Nested <sup>1</sup>
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Dot bar chart
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Radial
+                        </label>
+                    </div>
+                </div>
+
+
+                <div style="position: absolute; top: 40px; left: 380px; text-align: left;">
+                    <h5 style="white-space: nowrap;">Bar Chart details</h5>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            No gaps <sup>2</sup>
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            3D
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Embellished
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Error bars
+                        </label>
+                    </div>
+                </div>
+
+
+                <div style="margin-top:34px; margin-left: 70px; text-align: left;">
+                    <h5>Overall issues</h5>
+                    <div>
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Missing labels
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Missing legend
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Background element
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Monochrome
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Missing values / axes
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Small values
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Other <small><i>(please comment)</i></small>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div style="position: absolute; top:299px; left: 380px; text-align: left;">
+                    <h5 style="white-space: nowrap;">Other charts</h5>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" style="white-space: nowrap;">
+                            Gantt chart
+                        </label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" style="white-space: nowrap;">
+                            Box plot
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="position: absolute; left: 100px; top: 580px;">
+                    <textarea style="resize: none;" id="w3review" rows="3" cols="55" placeholder=" comment"
+                        v-model="comment"></textarea>
+                    <p style="margin-top: 10px;"><small><small><sup>1</sup> Nested bar charts are those type of charts where
+                                bars overlap one another.</small></small></p>
+                    <p style="margin-top: -20px;"><small><small><sup>2</sup> No-gap bar charts are those type of charts
+                                where there is little or no distance</small></small></p>
+                    <p style="margin-top: -20px; text-align: left;"><small><small> &nbsp; &nbsp; &nbsp; between
+                                bars.</small></small> </p>
+                </div>
+
+                <div class="form-group" style="position: absolute; margin-left: -450px; top: 600px;">
+                    <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16"
                         style="position: absolute; top: 110%; left: 50%; transform: translateX(-50%); margin-top: -10px; width: 2rem; height: 2rem;">
                         <path
                             d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                     </svg>
-                    <p @click="nextImage" style="margin-top: 520px; margin-left: 150px; cursor: default;"><b>{{ isLastImage
+                </div>
+                <div class="form-group" style="position: absolute; margin-left: -430px; top: 595px;">
+                    <p @click="handleSvgClick" style="cursor: default;"><b>{{ isLastImage
                         ? 'Submit result'
                         : 'Next image'
                     }}</b></p>
                 </div>
-            </div>
 
-            <div class="form-check" style="margin-top: 40px; margin-left: 80px; text-align: left;">
-                <h5>Bar Chart type</h5>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Simple - 1D
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Grouped
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Stacked
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Nested <sup>1</sup>
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Dot bar chart
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Radial
-                    </label>
-                </div>
-            </div>
-            <div class="form-check" style="margin-top: 40px; margin-left: 90px; text-align: left;">
-                <h5>Bar Chart details</h5>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        No gaps <sup>2</sup>
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        3D
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Embellished
-                    </label>
-                </div>
-                <div style="margin-top: 10px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Error bars
-                    </label>
-                </div>
-
-                <div style="display: flex; margin-top: 80px; margin-left: -245px; text-align: left;">
-                    <div>
-                        <h5>Overall issues</h5>
-                        <div>
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Missing labels
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Missing legend
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Background element
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Monochrome
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Missing values / axes
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Small values
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Other <small><i>(please comment)</i></small>
-                            </label>
-                        </div>
-                    </div>
-                    <div style="margin-left: 95px; ">
-                        <h5>Other charts</h5>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Gantt chart
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                Box plot
-                            </label>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
         <div class="form-group"
             style="margin-top: 30px; margin-left: 860px; text-align: left; width: 30rem; height: 23rem;">
-            <textarea style="resize: none;" id="w3review" name="w3review" rows="3" cols="55" placeholder=" comment"
-                v-model="comment"></textarea>
-            <p style="margin-top: 10px;"><small><small><sup>1</sup> Nested bar charts are those type of charts where bars
-                        overlap one another.</small></small></p>
-            <p style="margin-top: -20px;"><small><small><sup>2</sup> No-gap bar charts are those type of charts where there
-                        is little or no distance</small></small></p>
-            <p style="margin-top: -20px;"><small><small> &nbsp; between bars.</small></small> </p>
         </div>
     </div>
 </template>
@@ -177,7 +219,11 @@ export default {
             images: [],
             currentIndex: 0,
             checkboxes: [],
-            comment: ""
+            comment: "",
+            showButton: true,
+            complexity: 3,
+            commentComplexity: "",
+            name: "",
         };
     },
     computed: {
@@ -193,7 +239,6 @@ export default {
     },
     created() {
         this.loadImages();
-
         const name = sessionStorage.getItem('name');
         if (name) {
             console.log('Name:', name);
@@ -221,11 +266,15 @@ export default {
                 }
             });
             if (isChecked) {
+                this.logCheckboxStates();
+                this.clearCheckboxes();
+                this.comment = '';
+                this.commentComplexity = '';
+                this.complexity = 3;
+
                 if (!this.isLastImage) {
                     this.currentIndex++;
-                    this.logCheckboxStates();
-                    this.clearCheckboxes();
-                    this.comment = '';
+                    this.showButton = true;
                 } else {
                     this.$router.push('/testResult');
                 }
@@ -249,16 +298,43 @@ export default {
             });
             const currentIndex = this.currentIndex;
             const storedCheckboxes = JSON.parse(sessionStorage.getItem('selectedCheckboxes')) || {};
-            storedCheckboxes[`image${currentIndex + 0}`] = selectedCheckboxes;
+            storedCheckboxes[`image${currentIndex + 1}`] = selectedCheckboxes;
             sessionStorage.setItem('selectedCheckboxes', JSON.stringify(storedCheckboxes));
 
             const storedComments = JSON.parse(sessionStorage.getItem('imageComments')) || {};
-            storedComments[`image${currentIndex + 0}`] = this.comment;
+            storedComments[`image${currentIndex + 1}`] = this.comment;
             sessionStorage.setItem('imageComments', JSON.stringify(storedComments));
+
+            const storedComplexities = JSON.parse(sessionStorage.getItem('imageComplexities')) || {};
+            storedComplexities[`image${currentIndex + 1}`] = this.complexity;
+            sessionStorage.setItem('imageComplexities', JSON.stringify(storedComplexities));
+
+            const storedCommentComplexities = JSON.parse(sessionStorage.getItem('imageCommentComplexities')) || {};
+            storedCommentComplexities[`image${currentIndex + 1}`] = this.commentComplexity;
+            sessionStorage.setItem('imageCommentComplexities', JSON.stringify(storedCommentComplexities));
 
             console.log(`Image${currentIndex + 0}:`, selectedCheckboxes);
             console.log(`Comment for image${currentIndex + 0}: `, this.comment);
         },
+        toggleVisibility() {
+            const currentIndex = this.currentIndex;
+            console.log(`Complexity value${currentIndex + 1}: ${this.complexity}`);
+            console.log(`Comment complexity${currentIndex + 1}: ${this.commentComplexity}`);
+
+            if (!this.commentComplexity.trim()) {
+                alert('Please explain your choice.');
+            }
+            else{
+                this.showButton = false;
+            }
+        },
+        handleSvgClick() {
+            if (this.showButton) {
+                this.toggleVisibility();
+            } else {
+                this.nextImage();
+            }
+        }
     }
 };
 </script>
