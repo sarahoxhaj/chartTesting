@@ -23,141 +23,132 @@
                         : 'Next image'
                     }}</b></p>
                 </div>
-                <div style="margin-top: 25px; margin-left: 20px; text-align: left;">
-                    <p><small>* Nested bar charts are those type of charts where bars overlap one another.</small></p>
-                    <p style="margin-top: -20px;"><small>* No-gap bar charts are those type of charts where there is little
-                            or
-                            no distance between bars.</small></p>
-                </div>
             </div>
 
-            <div class="form-check" style="margin-top: 60px; margin-left: 80px; text-align: left;">
-                <div>
+            <div class="form-check" style="margin-top: 40px; margin-left: 80px; text-align: left;">
+                <h5>Bar Chart type</h5>
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        Simple - 1D bar chart
+                        Simple - 1D
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 10px;">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label">
+                        Grouped
+                    </label>
+                </div>
+                <div style="margin-top: 10px;">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label">
+                        Stacked
+                    </label>
+                </div>
+                <div style="margin-top: 10px;">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label">
+                        Nested <sup>1</sup>
+                    </label>
+                </div>
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
                         Dot bar chart
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        Grouped bar chart
-                    </label>
-                </div>
-                <div style="margin-top: 20px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Embellished bar chart
-                    </label>
-                </div>
-                <div style="margin-top: 20px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Nested bar chart *
-                    </label>
-                </div>
-                <div style="margin-top: 20px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Stacked bar chart
+                        Radial
                     </label>
                 </div>
             </div>
             <div class="form-check" style="margin-top: 40px; margin-left: 90px; text-align: left;">
-                <div style="margin-top: 20px;">
+                <h5>Bar Chart details</h5>
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        No-gap bar chart *
+                        No gaps <sup>2</sup>
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        3D bar chart
+                        3D
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        Gantt chart
+                        Embellished
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 10px;">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label">
-                        Error bars - bar chart
+                        Error bars
                     </label>
                 </div>
-                <div style="margin-top: 20px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Box plot
-                    </label>
-                </div>
-                <div style="margin-top: 20px;">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">
-                        Radial bar chart
-                    </label>
-                </div>
-                <hr style="width: 30rem; margin-left:-300px">
 
-                <div style="display: flex; margin-top: 20px; margin-left: -270px; text-align: left;">
+                <div style="display: flex; margin-top: 80px; margin-left: -245px; text-align: left;">
                     <div>
+                        <h5>Overall issues</h5>
                         <div>
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                missing labels
+                                Missing labels
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                missing legend
+                                Missing legend
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                background element
+                                Background element
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                no background element
+                                Monochrome
+                            </label>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                Missing values / axes
+                            </label>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                Small values
+                            </label>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                Other <small><i>(please comment)</i></small>
                             </label>
                         </div>
                     </div>
-                    <div style="margin-left: 100px; margin-top: -12px;">
+                    <div style="margin-left: 95px; ">
+                        <h5>Other charts</h5>
                         <div style="margin-top: 10px;">
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                monochrome
+                                Gantt chart
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
                             <input class="form-check-input" type="checkbox" value="">
                             <label class="form-check-label">
-                                multiple colors
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                small values
-                            </label>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                missing values/axes
+                                Box plot
                             </label>
                         </div>
                     </div>
@@ -166,9 +157,14 @@
         </div>
 
         <div class="form-group"
-            style="margin-top: -10px; margin-left: 860px; text-align: left; width: 30rem; height: 23rem;">
-            <textarea style="resize: none;" id="w3review" name="w3review" rows="4" cols="55" placeholder=" comment"
+            style="margin-top: 30px; margin-left: 860px; text-align: left; width: 30rem; height: 23rem;">
+            <textarea style="resize: none;" id="w3review" name="w3review" rows="3" cols="55" placeholder=" comment"
                 v-model="comment"></textarea>
+            <p style="margin-top: 10px;"><small><small><sup>1</sup> Nested bar charts are those type of charts where bars
+                        overlap one another.</small></small></p>
+            <p style="margin-top: -20px;"><small><small><sup>2</sup> No-gap bar charts are those type of charts where there
+                        is little or no distance</small></small></p>
+            <p style="margin-top: -20px;"><small><small> &nbsp; between bars.</small></small> </p>
         </div>
     </div>
 </template>
@@ -208,7 +204,8 @@ export default {
     methods: {
         loadImages() {
             const context = require.context('@/assets/', false, /\.(png)$/);
-            this.images = context.keys().map(key => context(key))
+            const imagePaths = context.keys().sort();
+            this.images = imagePaths.map(key => context(key));
         },
         prevImage() {
             if (!this.isFirstImage) {
@@ -235,16 +232,6 @@ export default {
             } else {
                 alert("Please select at least one feature before proceeding.");
             }
-
-            // if (!this.isLastImage) {
-            //     this.currentIndex++;
-            //     this.logCheckboxStates();
-            //     this.clearCheckboxes();
-            //     this.comment = '';
-            // }
-            // else {
-            //     this.$router.push('/testResult');
-            // }
         },
         clearCheckboxes() {
             const checkboxes = document.querySelectorAll('.form-check-input');
