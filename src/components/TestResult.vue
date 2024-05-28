@@ -15,7 +15,7 @@
                 <p>Complexity: {{ data.complexity }}</p>
             </div>
             <div v-if="data.commentComplexity">
-                <p>Comment on Complexity: {{ data.commentComplexity }}</p>
+                <p>Comment on complexity: {{ data.commentComplexity }}</p>
             </div>
         </div>
     </div>
