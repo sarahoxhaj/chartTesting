@@ -2,8 +2,8 @@
   <div class="hello d-flex justify-content-center" style="margin-top: 150px;">
     <div class="card bg-success bg-opacity-25" style="max-width: 33rem; height: 18rem;">
       <div class="card-body">
-        <h4 class="card-text mt-3">This is going to be a short graph feature recognition quiz.<br>Please enter your
-          name so we can save the result. </h4>
+        <h4 class="card-text mt-3" style="line-height: 1.4;">This is going to be a short quiz about complexity and graph feature recognition.<br>Please enter your
+          full name so we can save the result. </h4>
       </div>
       <div class="card-footer mb-2 d-flex justify-content-center" style="height: 6rem;">
         <div data-mdb-input-init class="form-outline me-3">

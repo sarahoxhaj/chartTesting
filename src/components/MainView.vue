@@ -1,8 +1,8 @@
 <template>
     <div>
-        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem;  width: 90rem;">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem; width: 90rem;">
             <div class="container d-flex justify-content-center">
-                <h5 class="mt-1">Please select all features that apply to the displayed chart.</h5>
+                <h5 class="mt-1">{{ showButton ? 'Please select the complexity level and state your reasoning.' : 'Please select all features that apply to the displayed chart.' }}</h5>
                 <p v-if="name" style="margin-top: 20px;">Name: {{ name }}</p>
             </div>
         </nav>
@@ -11,6 +11,9 @@
                 style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 60px; margin-left: 20px; position: relative;">
                 <img :src="currentImage" alt="Your Image"
                     style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
+            </div>
+            <div style="position: absolute; margin-top: 540px; margin-left: 20px;">
+                <p class="text-secondary"><small>{{ loopResult }}/27</small></p>
             </div>
 
 
@@ -25,6 +28,10 @@
                     <span><small>3</small></span>
                     <span><small>4</small></span>
                     <span><small>5</small></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top:-10px;">
+                    <span style="margin-left: -25px;"><small><small>not complex</small></small></span>
+                    <span style="margin-right: -30px;"><small><small>very complex</small></small></span>
                 </div>
 
                 <div style="margin-top:60px;">
@@ -199,9 +206,10 @@
                     <p @click="handleSvgClick" style="cursor: default;"><b>{{ isLastImage
                         ? 'Submit result'
                         : 'Next image'
-                    }}</b></p>
+                    }}</b></p> 
                 </div>
 
+                
             </div>
         </div>
 
@@ -218,6 +226,7 @@ export default {
         return {
             images: [],
             currentIndex: 0,
+            loopResult: '',
             checkboxes: [],
             comment: "",
             showButton: true,
@@ -239,6 +248,7 @@ export default {
     },
     created() {
         this.loadImages();
+        this.imageCounter();
         const name = sessionStorage.getItem('name');
         if (name) {
             console.log('Name:', name);
@@ -247,14 +257,19 @@ export default {
         }
     },
     methods: {
+        imageCounter(){
+            this.loopResult = this.currentIndex+1;
+        },
         loadImages() {
             const context = require.context('@/assets/', false, /\.(png)$/);
             const imagePaths = context.keys().sort();
             this.images = imagePaths.map(key => context(key));
+            this.imageCounter();
         },
         prevImage() {
             if (!this.isFirstImage) {
                 this.currentIndex--;
+                this.imageCounter();
             }
         },
         nextImage() {
@@ -275,6 +290,7 @@ export default {
                 if (!this.isLastImage) {
                     this.currentIndex++;
                     this.showButton = true;
+                    this.imageCounter();
                 } else {
                     this.$router.push('/testResult');
                 }
@@ -324,7 +340,7 @@ export default {
             if (!this.commentComplexity.trim()) {
                 alert('Please explain your choice.');
             }
-            else{
+            else {
                 this.showButton = false;
             }
         },
