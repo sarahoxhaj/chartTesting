@@ -13,7 +13,7 @@
                     style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
             </div>
             <div style="position: absolute; margin-top: 540px; margin-left: 20px;">
-                <p class="text-secondary"><small>{{ loopResult }}/27</small></p>
+                <p class="text-secondary"><small>{{ loopResult }}/26</small></p>
             </div>
 
 
