@@ -1,11 +1,19 @@
 <template>
     <div>
-        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem; width: 90rem;">
+        <!-- <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem; width: 90rem;">
             <div class="container d-flex justify-content-center">
                 <h5 class="mt-1">{{ showButton ? 'Please select the complexity level and state your reasoning.' : 'Please select all features that apply to the displayed chart.' }}</h5>
                 <p v-if="name" style="margin-top: 20px;">Name: {{ name }}</p>
             </div>
+        </nav> -->
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0;">
+            <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
+                <h5 class="mt-1 text-center text-md-left">{{ showButton ? 'Please select the complexity level and state your reasoning.' : 'Please select all features that apply to the displayed chart.' }}</h5>
+                <p v-if="name" class="mt-1 mt-md-0 ml-md-3 text-center text-md-left">Name: {{ name }}</p>
+            </div>
         </nav>
+        
+
         <div style="display: flex;">
             <div
                 style="border: 1px solid #DDD; width: 47rem; height: 30rem; margin-top: 60px; margin-left: 20px; position: relative;">
@@ -183,7 +191,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="position: absolute; left: 100px; top: 580px;">
+                <!-- <div class="form-group" style="position: absolute; left: 100px; top: 580px;">
                     <textarea style="resize: none;" id="w3review" rows="3" cols="55" placeholder=" comment"
                         v-model="comment"></textarea>
                     <p style="margin-top: 10px;"><small><small><sup>1</sup> Nested bar charts are those type of charts where
@@ -192,7 +200,21 @@
                                 where there is little or no distance</small></small></p>
                     <p style="margin-top: -20px; text-align: left;"><small><small> &nbsp; &nbsp; &nbsp; between
                                 bars.</small></small> </p>
+                </div> -->
+
+                <div class="container mt-5" style="margin-left:50px;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control areaGap" style="resize: none;" id="w3review" rows="3" placeholder="Comment" v-model="comment"></textarea>
+                                <p class="mt-2"><small><sup>1</sup> Nested bar charts - bars overlap with one another.</small></p>
+                                <p class="textGap"><small><sup>2</sup> No-gap bar charts - little or no distance between the bars.</small></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+
 
                 <div class="form-group" style="position: absolute; margin-left: -450px; top: 600px;">
                     <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -206,10 +228,10 @@
                     <p @click="handleSvgClick" style="cursor: default;"><b>{{ isLastImage
                         ? 'Submit result'
                         : 'Next image'
-                    }}</b></p> 
+                    }}</b></p>
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -257,8 +279,8 @@ export default {
         }
     },
     methods: {
-        imageCounter(){
-            this.loopResult = this.currentIndex+1;
+        imageCounter() {
+            this.loopResult = this.currentIndex + 1;
         },
         loadImages() {
             const context = require.context('@/assets/', false, /\.(png)$/);
@@ -359,5 +381,12 @@ export default {
 body,
 html {
     overflow-y: hidden;
+}
+
+.textGap{
+    margin-top:-20px;
+}
+.areaGap{
+    margin-top:-20px;
 }
 </style>
