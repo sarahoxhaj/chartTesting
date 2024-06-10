@@ -1,7 +1,10 @@
 <template>
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
         <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
-            <h5 class="text-center text-md-left">Overview of pilot test</h5>
+            <h5 class="text-center text-md-left">Overview of pilot test with 15 participants</h5>
+        </div>
+        <div style="margin-right: 20px; margin-top:-10px;">
+            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
         </div>
     </nav>
     <div
@@ -13,7 +16,7 @@
 
     <div v-if="showButton" style="margin-top: -34.8rem; position: absolute; width: 35%; margin-left: 63rem;">
         <button @click="handleButtonClick" type="button" class="btn btn-outline-secondary btn-sm"
-            style="position:absolute;">Other</button>
+            style="position:absolute;">Other*</button>
     </div>
 
     <div style="margin-top: -11rem; position: absolute; width: 35%; margin-left: 62rem;">
@@ -38,9 +41,9 @@
     </div>
 
     <div style="margin-left: 85px;">
-        <p @click="prevImage" style="cursor: default; margin-top: -1px; margin-left:6.5rem; position: absolute;"><b>Previous
-                image</b></p>
-        <p @click="handleSvgClick" style="cursor: default; margin-top: 2rem; margin-right: 45rem;"><b>Next image</b></p>
+        <p @click="prevImage" style="cursor: default; margin-top: -1px; margin-left:6.5rem; position: absolute;">Previous
+                image</p>
+        <p @click="handleSvgClick" style="cursor: default; margin-top: 2rem; margin-right: 45rem;">Next image</p>
     </div>
 
     <div>
@@ -101,8 +104,8 @@ export default {
         this.loadDataset();
     },
     methods: {
-        handleDetailClick() {
-            alert("•Complexity:User finds the chart complex and hard to interpret. It can be hard to read, unclear and misleading. User needs some time to understand what is being shown. , \n•Context");
+        changeView(){
+            this.$router.push('/summaryView');
         },
         handleButtonClick() {
             const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);
@@ -330,6 +333,9 @@ export default {
                 //print average complexity score based on the image displayed
                 //console.log(`Average complexity for ${mappedImageName}: ${complexityData.avgComplexity}`);
                 //print to <p>
+
+                    console.log('emer:',imageName);
+
                 this.averageValue = complexityData.avgComplexity;
                 this.analyzeCommentComplexity(mappedImageName);
                 this.commentComplexity = '';
@@ -373,7 +379,7 @@ export default {
                     // rename bar 
                     dataForChart.forEach(d => {
                         if (d.checkbox === 'Other (please comment)') {
-                            d.checkbox = 'Other';
+                            d.checkbox = 'Other*';
                         }
                     });
 
@@ -444,14 +450,3 @@ export default {
     }
 };
 </script>
-<style>
-.closebtn {
-    margin-left: 15px;
-    color: black;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-}
-</style>

@@ -3,12 +3,14 @@ import HelloWorld from "./components/FirstView.vue";
 import MainView from "./components/MainView.vue"; 
 import TestResult from "./components/TestResult.vue"
 import ResultView from "./components/ResultView.vue"
+import SummaryView from "./components/SummaryView.vue"
 
 const routes = [
   { path: "/", component: HelloWorld },
   { path: "/mainView", component: MainView},
   { path: "/testResult", component: TestResult}, 
   { path: "/resultView", component: ResultView}, 
+  { path: "/summaryView", component: SummaryView}, 
 ];
 
 const router = createRouter({
