@@ -1,0 +1,400 @@
+__id__,comment,commentComplexity,complexity,key,selectedCheckboxes,userName
+03Ttz5n0gAJaFf1dMva1,no title,easy barchart,2,image16,"[""Simple - 1D"",""Other (please comment)""]",Verena
+04kUpyLre7j1cLlECcNI,,"Very easy to understand, legend explains everything",1,image25,"[""Grouped""]",Nicole Gladik
+0LHHWO3LpF7rlAuqbvIU,,"It is clearer,  even though the x-axis label is missing.
+
+Unclear is what exactly the green and red stick people represent. 
+
+The numbers are clear.",3,image3,"[""Simple - 1D"",""Embellished"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Rory James Zauner
+0szuZ9yzl6Pz929twNaD,,"data displayed is not complex, but presentation is",4,image3,"[""Grouped"",""Embellished"",""Missing labels""]",Michaela Hubweber
+16HT5NvMRBru64q4QTWX,I think everything is there for me to understand. Even without any background knowledge. Great color too.,very simple and easy to understand.,1,image19,"[""Simple - 1D"",""No gaps 2""]",Jin
+1GW4ktYjDB5ECs3FSpsG,,All labels are provided but it's not clear for me what 77 is presenting for example. There is context missing.,3,image16,"[""Simple - 1D"",""Missing legend""]",Hoda Kermani
+1N3llfV8PShmuyPrgFPU,,Legend and labels makes it easy to understand,1,image4,"[""Grouped"",""Error bars""]",Nicole Gladik
+1Ro6TAxf3hUfJvcTlTVm,too thick borders of the bars,Very small values. Too thick borders. Too big numbers at least for the x-axis. ,4,image10,"[""Simple - 1D"",""No gaps 2"",""Other (please comment)""]",Philip Boroviczeny
+1UWuBGeMsMnRSheLxg3Z,,not complex but lables are missing.,1,image17,"[""Dot bar chart"",""Missing labels""]",Jin
+1eMIDxEnCK4PMOkORTgc,"pleasant to read. 
+embellishment is associated with the data, thus makes it simpler to read.","a few items. values and axes clearly labelled. trend annotated
+",2,image3,"[""Simple - 1D"",""Embellished""]",Jian Chen
+1lTHEMtiLghXxZCb8yJF,,"the grouping on the x-axis adds complexity, otherwise ok",3,image1,"[""Simple - 1D"",""Grouped"",""No gaps 2"",""Missing legend""]",Michaela Hubweber
+29ypqy2XiN2AKR509bk1,,It's not clear what the colors of the bars present. In general the chart is not understandable.,4,image24,"[""Simple - 1D"",""Background element"",""Missing values / axes""]",Hoda Kermani
+2Q6DW4qboMnU3mhU4RaP,,"missing title and label, do the colors have a meaning?",2,image11,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Henry Eretge
+2bXdSrz85NF45MhvU9m9,,label for y-axis would be helpful,2,image16,"[""Grouped"",""Missing labels"",""Missing legend""]",Nicole Gladik
+2h5RFnxE01XnhETh7pqQ,"Not immidiately clear which color overweighs another color, without constanly looking at the legend or the percentage values.",its easy t compare the numbers but not the persons between each other. Also some placements of the figures dont quite match the geographical location properly.,3,image25,"[""Embellished"",""Other (please comment)""]",Philip Boroviczeny
+2immvCgZDhQtipqIMYWm,I feel like the labels could be improved,The only confusing things are the labels - i do not know what they mean,3,image24,"[""Simple - 1D"",""Other (please comment)""]",Verena
+3Tylt02gmhv1OHmh4md7,,"No legend, no axes, no labels – this is very complex!",5,image26,"[""Radial"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Christian Knoll
+3ssf0QvT1Dp0bLm5l0SY,,"The x-axis label is missing, otherwise it is quite clear.",3,image2,"[""Nested 1"",""No gaps 2"",""Missing values / axes""]",Christian Knoll
+40bqAalRp110ydZNWY48,,show trend well.,1,image19,"[""Simple - 1D""]",Jian Chen
+446l6CIhGlbJVYs4dHAU,"scaling, choice of 3d bar charts","I cant see a thing, not a good choice of visualization, axis scales are misleading, axis labels are there but not speaking ",5,image20,"[""No gaps 2"",""3D"",""Missing legend"",""Small values"",""Other (please comment)""]",Michaela Hubweber
+4GKa3nKP6N2YHFtP1WYX,,"Very complex, impossible to understand",5,image22,"[""Simple - 1D"",""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values""]",Nicolò Filippucci
+4JlB927LGTyCOxOUEREi,,"Higher time complexity needed to obtain specific values than normal bar charts, also due to missing y-axis",3,image17,"[""Dot bar chart"",""No gaps 2"",""Missing labels"",""Missing values / axes""]",Alexander Peikert
+4ONAboYHKhKhlV1QoUtt,"The space between the bars is not identical, so it seems that there are groups of bars.","Colors are confusing, and it is not clear what they correspond to. Additionally, axes-labels are missing.",2,image11,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Christian Knoll
+4SEKGlQVk39EAc9pjCV1,,"The graph is not complex to understand, but I think it is a complex visualisation for this type of data (a line graph would be better).",3,image13,"[""Simple - 1D"",""Grouped"",""Small values""]",Nicolò Filippucci
+4UibuCuSAkeiyVkYiZbZ,,i somewhat expect the axes to be flipped here. I had to think about the annotation. ,3,image19,"[""Simple - 1D"",""No gaps 2""]",Michaela Hubweber
+4bdTf7vzzUP1CGDKZSqf,,Unclear/missing labels,4,image17,"[""Dot bar chart"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Nicole Gladik
+4ggbdNmxdlKtIChWtLCW,,"symbols are hard to decipher, not sure if height of symbol is supposed to encode something. whiskers and symbol for ""blue"" are confusing. ",4,image21,"[""Simple - 1D"",""Grouped"",""Monochrome""]",Michaela Hubweber
+4luSUvRJUH9AkLBUysJg,Font size.,Size of the numbers is too small. Not clear what the colors mean.,3,image18,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Other (please comment)"",""Box plot""]",Polina Samoilenko
+4qvdjU1n17nnd3a5FKYP,,stacked bar chart with some potential misleading - which one is the zero line. ,3,image2,"[""Stacked"",""Nested 1"",""No gaps 2"",""Missing legend""]",Siming Chen
+4zzspkVGI9GII15uDpmd,,Easy to understand.,1,image13,"[""No gaps 2""]",Christian Knoll
+57tXNThjB7ZhyZPcD9q1,,Basic histogram.,1,image10,"[""No gaps 2""]",Christian Knoll
+5AdOiYDVBFmvkn46Woqm,,Stacked and grouped bar chart might be complex to interpret.,3,image12,"[""Grouped"",""Stacked"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+5BPXM8itmgqMpbC2xn1s,y axis label,"The labels on the y axis looks odd. 
+",3,image18,"[""Missing labels"",""Box plot""]",Jian Chen
+5FZXIHsxn41MlTpxhC2V,,"very simple to understand, could understand within 10 seconds.",1,image23,"[""Stacked""]",Jin
+68FuCH7wjyluN9dkaEEE,,"first of all it lacks context and I would say it is easy to see differences in two touching bars, but if I would want to have a broader picture, by maybe comparing them to other bars, then the chart is a little to verbose I would say",4,image1,"[""Grouped"",""Nested 1"",""Embellished"",""Missing labels"",""Missing legend"",""Background element""]",Philip Boroviczeny
+6bCejXyBSX5hbA6r36Ez,,This dimension effect makes it hard to read for me,5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Verena
+6giIHlmiMTyoBdIC73mR,text not exactly matching,Simple one,2,image10,"[""Simple - 1D"",""Small values"",""Other (please comment)""]",Siming Chen
+6oqlWOu7KtSWOrXBdM6X,y label missing,"Its not complex, but annoying. Since the position of each category is different on each group.",2,image15,"[""Grouped"",""Missing labels"",""Missing values / axes""]",Jin
+6z0NtEkByjfeSiDoJyHz,"dots, their size and their placing","why use points, why are they so big, is the bigger spacing on purpose?",4,image17,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing values / axes"",""Other (please comment)""]",Henry Eretge
+6znBe1cCJprY1GLtWDoY,,good chart,1,image10,"[""Simple - 1D"",""Small values""]",Henry Eretge
+70hHnqJMSuC8zpttF4e9,,"Better with a legend and axis labels.
+
+It is still unclear what the titles of each represents and the lack of clear separation between the correct and wrong answers makes it difficult to derive meaning from it.",4,image2,"[""Nested 1"",""No gaps 2"",""Missing values / axes""]",Rory James Zauner
+73d8ugI9ailpCHk6dfpu,"it is a bit confusing - that i might understand it as boxplot, but there is not exact meaning maybe. ",normal boxplot with grouped bars ,3,image21,"[""Grouped"",""Small values"",""Other (please comment)"",""Box plot""]",Siming Chen
+7CBMOfIfXpUw3uBO8umE,,I guess the only issue is that the y axis isnt labeled and that the colors arent given a meaning. The y axis is logarithmic aswell but that doesnt bother me.,3,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Philip Boroviczeny
+7FvBPsgqUxdwyzaee5c2,The background color is confusing.,"The values for each bar are not possible to see.
+",3,image10,"[""Simple - 1D"",""No gaps 2"",""Background element"",""Missing values / axes""]",Hoda Kermani
+7mcDt7uFj0jSIVbNuMlY,,I dont get what it should show. also the y axis doesnt show any values/labels,5,image19,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing values / axes""]",Philip Boroviczeny
+7xEYXx5Judeh1E4xvZ43,,"dense graphic elements (bars, labels) that are equally emphasized visually. 
+",5,image4,"[""Grouped"",""Error bars""]",Jian Chen
+8CbDnkTLgiUBIf8yAPM9,,Everything is explained,1,image12,"[""Stacked"",""No gaps 2""]",Nicole Gladik
+8P5JZWMrlWQEdrYO3XMx,,Too much different colors and different distances between bars are confusing,2,image11,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Alexander Peikert
+8eilPqbcX6I4Wm7AiEoN,,good chart,1,image23,"[""Stacked""]",Henry Eretge
+8iKKqhojp60DHl2bjf0m,,a lot of numbers and colors. ,4,image8,"[""Nested 1"",""No gaps 2"",""Missing labels"",""Missing legend""]",Verena
+8mZ3NMrOvxFj8Z7QgTw7,a bit narrow ,"error bar and values, occupied a bit",3,image4,"[""Grouped"",""Error bars"",""Box plot""]",Siming Chen
+8nshUS27Pvtq9TbYbSB2,Missing more detailed information on the axis and legend,"It looks good, but I dont get what points in the legend refers to, I would guess the amount of data points. The y axis label also lacks a little context, I would guess that it means correct interpretation of the displays from the people who saw it. I would say its not really complex to read the data, but rather hard to know exactly what the numbers mean.",3,image4,"[""Grouped"",""Error bars"",""Other (please comment)""]",Philip Boroviczeny
+8rSbe9YWt15VbqS3GZcg,,"There is a lot of information, but the structure of the chart makes it digestible.
+
+The legend reveals little information though.",3,image4,"[""Grouped"",""Stacked"",""No gaps 2"",""Error bars""]",Rory James Zauner
+96PAUgQA8ypfZ2rsOop4,,normal boxplot,2,image18,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Small values"",""Box plot""]",Siming Chen
+9KnbTsOuzv68dYH38yee,,"in general, the color coding explains the grouping and allows comparisons. i would like to see an x-axis label and a title. ",1,image12,"[""Stacked"",""Missing labels""]",Michaela Hubweber
+9ja3VvqFhTus5LM08OeR,,"Basic bar chart, but the axes-labels are missing and it is not clear why the bar colors fade.",3,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Christian Knoll
+A4aWTzKrJvdy09DBACqK,,Radial layouts in combination with a scatterplot are hard to understand.,5,image5,"[""Stacked"",""Radial"",""No gaps 2"",""Missing values / axes""]",Christian Knoll
+ANrVQ9tyq7wr10lG3Qy7,,"Overall, the elements and axes are clear, but the overall context of the graph is completely missing, so it is difficult to judge correctly how clear it is",3,image1,"[""Grouped"",""No gaps 2"",""Missing labels"",""Missing legend""]",Nicolò Filippucci
+AYh8cpoS29HsIO2REKVR,,Values are hard to read and box plots are generally harder to understand than bar charts.,4,image18,"[""Missing legend"",""Small values"",""Box plot""]",Alexander Peikert
+Acf4YrWKK94VkDKNGswu,,"x axis isnt labeled, weird that the vertical lines cover the bars but not the x axis, not clear where some bars end due to the fading out.",3,image14,"[""Simple - 1D"",""Embellished"",""Missing labels"",""Missing values / axes""]",Philip Boroviczeny
+AgO3W27ymLPRulgMuTBt,"Also the median, max, and min are not easy to read.","No clear what the x-axis is referring to. Additional context for the chart is missing. Also, ""a"" and ""b"" are very abstract.",3,image18,"[""Missing labels"",""Missing values / axes"",""Box plot""]",Hoda Kermani
+AhxlDeSA0w2yR1brJlJn,"It would have been ""probably"" a better option to use bar chart instead. ",Without context very difficult to answer.,2,image17,"[""Stacked"",""Dot bar chart"",""Missing labels"",""Missing legend""]",Hoda Kermani
+AkeGTbK9RI8kM6v86lli,,"Not very complex, but 3D bars are still hard to interpret.",2,image6,"[""3D"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+ApnkmSNi0rkovzVYxN6D,,i do not know what that chart wants to tell me,5,image5,"[""Missing legend""]",Verena
+AslarboUQXrO6lCJmud2,,"Some colours look different and without the legend it is difficult to understand them. Also, from the x-label it seems that the data can be rearranged better with some groups and stack graphs such as 3 groups U:8 U:16 and U:32.",3,image24,"[""Simple - 1D"",""Missing legend""]",Nicolò Filippucci
+B39HnSyQNr6bKmAaIATL,,"simple bar chart, only the text provides some complexity. ",2,image7,"[""Simple - 1D"",""Missing legend""]",Siming Chen
+B6l4ugVpEp9kkzgy1Ddz,,Too much going on in this chart in too little of space. Hard to gain any insights. Also axis/labels are missing.,5,image5,"[""Stacked"",""Radial"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Alexander Peikert
+B7qCzt4IfI3ELLQwok1w,,If there were labels on the axes I could probably interpret the data,1,image6,"[""3D"",""Missing labels"",""Missing legend"",""Monochrome""]",Alexander Seitner
+BE168mgWxvBcEi28U3Pb,,One would need to spent quite some time to understand the meaning of the graph. What to colors mean? Hard to compare.,4,image25,"[""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Polina Samoilenko
+BHQbHwqVjgyXeaPiykLj,,Everything is explained well,1,image23,"[""Stacked""]",Nicole Gladik
+BT7q7ZWwLw2f7yz68EmT,,"not really complex, but hard to read because of similar colors, no space between bar",3,image15,"[""Grouped"",""No gaps 2"",""Missing labels""]",Verena
+C2bj58FcmZkU1anbnqfO,,A legend would help understanding what it is about,2,image6,"[""Grouped"",""3D"",""Missing labels"",""Missing legend""]",Nicole Gladik
+C4uzGbBE3d0CHGwy1YEn,,Simple chart,1,image12,"[""Grouped"",""Stacked"",""Missing labels""]",Alexander Seitner
+CHCS3tEM3pv5ZYP6fH2P,,Clear to read and understand,1,image23,"[""Stacked""]",Nicolò Filippucci
+CeLtCSphCWuZBFfcYOvM,,"Labels are missing (especially x-Axis), as well as what the different colors of the bars represent",4,image1,"[""Grouped"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Alexander Peikert
+ClEpeFpk0OMotcBWVH93,,"No descriptions, so nothing is clear",5,image26,"[""Simple - 1D"",""Radial"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Polina Samoilenko
+DCEwHswEYm7Fw81Km1zM,,"overall good chart, including boxplots automatically increases the complexity",2,image4,"[""Grouped""]",Henry Eretge
+DGlCOyVGjNLcJf0u0zLe,,Not complex even if lacking information about,1,image16,"[""Simple - 1D"",""Missing labels""]",Nicolò Filippucci
+DID0a2yC1qMZLsxgbdnK,,Values not easy to read for each bar + the labels used are abbreviations (therefore not easy to interpret) + what is the meaning of the colors.,4,image11,"[""Simple - 1D"",""Grouped"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Hoda Kermani
+DQhqOkA6fTjNLFx7om6D,,"simple, not much. ",1,image21,"[""Grouped""]",Jian Chen
+DrEgGpNeJlBjOXLNII9p,,"The chart is complex because it do not have a mental model of what exactly is being depicted here.
+
+The x-axis has parent and child categories.
+",4,image1,"[""Grouped"",""Missing labels"",""Missing legend"",""Small values""]",Rory James Zauner
+E2UijhUz7A99SbGRXtt2,,monotonic in general.,1,image13,"[""Simple - 1D""]",Jian Chen
+ELiMTm80f7tGXzFFWkwt,,It is not clear what 8x stands for and what the difference between the green and red stick figures is.,2,image3,"[""Embellished"",""Missing legend""]",Christian Knoll
+ESFhhL4KS7ZZEGIkqMag,,Only the y-axis is a bit complex.,2,image19,"[""Simple - 1D"",""No gaps 2"",""Missing values / axes""]",Nicolò Filippucci
+Ekf1uO6sX17BvIeJtquz,,The axis labels are missing or offer little information,4,image6,"[""Grouped"",""3D"",""Missing labels"",""Missing legend"",""Monochrome"",""Missing values / axes""]",Rory James Zauner
+FGftJtkgNyS0lWsL42xE,i can't read all the bars because some are hidden behind others,This 3D effect confuses me,4,image20,"[""Grouped"",""3D"",""Other (please comment)""]",Verena
+FLf3KjwWZ3OhvtjNOkqj,,"I'm not 100% sure of the chart is stacked. It's difficult to compare the values between the different groups in the x-axis, would have been nice to have the values displayed.",1,image12,"[""Grouped"",""Stacked"",""Missing values / axes""]",Hoda Kermani
+FWJ9i4kGmnIfTTncBQkZ,,"good for an overview, but not good for details",2,image13,"[""No gaps 2""]",Verena
+FYr0F8tLhLNpnB3FbWqU,,"Too much going on, no information can be gained here, not every bar can be observed.",5,image22,"[""Grouped"",""Nested 1"",""No gaps 2"",""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values""]",Alexander Peikert
+FqIAbVzcXU2lYKoejJEg,,axis completely missing,2,image15,"[""Grouped"",""No gaps 2"",""Missing values / axes""]",Henry Eretge
+G0fGIcobAWV0s2ISp2OK,No x-axis title.,"Not complex at all, but it would be nice to have x-axis title.",2,image16,"[""Simple - 1D"",""Other (please comment)""]",Polina Samoilenko
+G9gNrBOuS1WXG8RSeXnw,,"Too many bars displayed. Reducing the values in the x-axis would help.
+A definition for the colors is missing.
+Groupping based on color would be helpful.",5,image8,"[""Simple - 1D"",""Missing legend"",""Background element""]",Hoda Kermani
+GJRHhtBgm3XsdTOVVvK7,,what each dot represents is not that clear. ,3,image17,"[""Dot bar chart"",""Missing labels"",""Missing legend""]",Jian Chen
+GMWxrUQ3DegqjyHNu6xK,,"Good chart, everything is labeled, can be easily understand with context.",1,image4,"[""Grouped"",""No gaps 2"",""Error bars"",""Background element""]",Alexander Peikert
+GWpIZ6RY6VLFER6BOVQd,,"easy barchart, more or less readable ",1,image7,"[""Simple - 1D""]",Verena
+GYC3bGYPgNDLj6TqSHUS,,"I only saw the nanoseconds label on second glance. I only dont know what the x axis labels stand for, but I  guess its domain specific.",1,image12,"[""Grouped"",""Stacked"",""Small values""]",Philip Boroviczeny
+GmaJIK5vQw1BTYqFH0Qa,,clearly labelled. There is no room for ambiguity.,1,image10,"[""Simple - 1D""]",Jian Chen
+HJ2sgX4tS3GyixdOYjcQ,irregular gaps are irritating,"grouping and label position (top and bottom) add complexity
+rotated labels make comparison harder",4,image4,"[""Simple - 1D"",""Grouped"",""Error bars"",""Other (please comment)""]",Michaela Hubweber
+HSPBZCxfqmIDciHg0Yte,,"Not complex, but it is not clear what the color of the bars refer to.",2,image24,"[""Simple - 1D"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+HSUAdqGD2a3hBGFHPMFc,,"not complex per se, but colors chosen for color coding and too small values make it hard to read. ",3,image15,"[""Simple - 1D"",""Grouped"",""Missing labels"",""Missing values / axes"",""Small values""]",Michaela Hubweber
+HvTrpVXZsFaS6w5o59DA,unnecessary gray background,Some values barely readable,2,image10,"[""Simple - 1D"",""No gaps 2"",""Background element"",""Small values""]",Alexander Peikert
+Hz2DITxfm26iQM2hPvu3,Y axis missing as well,"color legend is missing, the rest is just a simple bar chart.",1,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Jin
+I0I4EurwjspM5HGQCpL5,a bit casual ,"easy to follow, with isotype. ",2,image3,"[""Grouped"",""Embellished"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Siming Chen
+I0KNCMfS0t9fxdSURAnA,"grid lines in front
+gradient","not a complex chart per se, but not interpretable due to missing information",1,image14,"[""Simple - 1D"",""Embellished"",""Missing labels"",""Missing values / axes"",""Small values"",""Other (please comment)""]",Michaela Hubweber
+ICSJGjD2z4Ize2pUovId,Very busy and unclear how to interpret.,Unclear how to read this chart.,5,image5,"[""Radial"",""Missing labels"",""Missing values / axes"",""Other (please comment)""]",Rory James Zauner
+ILrHzt2A86vgLx8egKTb,,well ordered. 1D data. no room for misinterpretation.,1,image16,"[""Simple - 1D"",""Missing labels""]",Jian Chen
+IgFPE3bvDKBlkWkEsgAu,,No legend and abbreviations are not explained,3,image11,"[""Simple - 1D"",""Missing legend""]",Nicole Gladik
+IncLWDNA4OU5To7E2jhq,,There are multiple blue bars that are very hard to distinguish,3,image15,"[""Grouped"",""Monochrome""]",Nicole Gladik
+J7iS3z2vZZyfVVv6kD8p,"Bar chart type: I don't think this chart belongs any categories stated. The issue is that what that ""D"" means is not clear. Grouped ones are often drawn with gaps --- maybe it is not grouped ... may be it is since there is no gap between 1, 7... and there is no gaps between,  It is simply not clear. It is also not nested since there is no overlapping, not stacked since no tacking. There needs to be an ""other"" button. 
+
+Under ""Bar chart details"", I also do not know which one to select. There are some gaps. 
+
+","Unstructured, not much trend. many bars.",4,image1,"[""Grouped"",""No gaps 2"",""Missing labels"",""Missing legend""]",Jian Chen
+JKVDl8CwmHtZtl7aGrFH,,i do not know what i see here.,4,image17,"[""Dot bar chart"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Verena
+JVRuO8AUQRhppOZYsYWO,misleading values on x-axis + could fall into the category of blue-blindness (not 100% sure),"The only unclear thing is whether the overlapping bars represent a difference or a comparison, e.g. does the first bar state 10 people answered correct and 1 wrong or 11 wrong. Also for me it is not clear w/o explanation what the difference between cartesian and polar is. In addition to that the time-scaling is a little misleading.",3,image2,"[""Grouped"",""Stacked"",""No gaps 2"",""Background element"",""Monochrome"",""Other (please comment)""]",Alexander Peikert
+Jml4wktUeUAxqbMjL1Ye,,"Does not look complex itself, but the without explanation, do not understand what the ""red guy"" stands for, also does not scale very well.",3,image3,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Jin
+Jp9rxPNRbBfFY5biB2Gi,,clearly labelled. no room for ambiguity.,1,image12,"[""Stacked""]",Jian Chen
+KAYWlu4JgcOmClqIlPN6,,"ok to read, title and axis labels would be good",1,image16,"[""Simple - 1D"",""Missing labels""]",Michaela Hubweber
+KOr4Pe1TTe6QVO9RQsxe,,Clear to read and understand,1,image21,"[""Error bars"",""Box plot""]",Nicolò Filippucci
+Ko8nrhmRBdedbf3FklVZ,Numbers on the x span a huge range,"Not complex in its structure but majorly packed and crowded, no labelling, legends, etc",4,image8,"[""Nested 1"",""Missing labels"",""Missing legend"",""Other (please comment)""]",Alexander Seitner
+KyHQcQv1k7X6XUH0vE6c,,no label makes the x axis a bit difficult to understand,2,image1,"[""Grouped"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Jin
+LWmkb0mkN34QxxkBA8Ft,,boxplots always take some time to read all the information,2,image18,"[""Missing labels"",""Missing legend"",""Box plot""]",Henry Eretge
+Lj31oaSwZsBSov6rB668,too many bars,simple one,2,image13,"[""Simple - 1D"",""Missing values / axes"",""Small values"",""Other (please comment)""]",Siming Chen
+LjztJfXhlamtTDBNqzSi,,"I dont quite get what its displaying. I guess the population growth of some country, but it doesnt say which and I dont get what the small red figures are representing. Also Im not sure what the >8x should show.",5,image3,"[""Grouped"",""Embellished"",""Missing legend"",""Missing values / axes""]",Philip Boroviczeny
+Lni0BGOKoZ6s7wFjGmYx,no explanation and labels. ,basic barchart,3,image19,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Siming Chen
+Lumkt5aweJqphxkz6d2o,,"Looks pretty crowded due to the number of bars, I don't know what those categories 1, 2, 3, ... mean on the x axis",4,image1,"[""Grouped"",""Missing labels"",""Missing legend""]",Alexander Seitner
+M3VYS37S04RaEyl2Dk98,i am not sure what kind of chart that should be,Is this a chart? Or art?,3,image26,"[""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Verena
+M6LNIYGt5MR7Uu3OYv9e,"No title, no logic.","Too complex, ordering not clear.",5,image15,"[""Simple - 1D"",""Grouped"",""No gaps 2"",""Other (please comment)""]",Polina Samoilenko
+MGsO7eSOacqMJ3opm3Gs,,no room for misinterpretation,1,image15,"[""Grouped""]",Jian Chen
+MNDIPmtgeDZlEVjJ3uQ2,"The ""women"" icons are not necessary","Too much happening in one graph. 
+The sizes of the people are unnecessary. They could overall be removed.
+But the chart is not missing data. Everything is there.",2,image25,"[""Other (please comment)""]",Hoda Kermani
+MQEyyvuV1xTUTS9tBLUV,,"Not complex, but it takes some time to interpret.",2,image23,"[""Stacked"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+MQG9w36wwiL82uAt96hD,,"Too much going on, specific values cannot be read properly. Every value except some outliers center around 4000. Therefore, the scaling on the y-axis is bad. Line chart would be better.",5,image13,"[""Simple - 1D"",""No gaps 2"",""Missing values / axes"",""Small values""]",Alexander Peikert
+MQjL0N57NqVZXCP5xI3X,color gradient,"it is not really complex,rather unreadable",4,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Verena
+MQw7H0JCWUaKYYM6ivPw,,"Y-values cannot be read properly. Some values (4,1,anim:maps) cannot be observed at all. Missing labels.",5,image6,"[""Grouped"",""3D"",""Missing labels"",""Missing legend"",""Background element""]",Alexander Peikert
+MfKqyCY9D9H52rsHOaur,,other than the color coding i am not sure what is displayed,5,image5,"[""Radial"",""Missing labels"",""Small values""]",Michaela Hubweber
+MhgqSAUh03m6ArwRb8k1,"No explanation of ""bits""
+The hand drawn circles are confusing","It's unclear whether tasks are assigned to specific groups, I don't know what ""bits"" refer to",4,image9,"[""Other (please comment)"",""Gantt chart""]",Alexander Seitner
+MuYxcKvqobjd2mZkKAg2,,it is not the form of the visual design that makes it complex. It is the lack of labels to describe what this is.,5,image26,"[""Missing labels""]",Jian Chen
+N17LBBgFj2qXNR1HjDr6,,Nothing is clear here.,5,image5,"[""Simple - 1D"",""Stacked"",""Radial"",""No gaps 2"",""Missing labels"",""Background element"",""Missing values / axes""]",Polina Samoilenko
+NBBBxNlFzZsM8bTfcBbJ,,"I dont know what U, P and N are, I guess the points somehow have a balance between the three values. Also putting the ""bars"" on the outside is just too much information at once",4,image5,"[""Radial"",""No gaps 2"",""Missing values / axes""]",Henry Eretge
+NJtgeb0GjL7oO5cfxCLP,,The height of 3D bars (value) cannot be read off.,4,image20,"[""Grouped"",""3D"",""Missing legend""]",Christian Knoll
+NbLyGqyZDR9KO03Ey19F,,a lot of information is trying to conveyed using a stacked barchart.,3,image12,"[""Grouped"",""Stacked"",""Missing values / axes""]",Jin
+No4lc1aKpCdZ9MfLEAWC,bar size,"i think it's understandable, but not sure, what the message should be. ",1,image13,"[""Simple - 1D"",""Other (please comment)""]",Michaela Hubweber
+NpNLFNQ1NbxTSqGAdF5W,,From this one perspective on cannot gain any insights other than which bar is the highest within a group,5,image20,"[""Grouped"",""No gaps 2"",""3D"",""Missing legend"",""Small values""]",Alexander Peikert
+NzpckHPDU44vocCQctmF,,Everything is explained well,1,image21,"[""Grouped""]",Nicole Gladik
+O59CVFFUHsddYFGIurTU,,What do bits mean here? Those grey circles also seem unnecessary here.,4,image9,"[""Simple - 1D"",""Background element"",""Gantt chart""]",Polina Samoilenko
+OOFA2bnCYQbwMW3B5zRk,"Stacking of non related values, it is different to read the value of the one on top",I dont get why one would stack correct and wrong on the same bar,4,image2,"[""Stacked"",""No gaps 2"",""Other (please comment)""]",Henry Eretge
+OZILvliA8BpL8W7zHr7R,To much color not necessary,"Not having the columns sorted makes it complex to compare certain data (such as EI, JF)",2,image11,"[""Simple - 1D"",""Missing labels"",""Other (please comment)""]",Nicolò Filippucci
+OhluGLcR9SGsVHTUrHlN,labels not readyble,i find boxplots always complex,5,image18,"[""Missing legend"",""Other (please comment)"",""Box plot""]",Verena
+OiodUip80nWZkFtowjvI,too colorful,no labels and colorful,2,image11,"[""Simple - 1D"",""Embellished"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Siming Chen
+OolaBLcvKz6kFZWDZSAk,,not well designed. the data bars are behind the background grid. Unclear what the shading means. ,5,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Jian Chen
+Oq9674gcnvj032UxQrqQ,,logarithmic scale and label rotation,3,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Michaela Hubweber
+OrHgRYamQTNPjXcel2FW,,"Comparing to other charts, this is the best!
+The values and labels are provided. The ""Overall"" one is confusing though.",2,image23,"[""Stacked""]",Hoda Kermani
+Ou3UDcTNygEhLsD3z60v,,"Simple bar chart, not complex at all.",1,image7,"[""Simple - 1D"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+PTgRE7f6doV0fEAEnX86,,imple graph only not completely clear because of missing information,2,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Nicolò Filippucci
+PkCKqqWOVLqSOTEyh46v,,"Missing axis labels, especially that the y-Axis is in log-scale.",2,image7,"[""Grouped"",""Missing labels"",""Missing legend""]",Alexander Peikert
+PkJmo9BbRKx5bYuFTHgS,,spatial reference is missing. could make it more dense to make comparison easier.,4,image20,"[""Grouped"",""3D""]",Jian Chen
+PlIwWef5C7BDnRTRVIkn,,Fade on bar makes comparison hard. Why does the fade start at different heights of the bars.,3,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Alexander Peikert
+PuKJzumGYsW7x1RuYmjj,,Easy to understand when context is provided,1,image16,"[""Simple - 1D"",""Missing labels""]",Alexander Peikert
+PvmvvWL42Rp6uBq9FNPo,,"I find it hard to grasp whats happening, as there are no labels. Also having somehow seven categories without larger spacing in between makes it hard to distinguish",3,image1,"[""Grouped"",""Missing labels"",""Missing legend""]",Henry Eretge
+Q2mPassSPjV7ttnnquRj,,"the colors are easily distinguishable, the legend is understandable, the two charts are easily seperable, the axis are label well",1,image2,"[""Stacked"",""No gaps 2""]",Philip Boroviczeny
+Q515ozzW4D2NhHoO6TcK,"maybe some gridlines, but dont know if thats necessary to show that much details",its less complex than i thought once i take some time to understand this.,2,image21,"[""Background element"",""Box plot""]",Jin
+QLm85ryBbHdBeXmfziNN,,"just the labels are missing, the rest is pretty easy to understand",2,image6,"[""3D"",""Missing labels"",""Small values""]",Jin
+QPJvqLBLzRNPAZ2Pzo08,,It's hard to see values for bars on the axis with values 0-250. Since cause:focus anfd class:select have too small values it's hard to see anything there.,5,image6,"[""3D"",""Missing labels"",""Small values""]",Polina Samoilenko
+QYHQvC4mOi8qVldkq6W1,,"Seems to be a boxplot, but i cannot find any valuable information that is readyble to me",5,image21,"[""Grouped"",""Monochrome"",""Box plot""]",Verena
+QZkhTbi5PWLPtWazo0Jt,Occlusion. ,no clear explaination and occlusion. ,4,image8,"[""Nested 1"",""No gaps 2"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Siming Chen
+QfZfaR6QAKdE8AXoRfK1,,I dont get this and what it should display at all,5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values""]",Philip Boroviczeny
+QqKH3s9ixdKrpQxeVZyj,,3D and no legend,4,image20,"[""Grouped"",""3D"",""Missing labels""]",Henry Eretge
+RA9fNAuJHcSJ1RWVAq20,,Box plots might be hard to understand and the legend is missing.,3,image18,"[""Missing labels"",""Missing values / axes"",""Box plot""]",Christian Knoll
+RDUckLzDqUvaVTZz0zUV,,A grouped bar chart with error bars might be complex for non-vis people.,3,image4,"[""Grouped"",""Error bars""]",Christian Knoll
+RGUJSqnlxQKJztVBpTpU,,Colors are not explained,2,image24,"[""Grouped"",""Missing labels"",""Missing legend"",""Monochrome""]",Nicole Gladik
+RZLZzoDdVEXgU0AusguF,"there are some extreme small values and extreme high values, and the 3D setup now is much more complex than the one before, which makes it almost impossible to understand.",have no idea what that shows or means,5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Jin
+RjqfeMGsIU6g8yOCV96t,,"No indication what blue and green mean, label missing",3,image7,"[""Missing labels"",""Missing legend""]",Alexander Seitner
+RoB0kIPSAKMzrAzrTecw,added sketched information,"strange way to add information to a rather simple graph, confuses quite a lot",3,image9,"[""Other (please comment)"",""Gantt chart""]",Henry Eretge
+RpkLfanLcpv6B5ltaXIr,,Simple bar chart,1,image16,"[""Simple - 1D"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+RtzX7AuEwdqxI0l4bA87,,"Simple bar chart, but confusing due to the missing legend for the colors",3,image11,"[""Missing labels"",""Missing legend""]",Alexander Seitner
+SDdURhqZ0cmiz4j26eyU,I'm not very sure about some questions here.. ,A basic bar chart with two grouped bars.,2,image1,"[""Grouped"",""Missing labels"",""Missing legend""]",Siming Chen
+SFEtHChqizDLZIore6em,,Not complex to read but completely missing context,3,image18,"[""Missing labels"",""Missing legend"",""Box plot""]",Nicolò Filippucci
+SHEA8voyrSNJyQv0tRl4,annotations,"confusing annotations, estimation of exact lenght in days hard",4,image9,"[""Simple - 1D"",""Embellished"",""Other (please comment)"",""Gantt chart""]",Michaela Hubweber
+SRyVhLecIzrLwy4SVPV0,,Crowded,4,image4,"[""Grouped"",""Error bars""]",Alexander Seitner
+SVCYoizPvUQRz64eZqNT,"the fade out should be explained better, otherwise is very confusing",the fade out is a confusing. ,3,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Jin
+SWUbUQKa4gM70Isgy8if,Too far apart bars,"this is reallz unreadable. Bars cover others, they are really small, they have more depth then width making it unclear what the y[m] should be. Also some are really far away from the axis making it hard to define what the values are",5,image20,"[""Grouped"",""3D"",""Missing legend"",""Other (please comment)""]",Philip Boroviczeny
+SXrVH4s6TJYfOnW1dX0e,Maybe a strange unit on the x,I assume I know what the bar is supposed to show,1,image2,"[""Nested 1"",""No gaps 2"",""Background element"",""Other (please comment)""]",Alexander Seitner
+T4fWoyuGSHEisgc49aIY,,"no idea whats going on here, which bar do the values belong to, what does everything mean?",5,image8,"[""Grouped"",""Missing labels"",""Missing legend""]",Henry Eretge
+TH2HZozN6NRez8GtZb2m,,simple bar chart ,1,image24,"[""Simple - 1D"",""Embellished"",""Missing values / axes""]",Siming Chen
+TIKQPwzgmalGD0w7O6s5,"why is it called ""other charts""? 
+see https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=9R1aERQAAAAJ&sortby=pubdate&citation_for_view=9R1aERQAAAAJ:RJbvDHNBHbQC.",labels all over places. It is a bit messy. The authors are perhaps well intended. ,3,image9,"[""Gantt chart""]",Jian Chen
+TRfDBV9TwKFvtie7eBl7,,Not complex and clear representation of data,1,image15,"[""Grouped"",""No gaps 2""]",Nicolò Filippucci
+TSMZbDD9dA0vUSGHHa4m,x label is missing,yeah very simple and standard,1,image16,"[""Simple - 1D"",""Missing labels""]",Jin
+TbL4ySI7VleAx1EVo5fl,,"Not clear what the mark in the middle of the line is showing (mean, median, etc.?)",4,image21,"[""Grouped""]",Christian Knoll
+TkSvicwO2ln5BgZoJhdl,,"No legend, no labels, no values, no explanantion on the different colors",5,image26,"[""Radial"",""Missing labels"",""Missing legend"",""Monochrome"",""Missing values / axes""]",Nicole Gladik
+Tlu7OafWnm46ySYZuJQT,,"The shades of blue and gray are very close to one another. Making it difficult to understand the values.
+Not clear what the y-axis presents.",4,image15,"[""Grouped"",""Missing labels""]",Hoda Kermani
+TpN6e5gjsbcD7yj7L1Uh,,"Hard to understand what red and green colors mean, what is >8x? ",4,image3,"[""Embellished"",""Missing labels"",""Missing legend"",""Background element""]",Polina Samoilenko
+TuEjCPhfNIutF739eCfH,,"I dont know what the abreviations mean, no labeling of x axis, some colors too similar, they are not sorted so it would be harder to read some trend for example out of them.",4,image11,"[""Simple - 1D"",""Grouped"",""Missing legend"",""Monochrome""]",Philip Boroviczeny
+U1oHfGllP9HvIigX1urA,,"No y-axis. What is Z, what is W?",4,image17,"[""Simple - 1D"",""Dot bar chart"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Polina Samoilenko
+U2n1AWaEjZdCPWzZjl8O,,too many values and no insight,2,image13,"[""Simple - 1D""]",Henry Eretge
+U54xIQAnGfJEZmRtsZot,,Coloring is a little confusing,2,image24,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Monochrome""]",Alexander Peikert
+U5u5LJYSWaSjXCPlXrI9,,Chart observes too many terms which makes it hard to gain look at any specific term,5,image19,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing values / axes"",""Small values""]",Alexander Peikert
+UGBSVc7NwVfMSZHQUiWw,,Its not clear what the numbers on the y-axis mean,2,image7,"[""Grouped"",""Missing labels"",""Missing legend""]",Nicole Gladik
+URN7pcP7BbtwrbXegzWP,,Easy to understand with labels,1,image13,"[""Grouped"",""No gaps 2"",""Missing legend""]",Nicole Gladik
+UWTijc4qdGznP6RASaY7,,"Good chart, just a lot of information at once makes it a tiny bit complex",2,image12,"[""Grouped"",""Stacked""]",Henry Eretge
+UX8FWyZqeAgWWvEXBXuW,"y axis numbering isnt well readable. 
+Also now I see the top part of the chart, so color labeling is indeed missing","the top part of the chart got cut of, so I am not sure if the colors are labeled. The axis arent labeled, so for now it looks like it lacks context. The y axis as weird value marks, isnt really well readable",3,image18,"[""Missing labels"",""Missing legend"",""Other (please comment)"",""Box plot""]",Philip Boroviczeny
+UizMZ9DJC0DkNRVnljUP,,"Stacked Barchart, good comparable",2,image1,"[""Grouped"",""No gaps 2"",""Missing legend""]",Verena
+UpxvG9KgjCvRzs8h2UJk,"Too few ticks on the x-axis, x-axis shown as exponential term.","Pretty easy to compare to groups (correct and wrong) with each other for different situations (cartesian and polar). But it would be nice to have some title of the graph to better undertand the background/reasoning of the chart. Also showing x-axis ticks as exponential term might not be undertsandable for people distant from the field, miliseconds would be better.",3,image2,"[""Nested 1"",""No gaps 2"",""Missing values / axes"",""Other (please comment)""]",Polina Samoilenko
+Uq8FadBtDTgeKVOsX07Y,,A nice chart with labels and a title - that makes it easy to understand,1,image25,"[""Embellished""]",Verena
+UvNeLkKXPwLvJw8lomKz,using a shade,Everything is missing and I also do not understand the choice of using a shade in a bar chart,5,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Nicolò Filippucci
+V23NBkbAgzwCdPB2q9e1,,"No labels, no values, no legend, not clear what the different colors mean",5,image22,"[""Grouped"",""3D"",""Missing labels"",""Missing legend"",""Monochrome"",""Missing values / axes""]",Nicole Gladik
+VAuBU83PW0oMDs6vMxAQ,"I have trouble understanding the e^3 & e^5, is that a time unit...","the lable of x axis are confusing to me, maybe its me not familiar with the unit. If the x axis is ""Time taken for answer"", shouldnt it be ""seconds"" for x-axis.",4,image2,"[""Nested 1"",""No gaps 2"",""Other (please comment)""]",Jin
+Vq6DdqkcZmwFfloI65NX,Can cause problems for red-green blindness.,"Weird arrangement of the ""y-Axis"". No clarification for which year/from which year on the "">8x"" is used. Missing legends and x-Axis label.",4,image3,"[""Grouped"",""No gaps 2"",""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Monochrome"",""Missing values / axes""]",Alexander Peikert
+W2C4EJ6NcoHjvvAirc26,,not sure what the colors represent. Double-coding the values? ,4,image11,"[""Simple - 1D"",""Missing legend""]",Jian Chen
+WLO8wLVsUE3ki5wk2Lmz,,"not too complex in general, but color coding is not explained, x-axis, y-axis is not explained. ",2,image11,"[""Simple - 1D"",""Grouped"",""Missing labels"",""Missing legend""]",Michaela Hubweber
+WdQIuZ4CitEBjFQFt6J3,unnecessary markings and explanations,Would be easier to understand if the (handwritten) marks would not be included,3,image9,"[""Other (please comment)"",""Gantt chart""]",Alexander Peikert
+WvGdPVZ21XAacc6TKXHC,uncertain what x and y mean. I could guess however. ,"clearly labelled, textured (I know we don't like this type). It is perhaps not accurate but still it is fun to look at. ",2,image6,"[""3D"",""Missing labels""]",Jian Chen
+X4i1zFGBniD7NBFy2cg1,"this is hard to read and also hard to understand. the 2 grids are not explained. not sure, what the bars or the black connections indicate. the height of one red bar exceeds the image size. parts of the marks are overlapping due to 3d effects and can't be read.  ",no clue what is going on here. ,5,image22,"[""3D"",""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values"",""Other (please comment)""]",Michaela Hubweber
+XEeNx9tuetl0MfaQz6lm,,"Too much going on, too many colors, some colors not represented on the scale which is confusing. 3D makes is look like the differences are higher than they really are.",4,image25,"[""Grouped"",""No gaps 2"",""3D"",""Embellished"",""Missing labels"",""Background element"",""Monochrome""]",Alexander Peikert
+XJBtA2OyK99RUfQcJLk2,"x-axis scale, missing ticks, missing zero","in general this could work if the x-axis was readable.  longer ""bars"" are hard to interpret as you have to count. ",4,image17,"[""Simple - 1D"",""Dot bar chart"",""Other (please comment)""]",Michaela Hubweber
+XP2PhCOPrZtw2I9gjoNv,,"Its easily understandable, but the additional hand drawn markings are irritating and not necessary, also I dont get what the bits hsould mean",1,image9,"[""Embellished"",""Gantt chart""]",Philip Boroviczeny
+XXK9Rqw1R6HTtjtNVRXd,It looks like it's a box plot but also not that clear to identify the median.,The legand and labels are provided.,2,image21,"[""Missing values / axes"",""Box plot""]",Hoda Kermani
+Xa8OlyXjUROXXtNSbTOs,,its not clear what the red and green figure stand for and also the >8x is confusing,5,image3,"[""Grouped"",""Missing legend""]",Nicole Gladik
+XvcIMQeGN0ZFzm8qxuL4,The most important thing missing is the definition of the colors.,Not sure what the colors present.,4,image3,"[""Grouped"",""Missing legend"",""Background element""]",Hoda Kermani
+XzizygRhxuBGt8tZAYS7,,no label or value for x-axis,4,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Nicole Gladik
+Y2qkF7s0oTc5GgHjEinJ,,"Unnecessary complexity in 3D, makes it impossible to read the values. ",5,image20,"[""3D"",""Missing values / axes""]",Hoda Kermani
+Y41TLlVi4SUB59uHXKME,Arrow is misleading,"I don't know what the green and red people are supposed to depict, probably the values are not as linear as they are depicted with the people, what does >8x mean, ""Million"" is only clear after having a look on it for a minute",5,image3,"[""Grouped"",""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Other (please comment)""]",Alexander Seitner
+Y7JxJfXOSWGrnfx19NaK,The circled sections are unnecessary.,"Why are the ""bits"" important here?",3,image9,"[""Other (please comment)"",""Gantt chart""]",Hoda Kermani
+YdQh0W4is1bZwY3LQqb1,"grid lines could be added to help understand more. There are only 3 possible values on the Y axis, so ven in a 3 d setup it is not very complex (from a personal perspective)","its not very complex, but some labels are confusing (e.g. x 10^7).",2,image20,"[""Grouped"",""3D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Jin
+YulkzEHruEMajz1PSDXZ,can be monochrome for people with red-blindness,"Too much going on, the background lines are too distracting. The choice of colors is distracting with gray background and bars in the same color. No labels/legend. Hard to gain any insights here.",5,image8,"[""Grouped"",""Nested 1"",""Missing labels"",""Missing legend"",""Background element"",""Monochrome""]",Alexander Peikert
+Z2ItFo2vxoudYjNHIiAJ,,unit visualization might not be familiar with many people,3,image17,"[""Dot bar chart"",""No gaps 2"",""Missing legend"",""Monochrome"",""Missing values / axes"",""Small values""]",Siming Chen
+ZTwJ88cMimyzh5RVvRZo,How groups are shown.,"The choice of how 3 groups are shown is not clear, wouldn't coloring them make it more clear and easier to distinguish? ",3,image21,"[""Simple - 1D"",""Grouped"",""Other (please comment)""]",Polina Samoilenko
+ZfviLsF4LVuoJ8w3s17v,,It is just difficult to compare two or more columns the rest is quite clear,2,image2,"[""Nested 1"",""No gaps 2"",""Small values""]",Nicolò Filippucci
+ZjOcmHy24CEuWaFA7FXb,not bad,simple one,2,image16,"[""Simple - 1D"",""Missing legend""]",Siming Chen
+ZpSiqyCX7kRD0ciyd2zY,"bad resolution, font size","not overly complex, but hard to read due to resolution. 
+a and b cannot be easily compared, colors not explained. no axis labels",3,image18,"[""Missing labels"",""Missing legend"",""Other (please comment)"",""Box plot""]",Michaela Hubweber
+ZvQ7JBQiCBHNZG9Tt8F3,it would be hard to read the data and compare the values. It is interesting to look at. ,well designed.,2,image22,"[""3D"",""Missing labels"",""Missing legend""]",Jian Chen
+ZzwDEwZhWNgDHOSMh1OZ,,It is not clear what the y-axis is referring to.,4,image19,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+a3xFn5eaPqGFEMxIqlp3,,"Not complex, but it takes some time to interpret.",2,image25,"[""Embellished""]",Christian Knoll
+aAaQdwbi8THyghgeRHAe,,"there are two different types of bars, which are not explained",3,image8,"[""Stacked"",""Missing legend""]",Nicole Gladik
+aENWHX4BAe2FpTuSkmPj,"explanation of that black line inside each bar. I dont think its a boxplot, since usually the ""box"" should be inside of the black line.",takes time to understand. Do not understand what the black line stands for and the difference between 500 and 1000.,4,image4,"[""Grouped"",""Other (please comment)""]",Jin
+aQSueCxA3LOEZEJCPvBU,,Looks ok.,1,image23,"[""Simple - 1D"",""Stacked""]",Polina Samoilenko
+aroaZxhQk2WNqOhgnh5S,,easy to read and understand,1,image23,"[""Stacked""]",Philip Boroviczeny
+azpx1Ax109kkOfUNof1q,,"Not complex, just too much information in one graph (the error range seems the same for most of them).",2,image4,"[""Grouped"",""No gaps 2"",""Error bars""]",Nicolò Filippucci
+bArL6giyEwuYAdzyXCIc,,hard to see details,4,image2,"[""Simple - 1D"",""Stacked"",""No gaps 2""]",Verena
+bDJ7to9m2Xkz4CSftLgB,"No title, overloaded.","Decimal points overload the chart, no title. What are new/seen? What to points mean? Overall too overloaded.",4,image4,"[""Simple - 1D"",""Grouped"",""No gaps 2"",""Other (please comment)""]",Polina Samoilenko
+bG7qpMK1CZqECGBtgIbC,,beautifully made -- I am biased and I know this is perhaps Borgo's chart for showing large-range magnitude numbers. ,2,image8,"[""Grouped"",""Nested 1"",""Background element""]",Jian Chen
+bI0meNuF19DjJ7Js72RC,,"I dont know what U, P and N stands for. The values are way too small for values between N and P and also between N and U, but the dot plot maybe gives a little more detail to those values, but also if I would want to go into more detail on those small values it would be impossible, also because the borders of the dots are too thick and therefore cover some dots beneath them.",5,image5,"[""Stacked"",""Dot bar chart"",""Radial"",""No gaps 2"",""3D"",""Missing labels"",""Small values""]",Philip Boroviczeny
+bKMczxkz87qbLi53Us2z,,stack in two ways. ,3,image12,"[""Stacked"",""Missing values / axes""]",Siming Chen
+bQMsdhIgZcClFWLAYaCs,,Due to values too small is a little bit more complex to read and use,2,image10,"[""Simple - 1D"",""No gaps 2"",""Small values""]",Nicolò Filippucci
+bRLpPCuEhUMC1siyuX8q,,"simple barchart, clusters maybe visualized by color?",2,image11,"[""Simple - 1D"",""Grouped"",""No gaps 2"",""Missing labels"",""Missing legend""]",Verena
+bUubjIj2H73fySrv0fIA,the opacity change is confusing. ,simple one. ,2,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Other (please comment)""]",Siming Chen
+bZRQ5fsSmzGywOm0tQt5,maybe some grid lines would help. The vertical setup makes it extra hard to compare too,I really have trouble understanding box plot in general and this vertical comparison makes it extra hard.,5,image18,"[""Missing legend"",""Background element"",""Box plot""]",Jin
+bZj6C0rkiGnmVzZgonvN,Occulusion.,"3D, but simple bar chart. ",3,image6,"[""3D"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Siming Chen
+buPL70ThXizOQCIZWGYd,,proportions clearly labelled. ,2,image23,"[""Stacked""]",Jian Chen
+cDwBliDTfcP0uOzLukzk,The faded color also doesn't help for interpreting the values.,Not sure what I'm looking at since the labels and the legand are both missing.,5,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Hoda Kermani
+cnBegTeQLmLV7DjLA06w,,Im not sure if the GB is the y axis label or the label of the one big bar. No legend. no axis labels,4,image24,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Philip Boroviczeny
+cnV0Nq6WEGydFFQa4fLy,,Very hard too compare bars. No legend.,5,image20,"[""Grouped"",""No gaps 2"",""3D"",""Missing labels"",""Missing legend""]",Polina Samoilenko
+dCZXxUB4MMkV07RQWFLS,,What are the colors presenting?,4,image7,"[""Simple - 1D"",""Missing values / axes""]",Hoda Kermani
+dL83haYsAAjf521Sdf66,"Also, some bars are covering the others.",Impossible to read and no context is provided.,5,image22,"[""Nested 1"",""3D"",""Missing labels"",""Missing legend"",""Background element""]",Hoda Kermani
+dLF2am1zHm0wWv8rk9zp,Maybe wrong chart type => simple line plot?,Simple chart,1,image13,"[""Other (please comment)""]",Alexander Seitner
+dQxJSQJkjrczERJYUUOu,,Very complex and I believe that even with more information the different bars are very small and difficult to read,5,image26,"[""Stacked"",""Radial"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Nicolò Filippucci
+e59ynjSrYRxlQ8koouui,,"very small numbers, hard to read",2,image18,"[""Missing labels"",""Missing legend"",""Box plot""]",Nicole Gladik
+e5XOikSrfCXTdqHMBJnv,,"Everything is explained and easy to distinguish, but there are too much different categories.",3,image12,"[""Grouped"",""Stacked"",""Missing labels"",""Small values""]",Alexander Peikert
+eFFCFqHcKwm9EJbrJI5D,I don't remember the name of this chart.,The values are missing as the terms increase. Which doesn't give much context to the chart.,3,image19,"[""Missing labels"",""Missing values / axes""]",Hoda Kermani
+eocGYzSuUg4GTrrBOdeI,Gradient is unclear,"Overall simple chart but uninterpretable
+What does the gradient mean? No axis, no legend, etc",3,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Other (please comment)""]",Alexander Seitner
+fDgpU4h8B1VyuaR1jcVd,simple world map with colors would be much better,"why 3D, why use size (volume or actual size)?, why also add color",3,image25,"[""Simple - 1D"",""Embellished"",""Other (please comment)""]",Henry Eretge
+fDzV0MizVF383vZzQbfA,,x-axis scale adds complexity,3,image2,"[""Stacked"",""No gaps 2""]",Michaela Hubweber
+fK8sbRSjdkr7jRTZXCAt,,"Why dont the bars have the same width? x axis is hard to read and why is it ulernating between plus and minus? axis are not labeled, therefore it lacks context. And the colors arent assign any meaning. Also the vertical lines are kind of bothering.",5,image8,"[""Nested 1"",""Embellished"",""Missing labels"",""Missing legend""]",Philip Boroviczeny
+fN2zNPunJxD9sE5s4Krn,,The time is measured in e,2,image2,"[""Stacked"",""Missing values / axes""]",Nicole Gladik
+fZIUx3m1Lx5TFiia9J2m,"the values are not ""small"" but they do not differes alot.","not really complex, just difficult to read",4,image13,"[""Simple - 1D"",""Grouped"",""Small values""]",Jin
+fnPhytuAnge60oqye01p,,Unclear how the y- and x-axis are meant to be interpreted.,4,image10,"[""Simple - 1D"",""No gaps 2""]",Rory James Zauner
+g1D6NIz4qokkHzP2X7Wm,Not sure about the bar chart type stacked.,"I can't interpret it because the domain is not my knowledge.
+There are too little number of labels in the x-axis.",5,image2,"[""Grouped"",""Stacked"",""No gaps 2"",""Missing labels"",""Background element"",""Missing values / axes""]",Hoda Kermani
+g8qkl8Ey3XnM3ya8rrUL,3d not easy to interpret,3d,3,image20,"[""Grouped"",""3D"",""Missing labels"",""Background element"",""Small values""]",Siming Chen
+gWLd1V6ZvpcD1dMWHRci,Would be better to show minutes on the y-axis.,"I think bar chart is not really needed here, line plot would be better. It would be better to show minutes on the y axis. Title is missing.",3,image13,"[""Simple - 1D"",""Other (please comment)""]",Polina Samoilenko
+gbOSR3mdb7Cmrd43o4Jo,,Weird color selection. Does not understand what x/y lables are for ,2,image11,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Jin
+gp2HAPpTtLOffPLu4WQh,,no values on y-axis,3,image19,"[""Stacked"",""Missing values / axes""]",Nicole Gladik
+gqbHWFBwQQJiPZPikDoV,,Not sure what this chart is showing and 3D makes it really hard to interpret.,5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Christian Knoll
+hHZbPGEeQU4lOlQvtF7j,,"legend for red and green is not given, simple bars would be nicer, the >8x doesnt have any context",2,image3,"[""Simple - 1D"",""Embellished"",""Missing legend""]",Henry Eretge
+hpJxBTayDk5yVSOXXYpm,,simple and somewhat boring.,1,image7,"[""Simple - 1D""]",Jian Chen
+iI2iidCymKNwsvWnpSCz,,"Looks like everything is present, except of the title.",2,image12,"[""Simple - 1D"",""Grouped"",""Stacked""]",Polina Samoilenko
+iV0fEnGUc40xaKY7xbkt,the values between 5 to 30 is extremly difficult to read.,"its a simple bar charts, even includes a title",1,image10,"[""Simple - 1D"",""Small values""]",Jin
+iWgl1Kk42gKxfunY66iN,,something put together. ,4,image5,"[""Radial"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values""]",Siming Chen
+ic9vJrIpAXqjtqIaDEvk,,The 3D is unnecessary + the values are not clear.,5,image6,"[""3D"",""Missing values / axes""]",Hoda Kermani
+jKoMflvHsWtmsAWRJf6i,,"The explanation of text might be helpful, but adds to the complexity.",4,image9,"[""Grouped""]",Rory James Zauner
+jKt1BTVauCLbkMbAcaSI,,"The overall trend can be observed, meaning that increasing the number of runs does not really change the time. However, the peaks and the lows are probably important and those are not easy to identify.",5,image13,"[""Simple - 1D"",""No gaps 2"",""Missing values / axes""]",Hoda Kermani
+jLGIKH69j3Wwy4akbcU0,Drawings and explanations directly integrated into the graph make reading more difficult,The bit indication and the ‘drawing line’ make the graph a lillte bit more complex,2,image9,"[""Other (please comment)"",""Gantt chart""]",Nicolò Filippucci
+jMVqygTDyfj1DU5DtZXw,I don't know what the triangle means and what the dots represent,I don't know what it's supposed to show,5,image5,"[""Stacked"",""Radial"",""Missing labels"",""Other (please comment)""]",Alexander Seitner
+jQEMD3VfBhVijFBrgrVL,,"The more I look at it, the more confused I am as to what it represents. Too much missing information and in general it is not a simple and common representation of data",5,image5,"[""Stacked"",""No gaps 2"",""Embellished"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Nicolò Filippucci
+jSQKmsIsj3L6W6XpLHFE,,"hard to see where the bars are located, and not clear what the different colors mean",4,image20,"[""Grouped"",""3D"",""Missing legend""]",Nicole Gladik
+jwzmbvUsJjp1DReK0BEa,,"I am not sure why there are two different values for the x-axis (1, 2,3, and the 20, 50, 100)",3,image1,"[""Simple - 1D"",""Grouped"",""Missing labels"",""Missing legend""]",Nicole Gladik
+kUPV32C7FDU4S2RaYqoU,some space between groups would be nice,missing legend and axis label,2,image24,"[""Grouped"",""Missing labels"",""Missing legend"",""Other (please comment)""]",Henry Eretge
+kWNPzlhKjb4t2Brkr68G,,"its easy to understand, some unnecessary parts in the charts that can be reduced (e.g. shadow, opacity...)",1,image25,"[""Simple - 1D""]",Jin
+kbrDRQj3a3BVlYII3keK,Why does color become ligher on the top for some bars?,"Not really complex, just not clear.",3,image14,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Polina Samoilenko
+km9a28wHPVQRNXNxFTtY,,"label and legend missing, otherwise good",2,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Henry Eretge
+krtpuaNkUCfXlf8E4hda,,"to be honest, no idea what this is supposed to be, could also be modern art :D",5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes"",""Small values""]",Henry Eretge
+kvIdAKi3HNAEOrcvNe0u,,Everything is explained well,1,image9,"[""Gantt chart""]",Nicole Gladik
+kw13CoPVkJknCwHa7Gjz,,This is litterally an abstract art piece :D can't understand the context at all. ,5,image26,"[""Missing labels"",""Missing legend"",""Missing values / axes""]",Hoda Kermani
+l4iQtG6tNj2eTyEmQ9w0,not understandable ,too abstract,4,image26,"[""Radial"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Siming Chen
+mHQ9wjm2lFPKWzXykX39,"6 charts, are they dependent?",is this supposed to be a chart? do they have any connection? no labels at all? could be modern art again :D,5,image26,"[""Radial"",""No gaps 2"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Henry Eretge
+mLufjhQnLg6UrE2KrU1E,,"Too complex, nothing is clear.",5,image8,"[""Simple - 1D"",""Nested 1"",""Missing labels"",""Missing legend"",""Small values""]",Polina Samoilenko
+mcxaBAGHc2dxJjZ9SvvC,,"3D, should have been another form of graph to show three dimensions",2,image6,"[""Simple - 1D"",""3D"",""Missing labels"",""Small values""]",Henry Eretge
+mkJamwuB9bea7j45W4JE,,It's a simple distribution chart,1,image10,"[""No gaps 2""]",Alexander Seitner
+mrRvtvAtKnQcfqCg3Ysu,,"Easy to understand, only the scaling makes it a little harder to gain the correct values.",1,image21,"[""Grouped"",""No gaps 2"",""Error bars"",""Monochrome""]",Alexander Peikert
+n7ykZs4CrDxP6baJpG4g,the x label is not very meaningful to help understand the chart,"It should be a very simple bar chart, however the color and the x label is not very meaningful ",2,image24,"[""Simple - 1D"",""Missing legend""]",Jin
+n8IioIcSXrRL9M9q2gO4,,The data are understandable but some elements make the graph more complex and not completely clear (in particular the arrow and >8x),3,image3,"[""Grouped"",""Embellished"",""Missing labels"",""Missing legend""]",Nicolò Filippucci
+nMyN3kiV9zyybTlgtkCk,,"Not very complex, but people might still take some time to interpret.",2,image15,"[""Grouped"",""No gaps 2"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+nRy1MyhAhPKdBSGxBsbv,,Very complex: missing information and difficult to understand at which value (x and y) the various bars correspond,5,image20,"[""Grouped"",""3D"",""Missing legend"",""Small values""]",Nicolò Filippucci
+o86q0I3pIwRAsKDOwMkw,,I find it quite simple although I don't like the idea that some columns hide the ones behind (as you can also see with time:shit and anim:maps),2,image6,"[""Grouped"",""3D"",""Missing labels""]",Nicolò Filippucci
+oGl2VRiRJtfKogXBg08D,Y-axis scale needs some overthinking.,"The scale of the y-axis is off, making interpretation tricky.",4,image7,"[""Simple - 1D"",""Missing labels"",""Missing legend"",""Other (please comment)""]",Rory James Zauner
+oVb9pE4ZugQf7NMM4mQz,,simple 1d chart with a few colored groups,1,image24,"[""Simple - 1D"",""Grouped""]",Jian Chen
+orhhat7NKogJSMqUBUJh,"I have no idea the chart type or detail!
+Also what is U, P, and N?",it looks more like an abstract art piece than a chart - not interpretable. there is too much happening.,5,image5,"[""Missing labels"",""Missing values / axes""]",Hoda Kermani
+ov83z8AWgx3lX6jWFkJz,,Colors not clear. No description of axis.,3,image24,"[""Simple - 1D"",""Missing labels"",""Missing legend""]",Polina Samoilenko
+oxgtwuXOmnlEZuD46fIH,text too small ,unit visualization,3,image25,"[""3D"",""Small values""]",Siming Chen
+oxoPUhx6qtiZgJkoKJGD,some bars cover other bars,"Some bars cover the smaller bars behind them. I cant read the exact z-values of the small bars. The axis are not labeled, therefore lack of context. The lines of the bars edges appear not always parallel, making them look like they are twisted a little, which could distort the actual values.",4,image6,"[""Simple - 1D"",""Embellished"",""Missing labels"",""Missing legend"",""Small values"",""Other (please comment)""]",Philip Boroviczeny
+p3BciSJ8pQLUAsI3JC5P,,Difficult to understand in particular where exactly the data are positioned with respect to the x-axis,5,image17,"[""Dot bar chart"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Nicolò Filippucci
+p55dxpYTVQ5hNi4OfFkH,,"The representation is not complex, only some information is missing to understand it completely and correctly.",2,image12,"[""Grouped"",""Stacked"",""Missing labels"",""Small values""]",Nicolò Filippucci
+p7ocNJvWQMNssoaEFkI6,The plot just isn't clear from the understanding point of view.,"Although all axis descriptions and title are present, but it's not clear what the graph represents. Which measure does x-axis have? ",3,image10,"[""Simple - 1D"",""No gaps 2"",""Other (please comment)""]",Polina Samoilenko
+pChsKtiI5QY9NruYAp58,,"Lacks context. also there is no y axis, but maybe it isnt necessary if I would want to only see where the data points group",4,image17,"[""Dot bar chart"",""Missing labels"",""Missing values / axes""]",Philip Boroviczeny
+pPq7oafxlS7S2l9KvL52,,"Abreviations on the y-axis are not clear, colors aro not clear, a lot of similar colors. No name for x- and y-axis.",3,image11,"[""Simple - 1D"",""Grouped"",""Missing labels"",""Missing legend"",""Monochrome""]",Polina Samoilenko
+pQlu3l2HNHmO8PjZwPqH,occlusion and complex scene,too many things and occlusion ,4,image22,"[""Nested 1"",""3D"",""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Siming Chen
+peQStKVs7peyEI4N8KZ6,Wrong y-axis.,"Not clear what blue and green mean, y-axis is not correct (dictance from 1 to 10 is the same as from 10 to 100 and from 100 to 1000).",3,image7,"[""Simple - 1D"",""Missing legend"",""Other (please comment)""]",Polina Samoilenko
+qGbSi5kYAhMMscPkllZD,,Easy to understand with labels and legend,1,image10,"[""Simple - 1D"",""No gaps 2""]",Nicole Gladik
+qh9xSxSOP4PEOd7uqsDi,,"normal stacked barchart, with percentages, makes it easier to compare",2,image23,"[""Simple - 1D""]",Verena
+rZxlYh3bJORNLWg43ZuH,"The triangle and the ""scatterplot"" inside is not self explanatory. Do not understand what the U N P stands for. ","could somehow understand the categories. No idea what U P N stands for, as well as the triangle it forms, but looks very interesting.",5,image5,"[""Radial"",""Missing labels"",""Other (please comment)""]",Jin
+sAZcOsQr9Xbi2XZuUoJj,,"It is rather difficult to understand the general context/purpose of the chart, without any indication it is very difficult to understand this chart",5,image8,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing legend""]",Nicolò Filippucci
+sBEPSdNOQNFUAVGVr4X5,,This looks like multiple charts in one.,5,image8,"[""Grouped"",""Nested 1"",""Missing labels"",""Missing legend""]",Rory James Zauner
+sEioOQgLIPHn7pIs4GEI,,"Basic grouped bar chart. However, the legend and axes labeling are missing, so it is not clear what the colors refer to.",2,image1,"[""Grouped"",""Missing labels"",""Missing legend""]",Christian Knoll
+sOU9EuKF6vRuJgdXmq3N,,"Basic Gantt-Chart, not hard to understand. However, the text on the chart is confusing.",2,image9,"[""Gantt chart""]",Christian Knoll
+siHn0HcgohcklRnVew1A,yeah not very useful to put information in there,there 0 lable or explanation shown on any charts. Looks more like a drawing/art instead of a visualization,5,image26,"[""Radial"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Jin
+siNhMLR4LqiQdg2nbLB1,too thin bars,"Well it would be hard to read single values out of this chart and the x axis could have more numbers, making it easier to read the values.",4,image13,"[""Simple - 1D"",""No gaps 2"",""Other (please comment)""]",Philip Boroviczeny
+t41c5yDYFpapRnTIrCCv,the curvature distorts the values I guess ,"No labels, no axis, very thin lines, no ides what it should show",5,image26,"[""Simple - 1D"",""Embellished"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values""]",Philip Boroviczeny
+t6prNNZZ9TE7cmXxervo,,i do not really understand it. why red and green people? what does that mean?,5,image3,"[""Missing labels"",""Missing legend"",""Missing values / axes""]",Verena
+tIQJJZTlvue0NbT2ItXh,,"i find it easy to read, althoug it is 3D",2,image6,"[""3D"",""Missing labels"",""Background element"",""Monochrome""]",Verena
+tsQcWNVu3DJ6l5uiyZmO,,Not quite clear where the dots on the x-axis are.,3,image17,"[""Dot bar chart"",""Missing labels"",""Missing values / axes""]",Christian Knoll
+uEdiuBzEN4XpStpnQ2BQ,,"a simple gant chart, the ""bits"" are bit confusing",1,image9,"[""Gantt chart""]",Jin
+uHy684Kye8wSpfb9Y3qR,clear to understand ,stacked bar chart,3,image23,"[""Stacked"",""Other (please comment)""]",Siming Chen
+uPZICBTa22DJ8byIhv11,curve in the bars makes it impossible to get any value other than maximum or not,No clear differentiation possible therefore no information obtainable.,5,image26,"[""Stacked"",""Missing labels"",""Missing legend"",""Missing values / axes"",""Small values"",""Other (please comment)""]",Alexander Peikert
+v1fHKYoAumZFHN5LDPk5,,"personally, I prefer to have the bars vertical",2,image16,"[""Simple - 1D"",""Missing labels""]",Henry Eretge
+v8DfCXLyT9qG0HHst6DJ,see my comment before.,hard to read text. many colors; human figure width  change - no data for width,4,image25,"[""Embellished"",""Other (please comment)""]",Jian Chen
+vC5g0mD6TCwFRqOkhR7l,,the chart itself is not complex,2,image9,"[""Embellished""]",Verena
+vLCnEpMkgiBCHOvvgSUY,The orange and the red does not suit too well together.,"The ranges for the each grouped bars are different. Could only guess what the chart is used for, but if the labels and legends are there probably not difficult to understand.",4,image8,"[""Grouped"",""Nested 1"",""Missing legend"",""Missing values / axes"",""Other (please comment)""]",Jin
+vmXPQWStdKYVQOmkh2C5,,Easy to understand when context is provided ,1,image15,"[""Grouped"",""No gaps 2"",""Missing values / axes""]",Alexander Peikert
+w1PCykZPlDcBlmlLu0iY,,Clear to read and understand,1,image25,"[""Simple - 1D"",""3D"",""Embellished""]",Nicolò Filippucci
+w30dobwJtrSP0Kd1vpqV,bars fading out,"why do the bars fade out, also axis values and label missing",3,image14,"[""Simple - 1D"",""Missing labels"",""Missing values / axes"",""Other (please comment)""]",Henry Eretge
+w89CNnNDAXuWd9lPGnsA,big font,Clear with a title,2,image10,"[""Simple - 1D"",""No gaps 2"",""Background element"",""Other (please comment)""]",Verena
+wHV1Joiv9DybTklab4Qp,orientation and line width,"+ title for context
+- line size makes small values hard to read
+- x-axis label rotation 
+- major ticks would be helpful",2,image10,"[""Simple - 1D"",""No gaps 2"",""Other (please comment)""]",Michaela Hubweber
+wLefgt5I97MqTYaBUFbU,,3d chart and small values make comparison hard,4,image6,"[""3D"",""Missing labels"",""Monochrome"",""Small values""]",Michaela Hubweber
+wP4uYHHmw7yqciAelTWl,,There are no labels. Very difficult to know what I'm looking at. ,5,image1,"[""Grouped"",""Embellished"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Hoda Kermani
+wly5s76rdFfMjwlztn2e,Color is better for distinguishing,why not use colors? I at first thought these are box plots,3,image21,"[""Grouped"",""Other (please comment)""]",Henry Eretge
+wmPJaTgU7YHNAlPUUnYf,,"issues with ordering of the axes, grid lines are not helping, color coding and bar size not explained, labels missing",5,image8,"[""Simple - 1D"",""Nested 1"",""Missing labels"",""Missing legend"",""Background element""]",Michaela Hubweber
+wsO7eilrUZko00kIIVAo,"stack or nested?  not sure. 
+",clearly labelled. easy to read. Show a distribution,3,image2,"[""Stacked"",""Nested 1"",""Background element""]",Jian Chen
+x3xA900EcYJjndhFFSyj,,"no axis label on y-axis, is it sorted?",3,image19,"[""Simple - 1D"",""No gaps 2"",""Missing values / axes""]",Henry Eretge
+x8e7z2mHMV1nTOzTc4LW,,Not that easy to read because of the similar colors. ,4,image15,"[""Grouped"",""Monochrome""]",Philip Boroviczeny
+xFBu3wKeKUvIpaX55imt,,Overlapping bars without legend and values that are hard to read.,4,image8,"[""Nested 1"",""Missing labels"",""Missing legend"",""Missing values / axes""]",Christian Knoll
+xJTA0qcp76c2LZROnAsa,labels (NUP) used letters. It is unclear what it means.  ,"It is interesting and more novel. Since is unusual, I'd be willing to spend more time on it. It might be difficult to compare elements.",5,image5,"[""Stacked"",""Radial""]",Jian Chen
+xTx5I1z9C8ChL2ep5ni4,,Simple but label is missing,1,image16,"[""Simple - 1D"",""Missing labels""]",Alexander Seitner
+xUHwSAKW5iSoBEJmK78l,no vertical lines. Would help me read exact values,not that easy to read the exact y values of the boxplots more to the right. ,3,image21,"[""Grouped"",""Other (please comment)"",""Box plot""]",Philip Boroviczeny
+xk696yqyXcuJSwv7MTLX,,the percentages in the bars is confusing,4,image4,"[""Grouped"",""No gaps 2""]",Verena
+xsC6Jr1JmmHY7mrlI0kW,,x axis isnt labeled,2,image16,"[""Simple - 1D"",""Missing labels""]",Philip Boroviczeny
+y78qscqhcUV6ONupYPz0,Same answer as previous question - the labels are there but the domain not clear.,"I'm missing the domain context. However, the chart does have everything it's just very difficult to interpret.",5,image4,"[""Grouped""]",Hoda Kermani
+yF1Ufp7BEW3N9ah5djyW,"values too big, not beautiful",simple bars ,2,image15,"[""Grouped"",""No gaps 2"",""Other (please comment)""]",Siming Chen
+yMjA58GtVg1mcAaidKeQ,,Clearly to understand,1,image23,"[""Stacked"",""Missing labels""]",Alexander Peikert
+yNV2QIaA5QB1eledfU8a,,Overall simple plot but uninterpretable due to the missing label,2,image15,"[""Simple - 1D"",""Grouped"",""Missing labels""]",Alexander Seitner
+ygwzHjjPiUIROKadecMp,,Not clear at all.,5,image22,"[""3D"",""Missing labels"",""Missing legend"",""Background element"",""Missing values / axes""]",Polina Samoilenko
+z98x5p2Gm4zvYXpKa0Ow,Too much bars.,"It's quite complicated to understand 2 level x-axis labeling (from 1 to 7 and then 20,50,100). It's not quite clear what they mean. Also there are quite a lot of bars which makes it complicated to compare them.",5,image1,"[""Grouped"",""No gaps 2"",""Missing labels"",""Missing legend"",""Other (please comment)""]",Polina Samoilenko
+zOsKuEZ8ITuGetcFoJT5,,"i do not understand this chart, no title, i can't read what value the orange bars have",4,image19,"[""Simple - 1D"",""No gaps 2"",""Missing values / axes""]",Verena
+zTonLqhS03yhXsW9sDpI,,"Its not clear what U, P and N are. Also there are points and a bar chart, which makes it even more confusing",5,image5,"[""Dot bar chart"",""Radial"",""Missing values / axes""]",Nicole Gladik
+znfYy9xmAgPpWqKaoQoI,,Not quite clear what y-axis means.,3,image19,"[""Simple - 1D"",""No gaps 2"",""Missing labels"",""Missing values / axes""]",Polina Samoilenko
+zr2nKM8GazuxE0PNNl3t,,stacked and grouped barchart - takes a long time to understand,5,image12,"[""Simple - 1D"",""Grouped"",""Stacked""]",Verena
+zuwoNPryZnZzrY2ze986,occlusion. ,a lot of annotations but not good. ,4,image9,"[""Simple - 1D"",""Embellished"",""Background element""]",Siming Chen

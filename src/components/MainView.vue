@@ -129,11 +129,11 @@
 
 
                 <div style="margin-top:34px; margin-left: 70px; text-align: left;">
-                    <h5>Overall issues</h5>
+                    <h5>Issues</h5>
                     <div>
                         <input class="form-check-input" type="checkbox" value="">
                         <label class="form-check-label">
-                            Missing labels
+                            Missing axis-label
                         </label>
                     </div>
                     <div style="margin-top: 10px;">
@@ -157,12 +157,6 @@
                     <div style="margin-top: 10px;">
                         <input class="form-check-input" type="checkbox" value="">
                         <label class="form-check-label">
-                            Missing values / axes
-                        </label>
-                    </div>
-                    <div style="margin-top: 10px;">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label">
                             Small values
                         </label>
                     </div>
@@ -176,7 +170,7 @@
 
 
                 <div style="position: absolute; top:299px; left: 380px; text-align: left;">
-                    <h5 style="white-space: nowrap;">Other charts</h5>
+                    <h5 style="white-space: nowrap;">Other chart types</h5>
                     <div style="margin-top: 10px;">
                         <input class="form-check-input" type="checkbox" value="">
                         <label class="form-check-label" style="white-space: nowrap;">
