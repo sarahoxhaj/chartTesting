@@ -16,9 +16,8 @@
             style="position:absolute;">Other</button>
     </div>
 
-    <div style="margin-top: -11.5rem; position: absolute; width: 35%; margin-left: 63rem;">
-        <button @click="handleDetailClick" type="button" class="btn btn-outline-secondary btn-sm"
-            style="position:absolute;">Details</button>
+    <div style="margin-top: -11rem; position: absolute; width: 35%; margin-left: 62rem;">
+        <p><small><small><small>Click on the bars for more details</small></small></small></p>
     </div>
 
 
@@ -107,7 +106,7 @@ export default {
         },
         handleButtonClick() {
             const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);
-            d3.csv('/testResult.csv').then(data => {
+            d3.csv('/pilotTest.csv').then(data => {
                 const filteredRows = data.filter(row => row.key === imageName);
                 const selectedCheckboxesCounts = {};
                 filteredRows.forEach(row => {
@@ -169,7 +168,7 @@ export default {
             }
         },
         loadDataset() {
-            d3.csv('/testResult.csv').then(data => {
+            d3.csv('/pilotTest.csv').then(data => {
                 data.forEach(d => {
                     d.complexity = +d.complexity;
                 });
@@ -189,7 +188,7 @@ export default {
             return `image${parseInt(imageNumber)}`;
         },
         analyzeCommentComplexity(imageName) {
-            d3.csv('/testResult.csv').then(data => {
+            d3.csv('/pilotTest.csv').then(data => {
                 // get data where 'key' value is equal to current displayed
                 const filteredData = data.filter(row => row.key === imageName);
 
@@ -335,7 +334,7 @@ export default {
                 this.analyzeCommentComplexity(mappedImageName);
                 this.commentComplexity = '';
 
-                d3.csv('/testResult.csv').then(data => {
+                d3.csv('/pilotTest.csv').then(data => {
                     const imageRow = data.find(row => row.key === mappedImageName);
                     if (imageRow && imageRow.commentComplexity) {
                         this.commentComplexity = imageRow.commentComplexity;
