@@ -5,12 +5,19 @@
         </div>
     </nav>
     <div
-        style="border: 1px solid #DDD; width: 40rem; height: 30rem; margin-top: 6rem; margin-left: 20px; position: relative;">
+        style="border: 1px solid #DDD; width: 40rem; height: 30rem; margin-top: 6rem; margin-left: 35px; position: relative;">
         <h6 style="margin-top:-45px;">Average complexity score: {{ averageValue }}</h6>
         <img :src="currentImage" alt="Your Image"
             style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
     </div>
     <div>
+        <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
+            viewBox="0 0 16 16"
+            style="position: absolute; transform: translateX(-50%); margin-top: 2rem; margin-left: -29rem; width: 22px; height: 22px; ">
+            <path
+                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+        </svg>
+
         <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill"
             viewBox="0 0 16 16"
             style="position: absolute; transform: translateX(-50%); margin-top: 2rem; margin-left: -27rem; width: 22px; height: 22px; ">
@@ -19,6 +26,8 @@
         </svg>
     </div>
     <div>
+        <p @click="prevImage" style="cursor: default; margin-top: -1px; margin-left:6.5rem; position: absolute;"><b>Previous
+                image</b></p>
         <p @click="handleSvgClick" style="cursor: default; margin-top: 2rem; margin-right: 45rem;"><b>Next image</b></p>
     </div>
 
@@ -28,9 +37,9 @@
         </div>
     </div>
 
-    <div
+    <div id="category-chart"
         style="border: 1px solid #DDD; width: 33rem; height: 20rem; margin-left: 50rem; position: absolute; margin-top: -15rem;">
-        <p v-for="(count, category) in categoryCounts" :key="category">{{ category }}: {{ count }}</p>
+        <!-- <p v-for="(count, category) in categoryCounts" :key="category">{{ category }}: {{ count }}</p> -->
     </div>
 </template>
 
@@ -77,7 +86,11 @@ export default {
             this.nextImage();
         },
         nextImage() {
-            this.currentIndex++;
+            if (this.isLastImage) {
+                this.currentIndex = 0; // Reset to the first image
+            } else {
+                this.currentIndex++;
+            }
             this.showButton = true;
             this.imageCounter();
         },
@@ -159,6 +172,65 @@ export default {
                         }
                     }
 
+                    // Visualization with a bar chart
+                    // Prepare data for the bar chart
+                    const categoryData = Object.entries(this.categoryCounts).map(([category, count]) => {
+                        return { category, count };
+                    });
+                    // Sort data by count
+                    categoryData.sort((a, b) => b.count - a.count);
+
+                    // Clear any existing chart
+                    d3.select('#category-chart').selectAll('*').remove();
+                    // Set up SVG dimensions
+                    const svgWidth = 500;
+                    const svgHeight = 300;
+                    const margin = { top: 20, right: 20, bottom: 90, left: 40 };
+                    const width = svgWidth - margin.left - margin.right;
+                    const height = svgHeight - margin.top - margin.bottom;
+                    // Create SVG element
+                    const svg = d3.select('#category-chart')
+                        .append('svg')
+                        .attr('width', svgWidth)
+                        .attr('height', svgHeight)
+                        .append('g')
+                        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                    // Define scales
+                    const x = d3.scaleBand()
+                        .range([0, width])
+                        .padding(0.1)
+                        .domain(categoryData.map(d => d.category));
+                    const y = d3.scaleLinear()
+                        .range([height, 0])
+                        .domain([0, d3.max(categoryData, d => d.count)]);
+
+                    // Create bars
+                    svg.selectAll('.bar')
+                        .data(categoryData)
+                        .enter()
+                        .append('rect')
+                        .attr('class', 'bar')
+                        .attr('x', d => x(d.category))
+                        .attr('width', x.bandwidth())
+                        .attr('y', d => y(d.count))
+                        .attr('height', d => height - y(d.count))
+                        .attr('fill', '#b6d2d6');
+                    // Append x-axis
+                    svg.append('g')
+                        .attr('class', 'x-axis')
+                        .attr('transform', `translate(0,${height})`)
+                        .call(d3.axisBottom(x))
+                        .selectAll('text')
+                        .attr('transform', 'rotate(-45)')
+                        .style('text-anchor', 'end');
+
+                    // Append y-axis
+                    svg.append('g')
+                        .attr('class', 'y-axis')
+                        .call(d3.axisLeft(y).ticks(5));
+
+
 
                 } else {
                     console.error(`No comments found for key "${imageName}" in the dataset.`);
@@ -179,7 +251,6 @@ export default {
                 this.averageValue = complexityData.avgComplexity;
 
                 this.analyzeCommentComplexity(mappedImageName);
-
 
                 this.commentComplexity = '';
 
@@ -214,7 +285,6 @@ export default {
                             });
                         }
                     });
-
 
                     // Prepare data for bar chart
                     const dataForChart = Object.entries(selectedCheckboxesCounts).map(([checkbox, count]) => {
@@ -266,7 +336,7 @@ export default {
                         .attr('width', x.bandwidth())
                         .attr('y', d => y(d.count))
                         .attr('height', d => height - y(d.count))
-                        .attr('fill', '#77ba9e');
+                        .attr('fill', '#b6d2d6');
 
                     svg.append('g')
                         .attr('class', 'x-axis')
