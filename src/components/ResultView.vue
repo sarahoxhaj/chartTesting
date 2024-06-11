@@ -42,7 +42,7 @@
 
     <div style="margin-left: 85px;">
         <p @click="prevImage" style="cursor: default; margin-top: -1px; margin-left:6.5rem; position: absolute;">Previous
-                image</p>
+            image</p>
         <p @click="handleSvgClick" style="cursor: default; margin-top: 2rem; margin-right: 45rem;">Next image</p>
     </div>
 
@@ -104,7 +104,7 @@ export default {
         this.loadDataset();
     },
     methods: {
-        changeView(){
+        changeView() {
             this.$router.push('/summaryView');
         },
         handleButtonClick() {
@@ -198,8 +198,7 @@ export default {
                 if (filteredData.length > 0) {
                     // keywords for analyzing comments
                     const keywordsAnalysis = {
-                        'general complexity': ['presentation', 'complex', 'hard to interpret', 'complexity', 'unstructured', 'complicated', 'difficult', 'misleading', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'hard to read', 'confused', 'confusing', 'unclear how to read', 'not clear', 'more time', 'abstract', 'nothing is clear', 'art', 'abstract'],
-                        'context': ['context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
+                        'context': ['abstract', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'confused', 'nothing is clear', 'unclear how to read', 'not clear', 'presentation', 'context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
                         'separation': ['separation', 'touching', 'comparing', 'comparison', 'spacing', 'a lot of bars', 'number of bars', 'many bars', 'compare', 'gaps', 'close', 'compare', 'thin lines', 'thin line'],
                         'axis and labels': ['label', 'labels', 'axis', 'axes', 'labeling'],
                         'use of color': ['color', 'colour', 'colors', 'colours', 'fade', 'fading', 'shade', 'shading'],
@@ -278,27 +277,27 @@ export default {
                         .attr('fill', '#AED2D6');
 
                     bars.on('click', function (event, d) {
-                        if (d.category === 'general complexity') {
-                            alert("User has difficulties understanding and interpreting the chart. It can be unclear, misleading, hard to read and requires more time to decode the information.");
+                        if (d.category === 'ambiguity') {
+                            alert("User has difficulties interpreting the chart. It can be unclear, misleading, hard to read and understand what the chart is showing.");
                         } else if (d.category === 'context') {
                             alert("The chart is missing some information or context which makes it difficult to understand what is being shown. The domain is unknown and there are no titles to explain this.");
                         }
                         else if (d.category === 'separation') {
-                            alert("The chart would be easier to understand if there was some separation between the bars - also would help when comparing between them. There are a lot of bars being shown in the chart which are very close to each other.");
+                            alert("The chart would be easier to understand if there was some separation between the bars - also would help when comparing between them. There are a lot of bars being shown in the chart which are very close to each other. Comparing between bars or different categories is not easy / requires some time.");
                         }
-                        else if(d.category === 'axis and labels'){
+                        else if (d.category === 'axis and labels') {
                             alert("Chart has issues regarding x and y axis and its labels. Could be the case of no labels or axes, values not well readable or not clear to understand etc.");
                         }
-                        else if(d.category === 'use of color'){
+                        else if (d.category === 'use of color') {
                             alert("User does not understand the reason behind the colors in the chart or is confused if this affects the type of the bar chart.")
                         }
-                        else if (d.category==='missing legend'){
+                        else if (d.category === 'missing legend') {
                             alert("There is no legend in the chart explaining what each color/group stands for. User does not really understand what the visualized data is representing.");
                         }
-                        else if (d.category==='clutter'){
+                        else if (d.category === 'clutter') {
                             alert("User is overwhelmed by the amount of information in the chart. He cannot distinct values or other details in the chart, thinks that there is too much information being shown and that the chart is 'unreadable'.");
                         }
-                        else if (d.category==='small values'){
+                        else if (d.category === 'small values') {
                             alert("The visualized data contains very small values which are difficult to read or see. The value of a bar can be almost unreadable.");
                         }
                     });
@@ -334,7 +333,7 @@ export default {
                 //console.log(`Average complexity for ${mappedImageName}: ${complexityData.avgComplexity}`);
                 //print to <p>
 
-                    console.log('emer:',imageName);
+                console.log('emer:', imageName);
 
                 this.averageValue = complexityData.avgComplexity;
                 this.analyzeCommentComplexity(mappedImageName);

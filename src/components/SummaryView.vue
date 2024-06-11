@@ -4,7 +4,44 @@
             <h5 class="text-center text-md-left">Summary of complexity criteria</h5>
         </div>
     </nav>
-    <div id="total-category-chart" style="border: 1px solid #DDD; width: 40rem; height: 30rem; margin-top: 2rem; margin-left:40px;">
+    <div class="row" style="max-width: 100%;">
+        <div class="col" id="total-category-chart" style="margin-left: 10px; margin-top:7rem;">
+        </div>
+        <div class="col" style="margin-right:3rem; text-align: left; margin-top:4.5rem;">
+            After analyzing the data retrieved from the pilot test where 15 people participated, we organized the result in
+            three big groups.
+            <ul>
+                <li>First group</li>
+                <ul>
+                    <li>In the first group are included the most common elements that add to the complexity of a bar chart.
+                        <i>Axis and labels</i> which a value of 169 mainly includes issues of missing labels, misleading and
+                        confusing axes values and not being able to assign a value to the bars. <i>Context</i> addresses
+                        difficulties in understanding the domain of the visualized data. This happens in cases where there
+                        is missing information about the context fo the chart and the viewer does not understand what is
+                        being shown.
+                    </li>
+                </ul>
+                <li>Second group</li>
+                <ul>
+                    <li>This group consists of <i>use of color</i> and <i>missing legend</i>. While the first one has a
+                        value of 60 and represents issues regarding the used colors in the chart to make some distinction
+                        between different bars and categories, the second one, with a value of 50, is about not knowing what
+                        these features (colors, groups, categories) stand for.</li>
+                </ul>
+                <li>Third group</li>
+                <ul>
+                    <li>In the third and last group, we include <i>clutter</i>, <i>small values</i> and <i>separation</i>.
+                        Clutter, which has a value of 39, focuses on cases when the viewer is provided with a 'dense' chart
+                        overloaded with information and it can be hard to 'read' the
+                        visualized data. Small values, with a value of 36, represents cases
+                        where the values represented in the chart are so small, the viewer has difficulties reading and
+                        noticing them. Lastly, separation (28) stands for issues occurring when there is little to no
+                        separation between the
+                        bars in the chart, making comparison hard.</li>
+                </ul>
+
+            </ul>
+        </div>
     </div>
 </template>
 <script>
@@ -24,14 +61,13 @@ export default {
         analyzeAllComments() {
             d3.csv('/pilotTest.csv').then(data => {
                 const keywordsAnalysis = {
-                    'general complexity': ['presentation', 'complex', 'hard to interpret', 'complexity', 'unstructured', 'complicated', 'difficult', 'misleading', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'hard to read', 'confused', 'confusing', 'unclear how to read', 'not clear', 'more time', 'abstract', 'nothing is clear', 'art', 'abstract'],
-                    'context': ['context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
+                    'context': ['abstract', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'confused', 'nothing is clear', 'unclear how to read', 'not clear', 'presentation', 'context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
                     'separation': ['separation', 'touching', 'comparing', 'comparison', 'spacing', 'a lot of bars', 'number of bars', 'many bars', 'compare', 'gaps', 'close', 'compare', 'thin lines', 'thin line'],
                     'axis and labels': ['label', 'labels', 'axis', 'axes', 'labeling'],
                     'use of color': ['color', 'colour', 'colors', 'colours', 'fade', 'fading', 'shade', 'shading'],
                     'missing legend': ['legend', 'legends', 'represents', 'represent', 'representing', 'stand for', 'stands for', 'categories'],
-                    'clutter': ['crowded', 'cant read', 'hard to see', 'hard to read', 'occupied', 'dense', 'a lot of information', 'takes time', 'too much information', 'overloaded', 'too much going on', 'unreadable'],
-                    'small values': ['small values', 'values too small', 'values small', 'small', 'very small', 'cannot be read', 'hard to see', 'readable'],
+                    'clutter': ['crowded', 'unstructured', 'cant read', 'hard to see', 'more time', 'hard to read', 'occupied', 'takes a long time', 'dense', 'a lot of information', 'takes time', 'too much information', 'overloaded', 'too much going on', 'unreadable'],
+                    'small values': ['small values', 'values too small', 'values small', 'small', 'very small', 'cannot be read', 'hard to see', 'readable', 'hard to read'],
                 };
 
                 this.categoryCounts = Object.fromEntries(Object.keys(keywordsAnalysis).map(category => [category, 0]));
@@ -89,7 +125,7 @@ export default {
                 .range([height, 0])
                 .domain([0, d3.max(categoryData, d => d.count)]);
 
-            svg.selectAll('.bar')
+            const bars = svg.selectAll('.bar')
                 .data(categoryData)
                 .enter()
                 .append('rect')
@@ -111,6 +147,22 @@ export default {
             svg.append('g')
                 .attr('class', 'y-axis')
                 .call(d3.axisLeft(y).ticks(20));
+
+            const tooltip = svg.append('text')
+                .attr('class', 'tooltip')
+                .style('opacity', 0)
+                .attr('text-anchor', 'middle')
+                .style('font-size', '12px');
+
+            bars.on('mouseover', function (event, d) {
+                const bar = d3.select(this);
+                tooltip.attr('x', +bar.attr('x') + +bar.attr('width') / 2)
+                    .attr('y', +bar.attr('y') - 5)
+                    .text(d.count)
+                    .style('opacity', 1);
+            })
+                .on('mouseout', () => tooltip.style('opacity', 0));
+
         }
     }
 };
