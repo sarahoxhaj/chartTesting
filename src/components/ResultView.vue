@@ -7,60 +7,57 @@
             <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
         </div>
     </nav>
-    <div
-        style="border: 1px solid #DDD; width: 40rem; height: 30rem; margin-top: 6rem; margin-left: 35px; position: relative;">
-        <h6 style="margin-top:-45px;">Average complexity score: <b>{{ averageValue }}</b></h6>
-        <img :src="currentImage" alt="Your Image"
-            style="max-width: 100%; max-height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-    </div>
 
-    <div v-if="showButton" style="margin-top: -34.8rem; position: absolute; width: 35%; margin-left: 63rem;">
-        <button @click="handleButtonClick" type="button" class="btn btn-outline-secondary btn-sm"
-            style="position:absolute;">Other*</button>
-    </div>
-
-    <div style="margin-top: -11rem; position: absolute; width: 35%; margin-left: 62rem;">
-        <p><small><small><small>Click on the bars for more details</small></small></small></p>
-    </div>
-
-
-    <div style="margin-left: 120px;">
+    <!-- re -->
+    <div>
         <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
             viewBox="0 0 16 16"
-            style="position: absolute; transform: translateX(-50%); margin-top: 2rem; margin-left: -29rem; width: 22px; height: 22px; ">
+            style="position: absolute; transform: translateX(-50%); width: 22px; height: 22px; margin-top: 0.7rem; margin-left:-0.6rem;">
             <path
                 d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
         </svg>
-
+        <p style="margin-left:36.5em; margin-top:0.7rem; position:absolute;">Previous image</p>
+    </div>
+    <div>
         <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill"
             viewBox="0 0 16 16"
-            style="position: absolute; transform: translateX(-50%); margin-top: 2rem; margin-left: -27rem; width: 22px; height: 22px; ">
+            style="position: absolute; transform: translateX(-50%); width: 22px; height: 22px; margin-top: 0.7rem; margin-left:1rem; ">
             <path
                 d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
         </svg>
+        <p style="margin-left:47em; margin-top:0.7rem; position:absolute;">Next image</p>
     </div>
 
-    <div style="margin-left: 85px;">
-        <p @click="prevImage" style="cursor: default; margin-top: -1px; margin-left:6.5rem; position: absolute;">Previous
-            image</p>
-        <p @click="handleSvgClick" style="cursor: default; margin-top: 2rem; margin-right: 45rem;">Next image</p>
-    </div>
+    <div class="container" style="position:relative;">
+        <div class="row" style="margin-top:3rem;">
+            <div class="col"
+                style="border: 1px solid #DDD; margin-right:2rem; width: 33rem; height: 20rem; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <img :src="currentImage" alt="Your Image" style="max-width: 100%; max-height: 100%;">
+            </div>
 
-    <div>
-        <p style="margin-top: -39em; margin-left: 60rem; position: absolute;">Graph Feature Recognition</p>
-        <div id="bar-chart"
-            style="border: 1px solid #DDD; width: 33rem; height: 20rem; margin-left: 50rem; margin-top: -37rem; position: absolute;">
-        </div>
-    </div>
-
-    <div>
-        <p style="margin-top: -15.5em; margin-left: 60rem; position: absolute;">Reasons for Complexity</p>
-        <div id="category-chart"
-            style="border: 1px solid #DDD; width: 33rem; height: 20rem; margin-left: 50rem; position: absolute; margin-top: -14rem; ">
+            <div class="col" style="border: 1px solid #DDD; width: 33rem; height: 20rem;">
+                <p>Graph Feature Recognition</p>
+                <div v-if="showButton" style="margin-top:-33px; margin-left:32rem;">
+                    <button @click="handleButtonClick" type="button"
+                        class="btn btn-outline-secondary btn-sm">Other*</button>
+                </div>
+                <div id="bar-chart" style="margin-top:-23px;"> </div>
+            </div>
+            <div class="w-100" style="margin-top:2rem;"></div>
+            <div class="col" style="border: 1px solid #DDD; margin-right:2rem; width: 33rem; height: 20rem;">
+                <p>Complexity scores - average value of <b>{{ averageValue }}</b></p>
+                <div id="complexityScores-chart" style="margin-top:-11px; margin-right:20px;"> </div>
+            </div>
+            <div class="col" style="border: 1px solid #DDD; width: 33rem; height: 20rem;">
+                <p>Reasons for Complexity</p>
+                <div style="margin-left:28rem; margin-top:-42px;">
+                    <p><small><small><small>Click on the bars for more details</small></small></small></p>
+                </div>
+                <div id="category-chart" style="margin-top:-11px;"> </div>
+            </div>
         </div>
     </div>
 </template>
-
 
 
 <script>
@@ -129,7 +126,7 @@ export default {
                 if (otherBoxCount > 0) {
                     filteredRows.forEach(row => {
                         if (row.comment && row.comment.trim() !== '') {
-                            comments += `•${row.comment}\n`;
+                            comments += `•${row.comment}\n\n`;
                         }
                     });
                 }
@@ -142,7 +139,6 @@ export default {
                 console.error('Error loading dataset:', error);
             });
         },
-
         handleSvgClick() {
             this.nextImage();
         },
@@ -196,6 +192,20 @@ export default {
                 const filteredData = data.filter(row => row.key === imageName);
 
                 if (filteredData.length > 0) {
+
+                    // creating bar chart for all complexity scores
+                    const complexityData = filteredData.map(row => row.complexity);
+                    const alphabet = 'ABCDEFGHIJKLMNO'.split('');
+                    const labeledData = complexityData.map((complexity, index) => ({
+                        label: alphabet[index % alphabet.length],
+                        complexity: +complexity
+                    }));
+                    // const complexityData = [];
+                    filteredData.forEach(row => {
+                        console.log(`Complexity from ${row.userName}: ${row.complexity}`);
+
+                    });
+
                     // keywords for analyzing comments
                     const keywordsAnalysis = {
                         'context': ['abstract', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'confused', 'nothing is clear', 'unclear how to read', 'not clear', 'presentation', 'context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
@@ -224,22 +234,16 @@ export default {
                         }
                     });
 
-                    // do not show categories with count = 0
-                    for (const category in this.categoryCounts) {
-                        if (this.categoryCounts[category] === 0) {
-                            delete this.categoryCounts[category];
-                        }
-                    }
-
                     // Prepare data for the bar chart
                     const categoryData = Object.entries(this.categoryCounts).map(([category, count]) => {
                         return { category, count };
                     });
                     // sort by count
-                    categoryData.sort((a, b) => b.count - a.count);
+                    //categoryData.sort((a, b) => b.count - a.count);
 
                     // Clear any existing chart
                     d3.select('#category-chart').selectAll('*').remove();
+                    d3.select('#complexityScores-chart').selectAll('*').remove();
                     // Set up SVG dimensions
                     const svgWidth = 500;
                     const svgHeight = 300;
@@ -259,12 +263,12 @@ export default {
                         .range([0, width])
                         .padding(0.1)
                         .domain(categoryData.map(d => d.category));
+
                     const y = d3.scaleLinear()
-                        .range([height, 0])
-                        .domain([0, d3.max(categoryData, d => d.count)]);
+                        .domain([0, 15])
+                        .range([height, 0]);
 
                     // Create bars
-                    //svg.selectAll('.bar')
                     const bars = svg.selectAll('.bar')
                         .data(categoryData)
                         .enter()
@@ -316,6 +320,82 @@ export default {
                         .attr('class', 'y-axis')
                         .call(d3.axisLeft(y).ticks(5));
 
+                    svg.append("text")
+                        .attr("class", "y label")
+                        .attr("text-anchor", "end")
+                        .attr("y", 2)
+                        .attr("dy", "-2em")
+                        .attr("dx", "0.5em")
+                        .attr("transform", "rotate(-90)")
+                        .style("font-size", "13px")
+                        .text("nr.of votes");
+
+
+
+                    // all complexity scores bar chart
+                    // Set up SVG dimensions
+                    const svgWidth1 = 500;
+                    const svgHeight1 = 300;
+                    const margin1 = { top: 20, right: 20, bottom: 90, left: 40 };
+                    const width1 = svgWidth1 - margin1.left - margin1.right;
+                    const height1 = svgHeight1 - margin1.top - margin1.bottom;
+
+                    // Create SVG element
+                    const svg1 = d3.select('#complexityScores-chart')
+                        .append('svg')
+                        .attr('width', svgWidth1)
+                        .attr('height', svgHeight1)
+                        .append('g')
+                        .attr('transform', `translate(${margin1.left},${margin1.top})`);
+
+                    // Define scales
+                    const x1 = d3.scaleBand()
+                        .range([0, width1])
+                        .padding(0.1)
+                        .domain(labeledData.map(d => d.label));
+
+                    const y1 = d3.scaleLinear()
+                        .domain([0, 5])
+                        .range([height1, 0]);
+
+                    // Create bars
+                    svg1.selectAll('.bar')
+                        .data(labeledData)
+                        .enter()
+                        .append('rect')
+                        .attr('class', 'bar')
+                        .attr('x', d => x1(d.label))
+                        .attr('width', x1.bandwidth())
+                        .attr('y', d => y1(d.complexity))
+                        .attr('height', d => height1 - y1(d.complexity))
+                        .attr('fill', '#AED2D6');
+
+                    // Append x-axis
+                    svg1.append('g')
+                        .attr('class', 'x-axis')
+                        .attr('transform', `translate(0,${height1})`)
+                        .call(d3.axisBottom(x1))
+                        .selectAll('text')
+                        .attr("dx", "0.4em")
+                        .style('text-anchor', 'end');
+
+                    // Append y-axis
+                    svg1.append('g')
+                        .attr('class', 'y-axis')
+                        .call(d3.axisLeft(y1).ticks(5));
+
+                    svg1.append("text")
+                        .attr("class", "y label")
+                        .attr("text-anchor", "end")
+                        .attr("y", 2)
+                        .attr("dy", "-1.7em")
+                        .attr("dx", "0.5em")
+                        .attr("transform", "rotate(-90)")
+                        .style("font-size", "13px")
+                        .text("scores");
+
+
+
                 } else {
                     console.error(`No comments found for key "${imageName}" in the dataset.`);
                 }
@@ -323,18 +403,11 @@ export default {
                 console.error('Error reading dataset:', error);
             });
         },
-
         printAverageComplexity(imagePath) {
             const imageName = imagePath.split('/').pop().split('.')[0];
             const mappedImageName = this.mapImageName(imageName);
             const complexityData = this.averageComplexities.find(item => item.key === mappedImageName);
             if (complexityData) {
-                //print average complexity score based on the image displayed
-                //console.log(`Average complexity for ${mappedImageName}: ${complexityData.avgComplexity}`);
-                //print to <p>
-
-                console.log('emer:', imageName);
-
                 this.averageValue = complexityData.avgComplexity;
                 this.analyzeCommentComplexity(mappedImageName);
                 this.commentComplexity = '';
@@ -358,19 +431,6 @@ export default {
                         });
                     });
 
-                    //print count of each selected box
-                    // Object.entries(selectedCheckboxesCounts).forEach(([checkbox, count]) => {
-                    //     console.log(`${checkbox}=${count}`);
-                    //     // print comment if not empty
-                    //     if (checkbox === 'Other (please comment)' && count > 0) {
-                    //         filteredRows.forEach(row => {
-                    //             if (row.comment && row.comment.trim() !== '') {
-                    //                 console.log(`Comment: ${row.comment}`);
-                    //             }
-                    //         });
-                    //     }
-                    // });
-
                     // Prepare data for bar chart
                     const dataForChart = Object.entries(selectedCheckboxesCounts).map(([checkbox, count]) => {
                         return { checkbox, count };
@@ -379,6 +439,12 @@ export default {
                     dataForChart.forEach(d => {
                         if (d.checkbox === 'Other (please comment)') {
                             d.checkbox = 'Other*';
+                        }
+                        else if (d.checkbox == 'No gaps 2') {
+                            d.checkbox = 'No gaps';
+                        }
+                        else if (d.checkbox == 'Nested 1') {
+                            d.checkbox = 'Nested';
                         }
                     });
 
@@ -408,8 +474,8 @@ export default {
                         .domain(dataForChart.map(d => d.checkbox));
 
                     const y = d3.scaleLinear()
-                        .range([height, 0])
-                        .domain([0, d3.max(dataForChart, d => d.count)]);
+                        .domain([0, 15])
+                        .range([height, 0]);
 
                     svg.selectAll('.bar')
                         .data(dataForChart)
@@ -434,18 +500,27 @@ export default {
                         .attr('class', 'y-axis')
                         .call(d3.axisLeft(y).ticks(5));
 
+                    svg.append("text")
+                        .attr("class", "y label")
+                        .attr("text-anchor", "end")
+                        .attr("y", 2)
+                        .attr("dy", "-2em")
+                        .attr("dx", "0.5em")
+                        .attr("transform", "rotate(-90)")
+                        .style("font-size", "13px")
+                        .text("nr.of votes");
+
+
 
                     // Check if the 'Other' bar has a value greater than zero
 
                     const otherBarValue = selectedCheckboxesCounts['Other (please comment)'] || 0;
                     this.showButton = otherBarValue > 0;
-
-
                 }).catch(error => {
                     console.error('Error loading dataset:', error);
                 });
             }
-        }
+        },
     }
 };
 </script>
