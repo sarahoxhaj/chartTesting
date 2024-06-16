@@ -2,13 +2,11 @@
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
         <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
             <h5 class="text-center text-md-left">Overview of pilot test with 15 participants</h5>
-        </div>
-        <div style="margin-right: 20px; margin-top:-10px;">
-            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
+            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm"
+                style="margin-left:78rem; margin-top: 0.8rem; position:absolute;">Complexity table</button>
         </div>
     </nav>
 
-    <!-- re -->
     <div>
         <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
             viewBox="0 0 16 16"
@@ -53,7 +51,7 @@
                 <div style="margin-left:28rem; margin-top:-42px;">
                     <p><small><small><small>Click on the bars for more details</small></small></small></p>
                 </div>
-                <div id="category-chart" style="margin-top:-11px;"> </div>
+                <div id="category-chart" style="margin-top:-11px;"> test</div>
             </div>
         </div>
     </div>
@@ -63,7 +61,7 @@
 <script>
 import * as d3 from 'd3';
 export default {
-    name: "MainView",
+    name: "ResultView",
     data() {
         return {
             images: [],
@@ -76,6 +74,7 @@ export default {
             comments: [],
             alertVisible: false,
             showButton: false,
+            keyObject: {}
 
         };
     },
@@ -102,7 +101,7 @@ export default {
     },
     methods: {
         changeView() {
-            this.$router.push('/summaryView');
+            this.$router.push('/ComplexityTable');
         },
         handleButtonClick() {
             const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);
@@ -200,11 +199,12 @@ export default {
                         label: alphabet[index % alphabet.length],
                         complexity: +complexity
                     }));
-                    // const complexityData = [];
-                    filteredData.forEach(row => {
-                        console.log(`Complexity from ${row.userName}: ${row.complexity}`);
 
-                    });
+                    // const complexityData = [];
+                    // filteredData.forEach(row => {
+                    //     console.log(`Complexity from ${row.userName}: ${row.complexity}`);
+
+                    // });
 
                     // keywords for analyzing comments
                     const keywordsAnalysis = {
@@ -409,6 +409,8 @@ export default {
             const complexityData = this.averageComplexities.find(item => item.key === mappedImageName);
             if (complexityData) {
                 this.averageValue = complexityData.avgComplexity;
+                //console.log(this.averageValue);
+
                 this.analyzeCommentComplexity(mappedImageName);
                 this.commentComplexity = '';
 
@@ -510,10 +512,7 @@ export default {
                         .style("font-size", "13px")
                         .text("nr.of votes");
 
-
-
-                    // Check if the 'Other' bar has a value greater than zero
-
+                    // Check if the 'Other' bar has a value greater than zero to show the button
                     const otherBarValue = selectedCheckboxesCounts['Other (please comment)'] || 0;
                     this.showButton = otherBarValue > 0;
                 }).catch(error => {
