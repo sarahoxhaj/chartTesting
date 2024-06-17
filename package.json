@@ -22,7 +22,6 @@
     "vue": "^3.2.13",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.3.1",
-    "vue-virtual-scroller": "^1.1.2",
     "vue-zoomer": "^0.3.10",
     "vuefire": "^3.1.23"
   },
