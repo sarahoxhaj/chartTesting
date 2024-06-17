@@ -15,16 +15,17 @@
       </div>
     </div>
   </div>
-  <div class="card" style="max-width: 33rem; margin-top: 20px; margin-left: 28.5rem; background-color: #e4e4e4;">
-    <div style="display: flex; align-items: center; margin-left: 2rem;">
-      <p class="mt-3" style="margin-left:2rem;">Not a participant?</p>
-      <div data-mdb-input-init class="form-outline me-3" style="margin-left:3rem;">
-        <input type="password" class="form-control" v-model="code" placeholder="Enter code"
-          style="width: 120px; height:35px;">
+  <div class="card" style="max-width: 33rem; margin: 20px auto; background-color: #e4e4e4;">
+    <div style="display: flex; flex-wrap: wrap; align-items: center;">
+      <p class="mt-3" style="flex: 1 1 100%; text-align: center; margin-left:-10rem;">Not a participant?</p>
+      <div class="form-outline flex-grow-1" style="flex: 1 1 200px; max-width: 120px; margin-left:-10rem;">
+        <input type="password" class="form-control" v-model="code" placeholder="Enter code">
       </div>
-      <button type="button" class="btn btn-outline-secondary btn-sm" @click="checkResult">Continue</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm"
+        style="flex: 0 0 auto; margin-right:4.5rem; margin-left:1rem; " @click="checkResult">Continue</button>
     </div>
   </div>
+
 
 
   <div class="mt-2 d-flex justify-content-center">
@@ -38,7 +39,8 @@
   <div class="mt-2 d-flex justify-content-center">
     <div v-if="showAlertCode" class="alert alert-warning" style="max-width: 33rem; height: 3.5rem;">
       Please enter your code.
-      <a href="#" class="close" @click="dismissAlertCode" aria-label="Close" style="padding: 5px 10px; text-decoration:none;">
+      <a href="#" class="close" @click="dismissAlertCode" aria-label="Close"
+        style="padding: 5px 10px; text-decoration:none;">
         <span aria-hidden="true" style="color: #545353;">&times;</span>
       </a>
     </div>
@@ -53,6 +55,7 @@ export default {
       name: '',
       showAlert: false,
       showAlertCode: false,
+      validCodes: ['sara', 'Sara', 'laura', 'Laura', 'torsten', 'Torsten']
     };
   },
   methods: {
@@ -71,11 +74,10 @@ export default {
       this.showAlertCode = false;
     },
     checkResult() {
-      if(this.code=='sara' || this.code=='Sara'|| this.code=='Laura'|| this.code=='laura'|| this.code=='torsten'|| this.code=='Torsten'){
+      if (this.validCodes.includes(this.code.toLowerCase())) {
         this.$router.push('/resultView');
-      }
-      else{
-        this.showAlertCode = true;
+      } else {
+        this.showAlertCode = true; 
       }
     },
   }

@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
-        <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
-            <h5 class="text-center text-md-left">Overview of pilot test with 15 participants</h5>
-            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm"
-                style="margin-left:78rem; margin-top: 0.8rem; position:absolute;">Complexity table</button>
+    <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top" style="background-color: #C4E1D5;">
+        <div class="container">
+            <h5 class="my-0 mr-md-auto" style="margin-left:29rem;">Overview of pilot test with 15 participants</h5>
+            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline">Complexity
+                table</button>
         </div>
     </nav>
 
