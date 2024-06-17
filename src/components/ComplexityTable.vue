@@ -1,21 +1,5 @@
 <template>
     <div>
-        <!-- <nav class="navbar navbar-default navbar-fixed-top"
-            style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
-            <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
-                <h5 class="text-center text-md-left">Complexity table</h5>
-            </div>
-            <div class="pagination" style="margin-top:0.2rem; position:absolute; margin-left:20px;">
-                <button @click="prevPage" :disabled="currentPage === 0"
-                    class="btn btn-outline-secondary btn-sm btn-sm">Previous</button>
-                <button @click="nextPage" :disabled="currentPage === maxPage"
-                    class="btn btn-outline-secondary btn-sm btn-sm">Next</button>
-                <span style="margin-left:10px; margin-top:0.2rem;">Page {{ currentPage + 1 }} of {{ maxPage + 1 }}</span>
-            </div>
-            <div style="margin-right: 20px; margin-top:-10px;">
-                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
-            </div>
-        </nav> -->
         <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top"
             style="background-color: #C4E1D5; padding: 0.5rem 0;">
             <div class="container">

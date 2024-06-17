@@ -7,24 +7,27 @@
         </div>
     </nav>
 
-    <div>
-        <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
-            viewBox="0 0 16 16"
-            style="position: absolute; transform: translateX(-50%); width: 22px; height: 22px; margin-top: 0.7rem; margin-left:-0.6rem;">
-            <path
-                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-        </svg>
-        <p style="margin-left:36.5em; margin-top:0.7rem; position:absolute;">Previous image</p>
+    <div style="display: flex; justify-content: space-between; margin: 0 auto; max-width: 400px;">
+        <div style="display: flex; align-items: center;">
+            <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
+                viewBox="0 0 16 16"
+                style="width: 22px; height: 22px; margin-left:11.5rem; margin-top: 2rem; position: absolute;">
+                <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+            </svg>
+            <p style="font-size: 14px; margin-left:6em; margin-top: 3rem; position: absolute;">Previous image</p>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+                style="width: 22px; height: 22px; margin-top: 2rem; position: absolute; margin-left:-12rem;">
+                <path
+                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+            </svg>
+            <p style="font-size: 14px; margin-top: 3rem; position: absolute; margin-left:-12em;">Next image</p>
+        </div>
     </div>
-    <div>
-        <svg @click="handleSvgClick" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill"
-            viewBox="0 0 16 16"
-            style="position: absolute; transform: translateX(-50%); width: 22px; height: 22px; margin-top: 0.7rem; margin-left:1rem; ">
-            <path
-                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-        </svg>
-        <p style="margin-left:47em; margin-top:0.7rem; position:absolute;">Next image</p>
-    </div>
+
 
     <div class="container" style="position:relative;">
         <div class="row" style="margin-top:3rem;">
