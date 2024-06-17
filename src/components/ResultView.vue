@@ -51,7 +51,7 @@
                 <div style="margin-left:28rem; margin-top:-42px;">
                     <p><small><small><small>Click on the bars for more details</small></small></small></p>
                 </div>
-                <div id="category-chart" style="margin-top:-11px;"> test</div>
+                <div id="category-chart" style="margin-top:-11px;"></div>
             </div>
         </div>
     </div>
@@ -349,10 +349,14 @@ export default {
                         .attr('transform', `translate(${margin1.left},${margin1.top})`);
 
                     // Define scales
+                    // const x1 = d3.scaleBand()
+                    //     .range([0, width1])
+                    //     .padding(0.1)
+                    //     .domain(labeledData.map(d => d.label));
                     const x1 = d3.scaleBand()
                         .range([0, width1])
-                        .padding(0.1)
-                        .domain(labeledData.map(d => d.label));
+                        .padding(0.007)
+                        .domain(alphabet); // Use alphabetic labels
 
                     const y1 = d3.scaleLinear()
                         .domain([0, 5])
@@ -403,64 +407,186 @@ export default {
                 console.error('Error reading dataset:', error);
             });
         },
+        // printAverageComplexity(imagePath) {
+        //     const imageName = imagePath.split('/').pop().split('.')[0];
+        //     const mappedImageName = this.mapImageName(imageName);
+        //     const complexityData = this.averageComplexities.find(item => item.key === mappedImageName);
+        //     if (complexityData) {
+        //         this.averageValue = complexityData.avgComplexity;
+        //         //console.log(this.averageValue);
+
+        //         this.analyzeCommentComplexity(mappedImageName);
+        //         this.commentComplexity = '';
+
+        //         d3.csv('/pilotTest.csv').then(data => {
+        //             const imageRow = data.find(row => row.key === mappedImageName);
+        //             if (imageRow && imageRow.commentComplexity) {
+        //                 this.commentComplexity = imageRow.commentComplexity;
+        //             }
+
+        //             const filteredRows = data.filter(row => row.key === mappedImageName);
+        //             const selectedCheckboxesCounts = {};
+        //             filteredRows.forEach(row => {
+        //                 const selectedCheckboxes = JSON.parse(row.selectedCheckboxes);
+        //                 selectedCheckboxes.forEach(checkbox => {
+        //                     if (selectedCheckboxesCounts[checkbox]) {
+        //                         selectedCheckboxesCounts[checkbox]++;
+        //                     } else {
+        //                         selectedCheckboxesCounts[checkbox] = 1;
+        //                     }
+        //                 });
+        //             });
+
+        //             // Prepare data for bar chart
+        //             const dataForChart = Object.entries(selectedCheckboxesCounts).map(([checkbox, count]) => {
+        //                 return { checkbox, count };
+        //             });
+        //             // rename bar 
+        //             dataForChart.forEach(d => {
+        //                 if (d.checkbox === 'Other (please comment)') {
+        //                     d.checkbox = 'Other*';
+        //                 }
+        //                 else if (d.checkbox == 'No gaps 2') {
+        //                     d.checkbox = 'No gaps';
+        //                 }
+        //                 else if (d.checkbox == 'Nested 1') {
+        //                     d.checkbox = 'Nested';
+        //                 }
+        //             });
+
+        //             // sorting data by count
+        //             dataForChart.sort((a, b) => b.count - a.count);
+
+        //             // Create the bar chart
+        //             const svgWidth = 500;
+        //             const svgHeight = 300;
+        //             const margin = { top: 20, right: 20, bottom: 90, left: 40 };
+        //             const width = svgWidth - margin.left - margin.right;
+        //             const height = svgHeight - margin.top - margin.bottom;
+
+        //             // Remove any existing SVG element
+        //             d3.select('#bar-chart').selectAll('*').remove();
+
+        //             const svg = d3.select('#bar-chart')
+        //                 .append('svg')
+        //                 .attr('width', svgWidth)
+        //                 .attr('height', svgHeight)
+        //                 .append('g')
+        //                 .attr('transform', `translate(${margin.left},${margin.top})`);
+
+        //             const x = d3.scaleBand()
+        //                 .range([0, width])
+        //                 .padding(0.1)
+        //                 .domain(dataForChart.map(d => d.checkbox));
+
+        //             const y = d3.scaleLinear()
+        //                 .domain([0, 15])
+        //                 .range([height, 0]);
+
+        //             svg.selectAll('.bar')
+        //                 .data(dataForChart)
+        //                 .enter()
+        //                 .append('rect')
+        //                 .attr('class', 'bar')
+        //                 .attr('x', d => x(d.checkbox))
+        //                 .attr('width', x.bandwidth())
+        //                 .attr('y', d => y(d.count))
+        //                 .attr('height', d => height - y(d.count))
+        //                 .attr('fill', '#AED2D6');
+
+        //             svg.append('g')
+        //                 .attr('class', 'x-axis')
+        //                 .attr('transform', `translate(0,${height})`)
+        //                 .call(d3.axisBottom(x))
+        //                 .selectAll('text')
+        //                 .attr('transform', 'rotate(-45)')
+        //                 .style('text-anchor', 'end');
+
+        //             svg.append('g')
+        //                 .attr('class', 'y-axis')
+        //                 .call(d3.axisLeft(y).ticks(5));
+
+        //             svg.append("text")
+        //                 .attr("class", "y label")
+        //                 .attr("text-anchor", "end")
+        //                 .attr("y", 2)
+        //                 .attr("dy", "-2em")
+        //                 .attr("dx", "0.5em")
+        //                 .attr("transform", "rotate(-90)")
+        //                 .style("font-size", "13px")
+        //                 .text("nr.of votes");
+
+        //             // Check if the 'Other' bar has a value greater than zero to show the button
+        //             const otherBarValue = selectedCheckboxesCounts['Other (please comment)'] || 0;
+        //             this.showButton = otherBarValue > 0;
+        //         }).catch(error => {
+        //             console.error('Error loading dataset:', error);
+        //         });
+        //     }
+        // },
         printAverageComplexity(imagePath) {
+            const customOrder = [
+                'Simple - 1D', 'Grouped', 'Stacked', 'Nested 1', 'Dot Bar Chart',
+                'Radial', 'No gaps 2', '3D', 'Embellished', 'Error bars',
+                'Missing labels', 'Missing legend', 'Background element', 'Missing values / axes',
+                'Monochrome', 'Small values', 'Gantt chart', 'Box plot', 'Other (please comment)'
+            ];
+
+            const labels = {
+                'Missing values / axes': 'Values/Axes',
+                'Missing labels': 'Labels',
+                'Missing legend': 'Legend',
+                'Other (please comment)': 'Other',
+                'Background element': 'Background',
+                'Simple - 1D': 'Simple',
+                'No gaps 2': 'No gaps',
+                'Nested 1': 'Nested',
+            };
+
             const imageName = imagePath.split('/').pop().split('.')[0];
             const mappedImageName = this.mapImageName(imageName);
             const complexityData = this.averageComplexities.find(item => item.key === mappedImageName);
+
             if (complexityData) {
                 this.averageValue = complexityData.avgComplexity;
-                //console.log(this.averageValue);
-
                 this.analyzeCommentComplexity(mappedImageName);
                 this.commentComplexity = '';
 
                 d3.csv('/pilotTest.csv').then(data => {
-                    const imageRow = data.find(row => row.key === mappedImageName);
-                    if (imageRow && imageRow.commentComplexity) {
-                        this.commentComplexity = imageRow.commentComplexity;
-                    }
+                    const filteredData = data.filter(row => row.key === mappedImageName);
 
-                    const filteredRows = data.filter(row => row.key === mappedImageName);
-                    const selectedCheckboxesCounts = {};
-                    filteredRows.forEach(row => {
-                        const selectedCheckboxes = JSON.parse(row.selectedCheckboxes);
-                        selectedCheckboxes.forEach(checkbox => {
-                            if (selectedCheckboxesCounts[checkbox]) {
+                    const selectedCheckboxesCounts = {
+                        'Simple - 1D': 0, 'Grouped': 0, 'Stacked': 0, 'Nested 1': 0, 'Dot Bar Chart': 0,
+                        'Radial': 0, 'No gaps 2': 0, '3D': 0, 'Embellished': 0, 'Error bars': 0,
+                        'Missing labels': 0, 'Missing legend': 0, 'Background element': 0, 'Missing values / axes': 0,
+                        'Monochrome': 0, 'Small values': 0, 'Gantt chart': 0, 'Box plot': 0, 'Other (please comment)': 0,
+                    };
+
+                    // Update counts based on selected checkboxes in filtered data
+                    filteredData.forEach(row => {
+                        const parsedCheckboxes = JSON.parse(row.selectedCheckboxes);
+                        parsedCheckboxes.forEach(checkbox => {
+                            if (Object.hasOwnProperty.call(selectedCheckboxesCounts, checkbox)) {
                                 selectedCheckboxesCounts[checkbox]++;
-                            } else {
-                                selectedCheckboxesCounts[checkbox] = 1;
                             }
                         });
                     });
 
-                    // Prepare data for bar chart
-                    const dataForChart = Object.entries(selectedCheckboxesCounts).map(([checkbox, count]) => {
-                        return { checkbox, count };
-                    });
-                    // rename bar 
-                    dataForChart.forEach(d => {
-                        if (d.checkbox === 'Other (please comment)') {
-                            d.checkbox = 'Other*';
-                        }
-                        else if (d.checkbox == 'No gaps 2') {
-                            d.checkbox = 'No gaps';
-                        }
-                        else if (d.checkbox == 'Nested 1') {
-                            d.checkbox = 'Nested';
-                        }
+                    const dataForChart = Object.keys(selectedCheckboxesCounts).map(checkbox => {
+                        return { checkbox, count: selectedCheckboxesCounts[checkbox] };
                     });
 
-                    // sorting data by count
-                    dataForChart.sort((a, b) => b.count - a.count);
+                    // Sort dataForChart based on customOrder
+                    dataForChart.sort((a, b) => {
+                        return customOrder.indexOf(a.checkbox) - customOrder.indexOf(b.checkbox);
+                    });
 
-                    // Create the bar chart
                     const svgWidth = 500;
                     const svgHeight = 300;
                     const margin = { top: 20, right: 20, bottom: 90, left: 40 };
                     const width = svgWidth - margin.left - margin.right;
                     const height = svgHeight - margin.top - margin.bottom;
 
-                    // Remove any existing SVG element
                     d3.select('#bar-chart').selectAll('*').remove();
 
                     const svg = d3.select('#bar-chart')
@@ -470,13 +596,18 @@ export default {
                         .append('g')
                         .attr('transform', `translate(${margin.left},${margin.top})`);
 
+                    // const x = d3.scaleBand()
+                    //     .range([0, width])
+                    //     .padding(0.1)
+                    //     .domain(dataForChart.map(d => d.checkbox));
                     const x = d3.scaleBand()
                         .range([0, width])
                         .padding(0.1)
-                        .domain(dataForChart.map(d => d.checkbox));
+                        .domain(dataForChart.map(d => labels[d.checkbox] || d.checkbox));
+
 
                     const y = d3.scaleLinear()
-                        .domain([0, 15])
+                        .domain([0, 15.5]) // Adjust domain based on your data
                         .range([height, 0]);
 
                     svg.selectAll('.bar')
@@ -484,7 +615,7 @@ export default {
                         .enter()
                         .append('rect')
                         .attr('class', 'bar')
-                        .attr('x', d => x(d.checkbox))
+                        .attr('x', d => x(labels[d.checkbox] || d.checkbox))
                         .attr('width', x.bandwidth())
                         .attr('y', d => y(d.count))
                         .attr('height', d => height - y(d.count))
@@ -512,14 +643,18 @@ export default {
                         .style("font-size", "13px")
                         .text("nr.of votes");
 
-                    // Check if the 'Other' bar has a value greater than zero to show the button
                     const otherBarValue = selectedCheckboxesCounts['Other (please comment)'] || 0;
                     this.showButton = otherBarValue > 0;
+
                 }).catch(error => {
                     console.error('Error loading dataset:', error);
                 });
             }
         },
+
+
+
+
     }
 };
 </script>

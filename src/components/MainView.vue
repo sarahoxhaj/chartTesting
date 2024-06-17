@@ -1,11 +1,5 @@
 <template>
     <div>
-        <!-- <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; height: 3rem; width: 90rem;">
-            <div class="container d-flex justify-content-center">
-                <h5 class="mt-1">{{ showButton ? 'Please select the complexity level and state your reasoning.' : 'Please select all features that apply to the displayed chart.' }}</h5>
-                <p v-if="name" style="margin-top: 20px;">Name: {{ name }}</p>
-            </div>
-        </nav> -->
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0;">
             <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
                 <h5 class="mt-1 text-center text-md-left">{{ showButton ? 'Please select the complexity level and state your reasoning.' : 'Please select all features that apply to the displayed chart.' }}</h5>

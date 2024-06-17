@@ -275,8 +275,8 @@ export default {
                 // Define scales
                 const x = d3.scaleBand()
                     .range([0, width])
-                    .padding(0.1)
-                    .domain(complexities.map((d, i) => alphabet[i % alphabet.length])); // Use alphabetic labels
+                    .padding(0.007)
+                    .domain(alphabet); // Use alphabetic labels
 
                 const y = d3.scaleLinear()
                     .domain([0, 5])
@@ -305,6 +305,7 @@ export default {
                     .call(d3.axisLeft(y).ticks(5));
             });
         },
+        // simple, grouped, stacked, nested, dot bar chart, radial, no gaps, 3D, embellished, error bars, Values/Axes, legend, labels, background, monochrome, small values, gantt chart, box plot, other
         createGraphFeatureCharts() {
             this.indexedItems.forEach((item) => {
                 const graphFeatures = item.graphFeatureCounts;
@@ -314,8 +315,6 @@ export default {
                 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
                 const width = svgWidth - margin.left - margin.right;
                 const height = svgHeight - margin.top - margin.bottom;
-
-
                 // Remove existing content if any
                 d3.select(`#${chartId}`).selectAll('*').remove();
 
@@ -327,9 +326,15 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                // Extract keys and values from graphFeatures object and sort keys in ascending order
-                const keys = Object.keys(graphFeatures).sort((a, b) => graphFeatures[b] - graphFeatures[a]);
-                // const values = keys.map(key => graphFeatures[key]);
+                const customOrder = [
+                    'Simple - 1D', 'Grouped', 'Stacked', 'Nested 1', 'Dot Bar Chart',
+                    'Radial', 'No gaps 2', '3D', 'Embellished', 'Error bars',
+                    'Missing labels', 'Missing legend', 'Background element', 'Missing values / axes',
+                    'Monochrome', 'Small values', 'Gantt chart', 'Box plot', 'Other (please comment)'
+                ];
+
+                // Merge all labels with existing keys
+                const keys = Array.from(customOrder);
 
                 // Define custom labels for the bars
                 const labels = {
@@ -340,9 +345,9 @@ export default {
                     'Background element': 'Background',
                     'Simple - 1D': 'Simple',
                     'No gaps 2': 'No gaps',
+                    'Nested 1': 'Nested',
                 };
 
-                // Define scales
                 const x = d3.scaleBand()
                     .domain(keys.map(key => labels[key] || key)) // Use custom labels if available, else use key
                     .range([0, width])
@@ -359,8 +364,8 @@ export default {
                     .attr('class', 'bar')
                     .attr('x', d => x(labels[d] || d)) // Use custom label if available, else use key
                     .attr('width', x.bandwidth())
-                    .attr('y', d => y(graphFeatures[d]))
-                    .attr('height', d => height - y(graphFeatures[d]))
+                    .attr('y', d => y(graphFeatures[d] || 0)) // Use graphFeatures[d] if available, else 0
+                    .attr('height', d => height - y(graphFeatures[d] || 0)) // Use graphFeatures[d] if available, else 0
                     .attr('fill', '#AED2D6');
 
                 // Append x-axis
@@ -369,7 +374,9 @@ export default {
                     .attr('transform', `translate(0, ${height})`)
                     .call(d3.axisBottom(x))
                     .selectAll('text')
-                    .attr('transform', 'rotate(-45)')
+                    .attr('transform', 'rotate(-90)')
+                    .attr("dx", "-1em")
+                    .attr("dy", "-0.6em")
                     .style('text-anchor', 'end');
 
                 // Append y-axis
