@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-default navbar-fixed-top"
+        <!-- <nav class="navbar navbar-default navbar-fixed-top"
             style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
             <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
                 <h5 class="text-center text-md-left">Complexity table</h5>
@@ -15,7 +15,41 @@
             <div style="margin-right: 20px; margin-top:-10px;">
                 <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
             </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top"
+            style="background-color: #C4E1D5; padding: 0.5rem 0;">
+            <div class="container">
+                <h5 class="navbar-brand mb-0">Complexity table</h5>
+
+                <!-- Toggle button for small screens -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Responsive menu items -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <button @click="prevPage" :disabled="currentPage === 0"
+                                class="btn btn-outline-secondary btn-sm">Previous</button>
+                        </li>
+                        <li class="nav-item">
+                            <button @click="nextPage" :disabled="currentPage === maxPage"
+                                class="btn btn-outline-secondary btn-sm">Next</button>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Page {{ currentPage + 1 }} of {{ maxPage + 1 }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <button @click="changeView" type="button"
+                                class="btn btn-outline-success btn-sm">Summary</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
+
         <div style="margin-top:1rem;">
             <table
                 style="border: 1px solid black; border-collapse: collapse; width:97%; margin-left:20px; margin-bottom:30px;">
@@ -420,5 +454,4 @@ export default {
 .pagination button {
     cursor: pointer;
     margin-right: 5px;
-}
-</style>
+}</style>
