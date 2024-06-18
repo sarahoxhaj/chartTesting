@@ -21,7 +21,7 @@
                     </th>
                 </tr>
                 <tr v-for="rowIndex in 26" :key="rowIndex">
-                    <th>{{ rowIndex }}</th>
+                    <th @click="imageDisplay(rowIndex)" style="cursor: default;">{{ rowIndex }}</th>
                     <td v-for="colIndex in 26" :key="colIndex">
                         <b>{{ rowIndex === colIndex ? '0' : '' }}</b>
                         <span v-if="rowIndex !== colIndex" :id="'counter-cell-' + rowIndex + '-' + colIndex"></span>
