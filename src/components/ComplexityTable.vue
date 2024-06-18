@@ -251,13 +251,11 @@ export default {
             });
         },
         createBarCharts() {
-            const alphabet = 'ABCDEFGHIJKLMNO'.split(''); // Define your alphabet
-
             this.indexedItems.forEach((item) => {
                 const complexities = item.complexities;
                 const chartId = `complexityScores-chart-${item.displayIndex}`;
                 const svgWidth = 300;
-                const svgHeight = 150;
+                const svgHeight = 170;
                 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
                 const width = svgWidth - margin.left - margin.right;
                 const height = svgHeight - margin.top - margin.bottom;
@@ -273,37 +271,47 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
+                // Define the number of bins
+                const numberOfBins = 10;  // You can adjust the number of bins as needed
+
+                // Create a histogram layout
+                const histogram = d3.histogram()
+                    .domain([0, 5])  // Assuming complexities range from 0 to 5
+                    .thresholds(d3.range(0, 5, 5 / numberOfBins));  // Create bins
+
+                const bins = histogram(complexities);
+
                 // Define scales
-                const x = d3.scaleBand()
-                    .range([0, width])
-                    .padding(0.007)
-                    .domain(alphabet); // Use alphabetic labels
+                const x = d3.scaleLinear()
+                    .domain([0, 5])
+                    .range([0, width]);
 
                 const y = d3.scaleLinear()
-                    .domain([0, 5])
+                    .domain([0, 15.5])
                     .range([height, 0]);
 
                 // Create bars
                 svg.selectAll('.bar')
-                    .data(complexities)
+                    .data(bins)
                     .enter().append('rect')
                     .attr('class', 'bar')
-                    .attr('x', (d, i) => x(alphabet[i % alphabet.length]))
-                    .attr('width', x.bandwidth())
-                    .attr('y', d => y(d))
-                    .attr('height', d => height - y(d))
+                    .attr('x', d => x(d.x0))
+                    .attr('width', d => x(d.x1) - x(d.x0) - 1)
+                    .attr('y', d => y(d.length))
+                    .attr('height', d => height - y(d.length))
                     .attr('fill', '#AED2D6');
 
                 // Append x-axis
                 svg.append('g')
                     .attr('class', 'x-axis')
                     .attr('transform', `translate(0, ${height})`)
-                    .call(d3.axisBottom(x));
+                    .call(d3.axisBottom(x).ticks(5));
 
                 // Append y-axis
                 svg.append('g')
                     .attr('class', 'y-axis')
                     .call(d3.axisLeft(y).ticks(5));
+
             });
         },
         // simple, grouped, stacked, nested, dot bar chart, radial, no gaps, 3D, embellished, error bars, Values/Axes, legend, labels, background, monochrome, small values, gantt chart, box plot, other
@@ -421,4 +429,5 @@ export default {
 .pagination button {
     cursor: pointer;
     margin-right: 5px;
-}</style>
+}
+</style>
