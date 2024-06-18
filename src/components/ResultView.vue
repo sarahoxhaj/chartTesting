@@ -2,6 +2,9 @@
     <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top" style="background-color: #C4E1D5;">
         <div class="container">
             <h5 class="my-0 mr-md-auto" style="margin-left:29rem;">Overview of pilot test with 15 participants</h5>
+            <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline"
+                style="margin-left:11rem;">Complexity
+                Matrix</button>
             <button @click="changeView" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline">Complexity
                 table</button>
         </div>
@@ -105,6 +108,9 @@ export default {
     methods: {
         changeView() {
             this.$router.push('/ComplexityTable');
+        },
+        changeViewMatrix() {
+            this.$router.push('/complexityMatrix');
         },
         handleButtonClick() {
             const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);

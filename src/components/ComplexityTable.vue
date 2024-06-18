@@ -12,8 +12,10 @@
                     class="btn btn-outline-secondary btn-sm btn-sm">Next</button>
                 <span style="margin-left:10px; margin-top:0.2rem;">Page {{ currentPage + 1 }} of {{ maxPage + 1 }}</span>
             </div>
-            <div style="margin-right: 20px; margin-top:-10px;">
-                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
+            <div style="margin-top:0.2rem; position:absolute; margin-left:75rem;">
+                    <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm">Complexity Matrix</button>
+                    <span style="margin-left: 0.3rem;"></span>
+                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm" >Summary</button>
             </div>
         </nav>
 
@@ -86,6 +88,9 @@ export default {
     methods: {
         changeView() {
             this.$router.push('/summaryView');
+        },
+        changeViewMatrix(){
+            this.$router.push('/complexityMatrix');
         },
         calculateAverageComplexity() {
             d3.csv('/pilotTest.csv').then(data => {
