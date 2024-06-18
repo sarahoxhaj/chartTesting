@@ -13,9 +13,10 @@
                 <span style="margin-left:10px; margin-top:0.2rem;">Page {{ currentPage + 1 }} of {{ maxPage + 1 }}</span>
             </div>
             <div style="margin-top:0.2rem; position:absolute; margin-left:75rem;">
-                    <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm">Complexity Matrix</button>
-                    <span style="margin-left: 0.3rem;"></span>
-                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm" >Summary</button>
+                <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm">Complexity
+                    Matrix</button>
+                <span style="margin-left: 0.3rem;"></span>
+                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
             </div>
         </nav>
 
@@ -89,7 +90,7 @@ export default {
         changeView() {
             this.$router.push('/summaryView');
         },
-        changeViewMatrix(){
+        changeViewMatrix() {
             this.$router.push('/complexityMatrix');
         },
         calculateAverageComplexity() {
@@ -124,12 +125,9 @@ export default {
                             }
                         });
                     });
-
-                    // Assign to item for display
                     item.graphFeatureCounts = selectedCheckboxesCounts;
                 });
 
-                // After processing, trigger the method to create bar charts if needed
                 this.$nextTick(() => {
                     this.createBarCharts();
                     this.createGraphFeatureCharts();
@@ -419,9 +417,6 @@ export default {
                 });
             }
         },
-
-
-
     }
 };
 </script>

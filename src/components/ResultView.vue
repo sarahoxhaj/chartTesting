@@ -9,7 +9,7 @@
                 table</button>
         </div>
     </nav>
-
+    
     <div style="display: flex; justify-content: space-between; margin: 0 auto; max-width: 400px;">
         <div style="display: flex; align-items: center;">
             <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
@@ -81,7 +81,6 @@ export default {
             alertVisible: false,
             showButton: false,
             keyObject: {}
-
         };
     },
     computed: {
@@ -200,21 +199,8 @@ export default {
                 const filteredData = data.filter(row => row.key === imageName);
 
                 if (filteredData.length > 0) {
-
                     // creating bar chart for all complexity scores
-                    const complexityData = filteredData.map(row => row.complexity);
-                    const alphabet = 'ABCDEFGHIJKLMNO'.split('');
-                    const labeledData = complexityData.map((complexity, index) => ({
-                        label: alphabet[index % alphabet.length],
-                        complexity: +complexity
-                    }));
-
-                    // const complexityData = [];
-                    // filteredData.forEach(row => {
-                    //     console.log(`Complexity from ${row.userName}: ${row.complexity}`);
-
-                    // });
-
+                    const complexityData = filteredData.map(row => parseFloat(row.complexity));
                     // keywords for analyzing comments
                     const keywordsAnalysis = {
                         'context': ['abstract', 'unclear', 'dont get', 'do not understand', 'hard to understand', 'confused', 'nothing is clear', 'unclear how to read', 'not clear', 'presentation', 'context', 'title', 'titles', 'domain', 'tell', 'missing information', 'missing context', 'no context'],
@@ -247,9 +233,6 @@ export default {
                     const categoryData = Object.entries(this.categoryCounts).map(([category, count]) => {
                         return { category, count };
                     });
-                    // sort by count
-                    //categoryData.sort((a, b) => b.count - a.count);
-
                     // Clear any existing chart
                     d3.select('#category-chart').selectAll('*').remove();
                     d3.select('#complexityScores-chart').selectAll('*').remove();
@@ -339,9 +322,12 @@ export default {
                         .style("font-size", "13px")
                         .text("nr.of votes");
 
-
-
                     // all complexity scores bar chart
+                    const numberOfBins = 10;
+                    const histogram = d3.histogram()
+                        .domain([0, 5])  // Assuming complexities range from 0 to 5
+                        .thresholds(d3.range(0, 5, 5 / numberOfBins));  // Create bins
+                    const bins = histogram(complexityData);
                     // Set up SVG dimensions
                     const svgWidth1 = 500;
                     const svgHeight1 = 300;
@@ -358,39 +344,30 @@ export default {
                         .attr('transform', `translate(${margin1.left},${margin1.top})`);
 
                     // Define scales
-                    // const x1 = d3.scaleBand()
-                    //     .range([0, width1])
-                    //     .padding(0.1)
-                    //     .domain(labeledData.map(d => d.label));
-                    const x1 = d3.scaleBand()
-                        .range([0, width1])
-                        .padding(0.007)
-                        .domain(alphabet); // Use alphabetic labels
+                    const x1 = d3.scaleLinear()
+                        .domain([0, 5])
+                        .range([0, width1]);
 
                     const y1 = d3.scaleLinear()
-                        .domain([0, 5])
+                        .domain([0, 15.5])
                         .range([height1, 0]);
 
                     // Create bars
                     svg1.selectAll('.bar')
-                        .data(labeledData)
-                        .enter()
-                        .append('rect')
+                        .data(bins)
+                        .enter().append('rect')
                         .attr('class', 'bar')
-                        .attr('x', d => x1(d.label))
-                        .attr('width', x1.bandwidth())
-                        .attr('y', d => y1(d.complexity))
-                        .attr('height', d => height1 - y1(d.complexity))
+                        .attr('x', d => x1(d.x0))
+                        .attr('width', d => x1(d.x1) - x1(d.x0) - 1)
+                        .attr('y', d => y1(d.length))
+                        .attr('height', d => height1 - y1(d.length))
                         .attr('fill', '#AED2D6');
 
                     // Append x-axis
                     svg1.append('g')
                         .attr('class', 'x-axis')
                         .attr('transform', `translate(0,${height1})`)
-                        .call(d3.axisBottom(x1))
-                        .selectAll('text')
-                        .attr("dx", "0.4em")
-                        .style('text-anchor', 'end');
+                        .call(d3.axisBottom(x1).ticks(5));
 
                     // Append y-axis
                     svg1.append('g')
@@ -402,13 +379,10 @@ export default {
                         .attr("text-anchor", "end")
                         .attr("y", 2)
                         .attr("dy", "-1.7em")
-                        .attr("dx", "0.5em")
+                        .attr("dx", "0.6em")
                         .attr("transform", "rotate(-90)")
                         .style("font-size", "13px")
                         .text("scores");
-
-
-
                 } else {
                     console.error(`No comments found for key "${imageName}" in the dataset.`);
                 }
@@ -416,123 +390,6 @@ export default {
                 console.error('Error reading dataset:', error);
             });
         },
-        // printAverageComplexity(imagePath) {
-        //     const imageName = imagePath.split('/').pop().split('.')[0];
-        //     const mappedImageName = this.mapImageName(imageName);
-        //     const complexityData = this.averageComplexities.find(item => item.key === mappedImageName);
-        //     if (complexityData) {
-        //         this.averageValue = complexityData.avgComplexity;
-        //         //console.log(this.averageValue);
-
-        //         this.analyzeCommentComplexity(mappedImageName);
-        //         this.commentComplexity = '';
-
-        //         d3.csv('/pilotTest.csv').then(data => {
-        //             const imageRow = data.find(row => row.key === mappedImageName);
-        //             if (imageRow && imageRow.commentComplexity) {
-        //                 this.commentComplexity = imageRow.commentComplexity;
-        //             }
-
-        //             const filteredRows = data.filter(row => row.key === mappedImageName);
-        //             const selectedCheckboxesCounts = {};
-        //             filteredRows.forEach(row => {
-        //                 const selectedCheckboxes = JSON.parse(row.selectedCheckboxes);
-        //                 selectedCheckboxes.forEach(checkbox => {
-        //                     if (selectedCheckboxesCounts[checkbox]) {
-        //                         selectedCheckboxesCounts[checkbox]++;
-        //                     } else {
-        //                         selectedCheckboxesCounts[checkbox] = 1;
-        //                     }
-        //                 });
-        //             });
-
-        //             // Prepare data for bar chart
-        //             const dataForChart = Object.entries(selectedCheckboxesCounts).map(([checkbox, count]) => {
-        //                 return { checkbox, count };
-        //             });
-        //             // rename bar 
-        //             dataForChart.forEach(d => {
-        //                 if (d.checkbox === 'Other (please comment)') {
-        //                     d.checkbox = 'Other*';
-        //                 }
-        //                 else if (d.checkbox == 'No gaps 2') {
-        //                     d.checkbox = 'No gaps';
-        //                 }
-        //                 else if (d.checkbox == 'Nested 1') {
-        //                     d.checkbox = 'Nested';
-        //                 }
-        //             });
-
-        //             // sorting data by count
-        //             dataForChart.sort((a, b) => b.count - a.count);
-
-        //             // Create the bar chart
-        //             const svgWidth = 500;
-        //             const svgHeight = 300;
-        //             const margin = { top: 20, right: 20, bottom: 90, left: 40 };
-        //             const width = svgWidth - margin.left - margin.right;
-        //             const height = svgHeight - margin.top - margin.bottom;
-
-        //             // Remove any existing SVG element
-        //             d3.select('#bar-chart').selectAll('*').remove();
-
-        //             const svg = d3.select('#bar-chart')
-        //                 .append('svg')
-        //                 .attr('width', svgWidth)
-        //                 .attr('height', svgHeight)
-        //                 .append('g')
-        //                 .attr('transform', `translate(${margin.left},${margin.top})`);
-
-        //             const x = d3.scaleBand()
-        //                 .range([0, width])
-        //                 .padding(0.1)
-        //                 .domain(dataForChart.map(d => d.checkbox));
-
-        //             const y = d3.scaleLinear()
-        //                 .domain([0, 15])
-        //                 .range([height, 0]);
-
-        //             svg.selectAll('.bar')
-        //                 .data(dataForChart)
-        //                 .enter()
-        //                 .append('rect')
-        //                 .attr('class', 'bar')
-        //                 .attr('x', d => x(d.checkbox))
-        //                 .attr('width', x.bandwidth())
-        //                 .attr('y', d => y(d.count))
-        //                 .attr('height', d => height - y(d.count))
-        //                 .attr('fill', '#AED2D6');
-
-        //             svg.append('g')
-        //                 .attr('class', 'x-axis')
-        //                 .attr('transform', `translate(0,${height})`)
-        //                 .call(d3.axisBottom(x))
-        //                 .selectAll('text')
-        //                 .attr('transform', 'rotate(-45)')
-        //                 .style('text-anchor', 'end');
-
-        //             svg.append('g')
-        //                 .attr('class', 'y-axis')
-        //                 .call(d3.axisLeft(y).ticks(5));
-
-        //             svg.append("text")
-        //                 .attr("class", "y label")
-        //                 .attr("text-anchor", "end")
-        //                 .attr("y", 2)
-        //                 .attr("dy", "-2em")
-        //                 .attr("dx", "0.5em")
-        //                 .attr("transform", "rotate(-90)")
-        //                 .style("font-size", "13px")
-        //                 .text("nr.of votes");
-
-        //             // Check if the 'Other' bar has a value greater than zero to show the button
-        //             const otherBarValue = selectedCheckboxesCounts['Other (please comment)'] || 0;
-        //             this.showButton = otherBarValue > 0;
-        //         }).catch(error => {
-        //             console.error('Error loading dataset:', error);
-        //         });
-        //     }
-        // },
         printAverageComplexity(imagePath) {
             const customOrder = [
                 'Simple - 1D', 'Grouped', 'Stacked', 'Nested 1', 'Dot Bar Chart',
@@ -605,15 +462,10 @@ export default {
                         .append('g')
                         .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                    // const x = d3.scaleBand()
-                    //     .range([0, width])
-                    //     .padding(0.1)
-                    //     .domain(dataForChart.map(d => d.checkbox));
                     const x = d3.scaleBand()
                         .range([0, width])
                         .padding(0.1)
                         .domain(dataForChart.map(d => labels[d.checkbox] || d.checkbox));
-
 
                     const y = d3.scaleLinear()
                         .domain([0, 15.5]) // Adjust domain based on your data
@@ -660,10 +512,6 @@ export default {
                 });
             }
         },
-
-
-
-
     }
 };
 </script>
