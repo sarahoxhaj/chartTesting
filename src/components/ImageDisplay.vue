@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default navbar-fixed-top"
             style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
             <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
-                <h5 class="text-center text-md-left">Test</h5>
+                <h5 class="text-center text-md-left">Selected bar chart</h5>
             </div>
             <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline"
                 style="margin-top:-0.5rem; margin-right:1rem;">Back</button>

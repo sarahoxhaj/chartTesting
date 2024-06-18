@@ -12,7 +12,7 @@
                 <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
             </div>
         </nav>
-        <div style="margin-top:1rem;">
+        <div style="margin-top:1rem; height: 95vh; overflow-y: auto;">
             <table class="my-table" style="width:97%; margin-left:20px; margin-bottom:30px;">
                 <tr>
                     <td></td>
