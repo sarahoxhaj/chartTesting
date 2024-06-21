@@ -9,7 +9,7 @@
                 table</button>
         </div>
     </nav>
-    
+
     <div style="display: flex; justify-content: space-between; margin: 0 auto; max-width: 400px;">
         <div style="display: flex; align-items: center;">
             <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
@@ -323,11 +323,16 @@ export default {
                         .text("nr.of votes");
 
                     // all complexity scores bar chart
-                    const numberOfBins = 10;
-                    const histogram = d3.histogram()
-                        .domain([0, 5])  // Assuming complexities range from 0 to 5
-                        .thresholds(d3.range(0, 5, 5 / numberOfBins));  // Create bins
-                    const bins = histogram(complexityData);
+                    const complexityCounts = [1, 2, 3, 4, 5].map(value => {
+                        return {
+                            score: value,
+                            count: complexityData.filter(d => d === value).length
+                        };
+                    });
+
+                    // Clear any existing chart
+                    d3.select('#complexityScores-chart').selectAll('*').remove();
+
                     // Set up SVG dimensions
                     const svgWidth1 = 500;
                     const svgHeight1 = 300;
@@ -344,9 +349,10 @@ export default {
                         .attr('transform', `translate(${margin1.left},${margin1.top})`);
 
                     // Define scales
-                    const x1 = d3.scaleLinear()
-                        .domain([0, 5])
-                        .range([0, width1]);
+                    const x1 = d3.scaleBand()
+                        .domain(complexityCounts.map(d => d.score))
+                        .range([0, width1])
+                        .padding(0.1);
 
                     const y1 = d3.scaleLinear()
                         .domain([0, 15.5])
@@ -354,35 +360,45 @@ export default {
 
                     // Create bars
                     svg1.selectAll('.bar')
-                        .data(bins)
+                        .data(complexityCounts)
                         .enter().append('rect')
                         .attr('class', 'bar')
-                        .attr('x', d => x1(d.x0))
-                        .attr('width', d => x1(d.x1) - x1(d.x0) - 1)
-                        .attr('y', d => y1(d.length))
-                        .attr('height', d => height1 - y1(d.length))
+                        .attr('x', d => x1(d.score))
+                        .attr('width', x1.bandwidth())
+                        .attr('y', d => y1(d.count))
+                        .attr('height', d => height1 - y1(d.count))
                         .attr('fill', '#AED2D6');
 
                     // Append x-axis
                     svg1.append('g')
                         .attr('class', 'x-axis')
                         .attr('transform', `translate(0,${height1})`)
-                        .call(d3.axisBottom(x1).ticks(5));
+                        .call(d3.axisBottom(x1));
 
                     // Append y-axis
                     svg1.append('g')
                         .attr('class', 'y-axis')
-                        .call(d3.axisLeft(y1).ticks(5));
+                        .call(d3.axisLeft(y1));
 
+                    // Append y-axis label
                     svg1.append("text")
                         .attr("class", "y label")
                         .attr("text-anchor", "end")
                         .attr("y", 2)
-                        .attr("dy", "-1.7em")
+                        .attr("dy", "-1.9em")
                         .attr("dx", "0.6em")
                         .attr("transform", "rotate(-90)")
                         .style("font-size", "13px")
-                        .text("scores");
+                        .text("frequency");
+
+                    svg1.append("text")
+                        .attr("class", "x label")
+                        .attr("text-anchor", "end")
+                        .attr("x", width+15)
+                        .attr("y", height + 20)
+                        .style("font-size", "13px")
+                        .text("score");
+
                 } else {
                     console.error(`No comments found for key "${imageName}" in the dataset.`);
                 }

@@ -16,12 +16,18 @@
             <table class="my-table" style="width:97%; margin-left:20px; margin-bottom:30px;">
                 <tr>
                     <td></td>
-                    <th v-for="number in 26" :key="number" @click="imageDisplay(number)" style="cursor: default;">
-                        {{ number }}
+                    <th v-for="number in 26" :key="number" style="cursor: pointer; position: relative; width: 5%;"
+                        @click="imageDisplay(number)">
+                        <img :src="require(`@/assets/${padNumber(number)}vis.png`)" :alt="`Visualization ${number}`"
+                            style="max-width: 100%; max-height: 100%; display: block; margin: auto;">
                     </th>
                 </tr>
                 <tr v-for="rowIndex in 26" :key="rowIndex">
-                    <th @click="imageDisplay(rowIndex)" style="cursor: default;">{{ rowIndex }}</th>
+                    <th @click="imageDisplay(rowIndex)" style="cursor: default; width: 5%;"><img
+                            :src="require(`@/assets/${padNumber(rowIndex)}vis.png`)" :alt="`Visualization ${rowIndex}`"
+                            style="max-width: 100%; max-height: 100%; display: block; margin: auto;"></th>
+
+
                     <td v-for="colIndex in 26" :key="colIndex">
                         <b>{{ rowIndex === colIndex ? '0' : '' }}</b>
                         <span v-if="rowIndex !== colIndex" :id="'counter-cell-' + rowIndex + '-' + colIndex"></span>
@@ -63,6 +69,9 @@ export default {
         this.calculateScore();
     },
     methods: {
+        padNumber(number) {
+            return number.toString().padStart(2, '0');
+        },
         changeView() {
             this.$router.push('/summaryView');
         },

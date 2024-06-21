@@ -274,20 +274,19 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                // Define the number of bins
-                const numberOfBins = 10;  // You can adjust the number of bins as needed
-
-                // Create a histogram layout
-                const histogram = d3.histogram()
-                    .domain([0, 5])  // Assuming complexities range from 0 to 5
-                    .thresholds(d3.range(0, 5, 5 / numberOfBins));  // Create bins
-
-                const bins = histogram(complexities);
+                // Count occurrences of each complexity score from 1 to 5
+                const complexityCounts = [1, 2, 3, 4, 5].map(value => {
+                    return {
+                        score: value,
+                        count: complexities.filter(d => d === value).length
+                    };
+                });
 
                 // Define scales
-                const x = d3.scaleLinear()
-                    .domain([0, 5])
-                    .range([0, width]);
+                const x = d3.scaleBand()
+                    .domain(complexityCounts.map(d => d.score))
+                    .range([0, width])
+                    .padding(0.1);
 
                 const y = d3.scaleLinear()
                     .domain([0, 15.5])
@@ -295,26 +294,44 @@ export default {
 
                 // Create bars
                 svg.selectAll('.bar')
-                    .data(bins)
+                    .data(complexityCounts)
                     .enter().append('rect')
                     .attr('class', 'bar')
-                    .attr('x', d => x(d.x0))
-                    .attr('width', d => x(d.x1) - x(d.x0) - 1)
-                    .attr('y', d => y(d.length))
-                    .attr('height', d => height - y(d.length))
+                    .attr('x', d => x(d.score))
+                    .attr('width', x.bandwidth())
+                    .attr('y', d => y(d.count))
+                    .attr('height', d => height - y(d.count))
                     .attr('fill', '#AED2D6');
 
                 // Append x-axis
                 svg.append('g')
                     .attr('class', 'x-axis')
                     .attr('transform', `translate(0, ${height})`)
-                    .call(d3.axisBottom(x).ticks(5));
+                    .call(d3.axisBottom(x));
 
                 // Append y-axis
                 svg.append('g')
                     .attr('class', 'y-axis')
-                    .call(d3.axisLeft(y).ticks(5));
+                    .call(d3.axisLeft(y));
 
+                // Append y-axis label
+                svg.append("text")
+                    .attr("class", "y label")
+                    .attr("text-anchor", "end")
+                    .attr("y", 2)
+                    .attr("dy", "-2.5em")
+                    .attr("dx", "0.6em")
+                    .attr("transform", "rotate(-90)")
+                    .style("font-size", "10px")
+                    .text("frequency");
+
+                svg.append("text")
+                    .attr("class", "x label")
+                    .attr("text-anchor", "end")
+                    .attr("x", width + 15)
+                    .attr("y", height + 15)
+                    .style("font-size", "10px")
+                    .text("score");
             });
         },
         // simple, grouped, stacked, nested, dot bar chart, radial, no gaps, 3D, embellished, error bars, Values/Axes, legend, labels, background, monochrome, small values, gantt chart, box plot, other
