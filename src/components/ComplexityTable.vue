@@ -2,21 +2,32 @@
     <div>
         <nav class="navbar navbar-default navbar-fixed-top"
             style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
+
+            <div style="float: left;" class="dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-left:2rem; margin-bottom:1rem;"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <div class="dropdown-content" style="top: 1.7rem; left:1.5rem;">
+                    <a href="#" @click.prevent="testOverview" style="margin-bottom:2px;"> Test overview </a>
+                    <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
+                    <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
+                    <a href="#" @click.prevent="summary"> Summary </a>
+                </div>
+            </div>
+
+
             <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
                 <h5 class="text-center text-md-left">Complexity table</h5>
             </div>
-            <div class="pagination" style="margin-top:0.2rem; position:absolute; margin-left:20px;">
+
+            <div class="pagination" style="margin-top:0.2rem; position:absolute; margin-left:75rem;">
                 <button @click="prevPage" :disabled="currentPage === 0"
                     class="btn btn-outline-secondary btn-sm btn-sm">Previous</button>
                 <button @click="nextPage" :disabled="currentPage === maxPage"
                     class="btn btn-outline-secondary btn-sm btn-sm">Next</button>
                 <span style="margin-left:10px; margin-top:0.2rem;">Page {{ currentPage + 1 }} of {{ maxPage + 1 }}</span>
-            </div>
-            <div style="margin-top:0.2rem; position:absolute; margin-left:75rem;">
-                <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm">Complexity
-                    Matrix</button>
-                <span style="margin-left: 0.3rem;"></span>
-                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
             </div>
         </nav>
 
@@ -87,11 +98,17 @@ export default {
         this.calculateAverageComplexity();
     },
     methods: {
-        changeView() {
-            this.$router.push('/summaryView');
-        },
         changeViewMatrix() {
             this.$router.push('/complexityMatrix');
+        },
+        summary() {
+            this.$router.push('/summaryView');
+        },
+        testOverview() {
+            this.$router.push('/resultView');
+        },
+        deviation() {
+            this.$router.push('/ratingDeviation');
         },
         calculateAverageComplexity() {
             d3.csv('/pilotTest.csv').then(data => {
@@ -446,5 +463,63 @@ export default {
 .pagination button {
     cursor: pointer;
     margin-right: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 </style>

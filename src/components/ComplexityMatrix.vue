@@ -2,21 +2,30 @@
     <div>
         <nav class="navbar navbar-default navbar-fixed-top"
             style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
+
+            <div style="float: left;" class="dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-left:2rem; margin-bottom:1rem;"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <div class="dropdown-content" style="top: 1.7rem; left:1.5rem;">
+                    <a href="#" @click.prevent="testOverview" style="margin-bottom:2px;"> Test overview </a>
+                    <a href="#" @click.prevent="changeView" style="margin-bottom:2px;"> Complexity table </a>
+                    <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
+                    <a href="#" @click.prevent="summary"> Summary </a>
+                </div>
+            </div>
+            
             <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
                 <h5 class="text-center text-md-left">Complexity matrix</h5>
-            </div>
-            <div style="margin-top:0.2rem; position:absolute; margin-left:75rem;">
-                <button @click="changeViewTable" type="button" class="btn btn-outline-success btn-sm">Complexity
-                    Table</button>
-                <span style="margin-left: 0.3rem;"></span>
-                <button @click="changeView" type="button" class="btn btn-outline-success btn-sm">Summary</button>
             </div>
         </nav>
         <div style="margin-top:1rem; height: 95vh; overflow-y: auto;">
             <table class="my-table" style="width:97%; margin-left:20px; margin-bottom:30px;">
                 <tr>
                     <td></td>
-                    <th v-for="number in 26" :key="number" style="cursor: pointer; position: relative; width: 5%;"
+                    <th v-for="number in 26" :key="number" style="cursor: pointer; position: relative; max-width: 10%;"
                         @click="imageDisplay(number)">
                         <img :src="require(`@/assets/${padNumber(number)}vis.png`)" :alt="`Visualization ${number}`"
                             style="max-width: 100%; max-height: 100%; display: block; margin: auto;">
@@ -29,8 +38,8 @@
 
 
                     <td v-for="colIndex in 26" :key="colIndex">
-                        <b>{{ rowIndex === colIndex ? '0' : '' }}</b>
-                        <span v-if="rowIndex !== colIndex" :id="'counter-cell-' + rowIndex + '-' + colIndex"></span>
+                        <b style="color:grey;">{{ rowIndex === colIndex ? '0' : '' }}</b>
+                        <b><span v-if="rowIndex !== colIndex" :id="'counter-cell-' + rowIndex + '-' + colIndex"></span></b>
                         <span @click="firstExp" v-if="rowIndex === 1 && colIndex == 2">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 style="width: 14px; height: 14px; margin-top:-1.2rem; margin-right:-0.7rem; margin-left:0.2rem;"
@@ -72,11 +81,17 @@ export default {
         padNumber(number) {
             return number.toString().padStart(2, '0');
         },
+        testOverview() {
+            this.$router.push('/resultView');
+        },
         changeView() {
             this.$router.push('/summaryView');
         },
         changeViewTable() {
             this.$router.push('/complexityTable');
+        },
+        deviation(){
+            this.$router.push('/ratingDeviation');
         },
         firstExp() {
             alert("Out of 15 participants, 10 of them think that the first bar chart is more or equally complex as the second bar chart.")
@@ -120,7 +135,22 @@ export default {
                         });
 
                         console.log(`Counter for ${baseImageKey} vs ${comparisonImageKey}: ${counter}`);
-                        document.getElementById(`counter-cell-${imageNumber}-${i}`).innerText = counter;
+                        if (counter == 1 || counter == 2 || counter == 3 || counter == 4 || counter == 5 || counter == 6) {
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).innerText = counter;
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).style.color = '#AEE6FF'
+                        }
+                        else if (counter == 7 || counter == 8 || counter == 9 || counter == 10 || counter == 11 || counter == 12) {
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).innerText = counter;
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).style.color = '#5D96BA'
+                        }
+                        else if (counter == 13 || counter == 14 || counter == 15) {
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).innerText = counter;
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).style.color = '#025373'
+                        }
+                        else {
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).innerText = counter;
+                            document.getElementById(`counter-cell-${imageNumber}-${i}`).style.color = 'grey';
+                        }
                     }
                 }
                 for (let i = 1; i <= 26; i++) {
@@ -145,5 +175,63 @@ export default {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 </style>

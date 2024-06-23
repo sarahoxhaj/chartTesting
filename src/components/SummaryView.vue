@@ -1,5 +1,19 @@
 <template>
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #C4E1D5; padding: 0.5rem 0; height: 40px;">
+        <div style="float: left;" class="dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-left:2rem; margin-bottom:1rem;"
+                fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+            <div class="dropdown-content" style="top: 1.7rem; left:1.5rem;">
+                <a href="#" @click.prevent="testOverview" style="margin-bottom:2px;"> Test overview </a>
+                <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
+                <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
+                <a href="#" @click.prevent="changeViewTable"> Complexity table </a>
+            </div>
+        </div>
+
         <div class="container d-flex justify-content-center flex-column flex-md-row align-items-center">
             <h5 class="text-center text-md-left">Summary of complexity criteria</h5>
         </div>
@@ -58,6 +72,18 @@ export default {
         this.analyzeAllComments();
     },
     methods: {
+        changeViewMatrix() {
+            this.$router.push('/complexityMatrix');
+        },
+        changeViewTable(){
+            this.$router.push('/complexityTable');
+        },
+        testOverview() {
+            this.$router.push('/resultView');
+        },
+        deviation() {
+            this.$router.push('/ratingDeviation');
+        },
         analyzeAllComments() {
             d3.csv('/pilotTest.csv').then(data => {
                 const keywordsAnalysis = {
@@ -167,3 +193,62 @@ export default {
     }
 };
 </script>
+<style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>

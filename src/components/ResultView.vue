@@ -1,12 +1,23 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top" style="background-color: #C4E1D5;">
         <div class="container">
-            <h5 class="my-0 mr-md-auto" style="margin-left:29rem;">Overview of pilot test with 15 participants</h5>
-            <button @click="changeViewMatrix" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline"
-                style="margin-left:11rem;">Complexity
-                Matrix</button>
-            <button @click="changeView" type="button" class="btn btn-outline-success btn-sm d-none d-md-inline">Complexity
-                table</button>
+
+            <div style="float: left;" class="dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-left:-2rem;"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <div class="dropdown-content" style="top: 1.7rem; left:-1.5rem;">
+                    <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
+                    <a href="#" @click.prevent="changeView" style="margin-bottom:2px;"> Complexity table </a>
+                    <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
+                    <a href="#" @click.prevent="summary"> Summary </a>
+                </div>
+            </div>
+
+            <h5 class="my-0 mr-md-auto" style="margin-left:29rem; position:absolute;">Overview of pilot test with 15
+                participants</h5>
         </div>
     </nav>
 
@@ -108,8 +119,14 @@ export default {
         changeView() {
             this.$router.push('/ComplexityTable');
         },
+        summary(){
+            this.$router.push('/summaryView');
+        },
         changeViewMatrix() {
             this.$router.push('/complexityMatrix');
+        },
+        deviation() {
+            this.$router.push('/ratingDeviation');
         },
         handleButtonClick() {
             const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);
@@ -394,7 +411,7 @@ export default {
                     svg1.append("text")
                         .attr("class", "x label")
                         .attr("text-anchor", "end")
-                        .attr("x", width+15)
+                        .attr("x", width + 15)
                         .attr("y", height + 20)
                         .style("font-size", "13px")
                         .text("score");
@@ -531,3 +548,33 @@ export default {
     }
 };
 </script>
+<style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
