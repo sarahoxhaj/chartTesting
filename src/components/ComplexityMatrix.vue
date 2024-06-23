@@ -11,7 +11,7 @@
                 </svg>
                 <div class="dropdown-content" style="top: 1.7rem; left:1.5rem;">
                     <a href="#" @click.prevent="testOverview" style="margin-bottom:2px;"> Test overview </a>
-                    <a href="#" @click.prevent="changeView" style="margin-bottom:2px;"> Complexity table </a>
+                    <a href="#" @click.prevent="changeViewTable" style="margin-bottom:2px;"> Complexity table </a>
                     <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
                     <a href="#" @click.prevent="summary"> Summary </a>
                 </div>
@@ -84,14 +84,14 @@ export default {
         testOverview() {
             this.$router.push('/resultView');
         },
-        changeView() {
-            this.$router.push('/summaryView');
-        },
         changeViewTable() {
             this.$router.push('/complexityTable');
         },
         deviation(){
             this.$router.push('/ratingDeviation');
+        },
+        summary(){
+            this.$router.push('/summaryView');
         },
         firstExp() {
             alert("Out of 15 participants, 10 of them think that the first bar chart is more or equally complex as the second bar chart.")
