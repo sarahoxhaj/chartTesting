@@ -11,6 +11,7 @@
                 <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
                 <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
                 <a href="#" @click.prevent="changeViewTable"> Complexity table </a>
+                <a href="#" @click.prevent="error" style="margin-bottom:2px;"> Error evaluation </a>
             </div>
         </div>
 
@@ -75,7 +76,7 @@ export default {
         changeViewMatrix() {
             this.$router.push('/complexityMatrix');
         },
-        changeViewTable(){
+        changeViewTable() {
             this.$router.push('/complexityTable');
         },
         testOverview() {
@@ -83,6 +84,9 @@ export default {
         },
         deviation() {
             this.$router.push('/ratingDeviation');
+        },
+        error() {
+            this.$router.push('/errorEvaluation');
         },
         analyzeAllComments() {
             d3.csv('/pilotTest.csv').then(data => {

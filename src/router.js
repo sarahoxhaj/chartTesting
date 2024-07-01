@@ -8,6 +8,7 @@ import ComplexityTable from "./components/ComplexityTable.vue"
 import ComplexityMatrix from "./components/ComplexityMatrix.vue"
 import ImageDisplay from "./components/ImageDisplay.vue"
 import RatingDeviation from "./components/RatingDeviation.vue"
+import ErrorEvaluation from "./components/ErrorEvaluation.vue"
 
 const routes = [
   { path: "/", component: HelloWorld },
@@ -19,6 +20,7 @@ const routes = [
   { path: "/complexityMatrix", component: ComplexityMatrix}, 
   { path: "/imageDisplay", component: ImageDisplay}, 
   { path: "/ratingDeviation", component: RatingDeviation}, 
+  { path: "/errorEvaluation", component: ErrorEvaluation},
 ];
 
 const router = createRouter({
