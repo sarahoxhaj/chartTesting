@@ -38,10 +38,10 @@
                 <thead>
                     <tr>
                         <th style="width: 2%;">Nr.</th>
-                        <th>Image</th>
-                        <th style="width: 10%;">Complexity score</th>
+                        <th style="width: 25%;">Image</th>
+                        <th style="width: 20%;">Complexity score</th>
                         <th style="width: 20%;">Graph feature</th>
-                        <th>Complexity elements</th>
+                        <th style="width: 20%;">Complexity elements</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +55,9 @@
                             <p>Average score: {{ item.avgComplexity }}</p>
                             <div :id="'complexityScores-chart-' + item.displayIndex"></div>
                         </td>
-                        <td style="border: 1px solid black;">
-                            <div :id="'graphFeatureChart-' + item.displayIndex"></div>
+                        <td style="border: 1px solid black; height: 200px;">
+                            <div :id="'graphFeatureChart-' + item.displayIndex">
+                            </div>
                         </td>
                         <td style="border: 1px solid black;">
                             <div :id="'categoryCountsChart-' + item.displayIndex"></div>
@@ -416,7 +417,26 @@ export default {
                     .attr('width', x.bandwidth())
                     .attr('y', d => y(graphFeatures[d] || 0)) // Use graphFeatures[d] if available, else 0
                     .attr('height', d => height - y(graphFeatures[d] || 0)) // Use graphFeatures[d] if available, else 0
-                    .attr('fill', '#AED2D6');
+                    .attr('fill', '#AED2D6')
+                    .on('mouseover', function (event, d) {
+                        d3.select(this)
+                            .attr('fill', '#89AEBE'); // Optional: Change bar color on hover
+                        d3.selectAll('.x-axis text')
+                            .filter(text => text === labels[d] || text === d)
+                            .style("font-size", "12px")
+                            .style('font-weight', 'bold');
+                    })
+                    .on('mouseout', function (event, d) {
+                        d3.select(this)
+                            .attr('fill', '#AED2D6'); // Optional: Reset bar color
+                        d3.selectAll('.x-axis text')
+                            .filter(text => text === labels[d] || text === d)
+                            .each(function () {
+                                d3.select(this).style('font-size', d3.select(this).attr('original-font-size'));
+                            })
+                            .style('font-weight', 'normal');
+                    });
+
 
                 // Append x-axis
                 svg.append('g')
@@ -424,15 +444,16 @@ export default {
                     .attr('transform', `translate(0, ${height})`)
                     .call(d3.axisBottom(x))
                     .selectAll('text')
-                    .attr('transform', 'rotate(-90)')
-                    .attr("dx", "-1em")
-                    .attr("dy", "-0.6em")
+                    .attr('transform', 'rotate(-50)')
+                    .attr("dx", "-0.8em")
+                    .attr("dy", "0.1em")
                     .style('text-anchor', 'end');
 
                 // Append y-axis
                 svg.append('g')
                     .attr('class', 'y-axis')
                     .call(d3.axisLeft(y).ticks(5));
+
             });
         },
         nextPage() {
