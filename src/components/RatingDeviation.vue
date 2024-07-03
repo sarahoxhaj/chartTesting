@@ -19,8 +19,6 @@
 
             <h5 class="my-0 mr-md-auto" style="margin-left:40rem; position:absolute;">Rating deviations</h5>
         </nav>
-
-
         <div style="display: flex; justify-content: space-between; margin: 0 auto; max-width: 400px; margin-top:3rem;">
             <div style="display: flex; align-items: center;">
                 <svg @click="prevImage" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill"
@@ -41,35 +39,23 @@
                 <p style="font-size: 14px; margin-top: 3rem; position: absolute; margin-left:-12em;">Next image</p>
             </div>
         </div>
-
-
         <div class="container" style="position:relative;">
             <div class="row" style="margin-top:5rem;">
                 <div class="col"
                     style="margin-left:2rem; border: 1px solid #DDD; margin-right:2rem; width: 40rem; height: 27rem; display: flex; justify-content: center; align-items: center; overflow: hidden;">
                     <img :src="currentImage" alt="Your Image" style="max-width: 100%; max-height: 100%;">
                 </div>
-
-
                 <div class="col" style="border: 1px solid #DDD; margin-right:2rem; width: 40rem; height: 27rem;">
-
-
-
                     <p>Complexity scores - average value of <b>{{ averageValue }}</b></p>
-
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        style="width: 12px; height: 12px; margin-left:20rem; margin-top:-5rem;"
-                        fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" @click="firstExp">
+                        style="width: 12px; height: 12px; margin-left:20rem; margin-top:-5rem;" fill="currentColor"
+                        class="bi bi-info-circle" viewBox="0 0 16 16" @click="firstExp">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                         <path
                             d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
                     </svg>
-
-
                     <svg id="bar-chart" style="width: 100%; height: 100%;"></svg>
                 </div>
-
-
             </div>
         </div>
 
@@ -132,7 +118,7 @@ export default {
         handleSvgClick() {
             this.nextImage();
         },
-        firstExp(){
+        firstExp() {
             alert("The delta values show how participants perception for the complexity of the bar chart differs from the average perception.\n                               Δ=userScore-averageScore\n\n•A positive value means that they ranked the chart higher than the average value.\n•A negative value means that the participants ranked the chart lower than the average value.\n•A delta equal to 0 represents that all participants ranked the chart the same, confirming the average score.")
         },
         nextImage() {
@@ -209,16 +195,31 @@ export default {
         },
         calculateFrequencies(data) {
             const frequencyMap = new Map();
+
+            const groups = [
+                { label: '-2.5 to -3', min: -3, max: -2.5 },
+                { label: '-1.5 to -2.4', min: -2.4, max: -1.5 },
+                { label: '-0.1 to -1.4', min: -1.4, max: -0.1 },
+                { label: '0', min: 0, max: 0 },
+                { label: '0.1 to 1.4', min: 0.1, max: 1.4 },
+                { label: '1.5 to 2.4', min: 1.5, max: 2.4 },
+                { label: '2.5 to 3', min: 2.5, max: 3 },
+            ];
+
+            groups.forEach(group => frequencyMap.set(group.label, 0));
+
             data.forEach(value => {
-                if (frequencyMap.has(value)) {
-                    frequencyMap.set(value, frequencyMap.get(value) + 1);
-                } else {
-                    frequencyMap.set(value, 1);
+                for (let i = 0; i < groups.length; i++) {
+                    if (value >= groups[i].min && value <= groups[i].max) {
+                        let count = frequencyMap.get(groups[i].label);
+                        frequencyMap.set(groups[i].label, count + 1);
+                        break; // Exit loop once assigned
+                    }
                 }
             });
-            return Array.from(frequencyMap, ([value, count]) => ({ value, count }));
-        },
 
+            return groups.map(group => ({ value: group.label, count: frequencyMap.get(group.label) }));
+        },
         renderBarChart(frequencyData) {
 
             d3.select("#bar-chart").select("g").remove();
@@ -277,14 +278,15 @@ export default {
                 .style("font-size", "12px")
                 .text("frequency");
 
-            svg.append("text")
-                .attr("class", "x label")
-                .attr("text-anchor", "end")
-                .attr("x", width + 15)
-                .attr("y", height + 15)
-                .style("font-size", "12px")
-                .text("delta");
+            // svg.append("text")
+            //     .attr("class", "x label")
+            //     .attr("text-anchor", "end")
+            //     .attr("x", width + 15)
+            //     .attr("y", height + 15)
+            //     .style("font-size", "12px")
+            //     .text("delta");
         }
+
     }
 };
 </script>

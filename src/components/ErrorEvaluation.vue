@@ -18,8 +18,8 @@
             </div>
             <h5 class="my-0 mr-md-auto" style="margin-left:37rem; position:absolute;">Error evaluation</h5>
             <div style="margin-left:47rem; position:absolute;">
-                <svg @click="handleSvgClickInfo" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-                    class="bi bi-info-circle" viewBox="0 0 16 16">
+                <svg @click="handleSvgClickInfo" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                    fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                     <path
                         d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
@@ -27,8 +27,6 @@
             </div>
         </div>
     </nav>
-
-
     <div id="bar-chart" style="margin-left:26rem; margin-top:5rem; border: 1px solid #DDD; width: 42rem; height: 30rem;">
     </div>
 </template>
@@ -45,12 +43,7 @@ export default {
             averageComplexities: [],
             averageValue: '',
             commentComplexity: '',
-            dataset: [],
-            categoryCounts: {},
-            comments: [],
-            alertVisible: false,
             showButton: false,
-            keyObject: {}
         };
     },
     computed: {
@@ -92,41 +85,6 @@ export default {
         },
         handleSvgClickInfo() {
             alert("This is an error histogram showing the total number a feature has been selected and the amount of times it has been selected incorrectly (red bar).")
-        },
-        handleButtonClick() {
-            const imageName = this.mapImageName(this.currentImage.split('/').pop().split('.')[0]);
-            d3.csv('/pilotTest.csv').then(data => {
-                const filteredRows = data.filter(row => row.key === imageName);
-                const selectedCheckboxesCounts = {};
-                filteredRows.forEach(row => {
-                    const selectedCheckboxes = JSON.parse(row.selectedCheckboxes);
-                    selectedCheckboxes.forEach(checkbox => {
-                        if (selectedCheckboxesCounts[checkbox]) {
-                            selectedCheckboxesCounts[checkbox]++;
-                        } else {
-                            selectedCheckboxesCounts[checkbox] = 1;
-                        }
-                    });
-                });
-                let comments = '';
-
-                // Print comment if 'Other (please comment)' box has count > 0
-                const otherBoxCount = selectedCheckboxesCounts['Other (please comment)'] || 0;
-                if (otherBoxCount > 0) {
-                    filteredRows.forEach(row => {
-                        if (row.comment && row.comment.trim() !== '') {
-                            comments += `•${row.comment}\n\n`;
-                        }
-                    });
-                }
-                if (comments) {
-                    alert(comments);
-                } else {
-                    alert('No comments found for this image.');
-                }
-            }).catch(error => {
-                console.error('Error loading dataset:', error);
-            });
         },
         handleSvgClick() {
             this.nextImage();
@@ -187,7 +145,7 @@ export default {
         printAverageComplexity() {
             const featuresAssigned = {
                 'image1': 'Grouped, No gaps, Missing legend, Background element',
-                'image2': 'Stacked, Nested 1, No gaps 2, Background element, Small values, Missing axis-label',
+                'image2': 'Stacked, Nested 1, No gaps 2, Background element, Small values, Missing labels',
                 'image3': 'Grouped, Embellished, Missing legend, Background element',
                 'image4': 'Grouped, No gaps 2, Error bars',
                 'image5': 'Stacked, Radial, Embellished, No gaps 2, Background element, Small values',
@@ -198,20 +156,20 @@ export default {
                 'image10': 'Simple - 1D, No gaps 2, Background element, Monochrome, Small values',
                 'image11': 'Simple - 1D, Grouped, Missing legend, Background element',
                 'image12': 'Grouped, Stacked, Small values, Background element',
-                'image13': 'Grouped, No gaps 2, Missing axis-label, Missing legend, Small values',
-                'image14': 'Simple - 1D, Embellished, Missing axis-label, Missing legend, Monochrome, Background element',
+                'image13': 'Grouped, No gaps 2, Missing labels, Missing legend, Small values',
+                'image14': 'Simple - 1D, Embellished, Missing labels, Missing values / axes, Missing legend, Monochrome, Background element',
                 'image15': 'Grouped, No gaps 2, Background element, Small values, Monochrome',
                 'image16': 'Simple - 1D, Background element, Monochrome',
-                'image17': 'Simple - 1D, Dot bar chart, Missing axis-label, Missing legend, Monochrome',
+                'image17': 'Simple - 1D, Dot bar chart, Missing labels, Missing values / axes, Missing legend, Monochrome',
                 'image18': 'Box plot, Missing legend, Error bars',
                 'image19': 'Grouped, No gaps 2, Small values, Simple - 1D',
                 'image20': 'Grouped, 3D, Missing legend',
                 'image21': 'Grouped, Box plot, Error bars, Monochrome, Small values',
-                'image22': 'Grouped, 3D, Embellished, Missing axis-label, Missing legend, Background element, Small values',
+                'image22': 'Grouped, 3D, Embellished, Missing labels, Missing values / axes, Missing legend, Background element, Small values',
                 'image23': 'Stacked, Background element',
                 'image24': 'Simple - 1D, Grouped, Missing legend, Background element, Monochrome',
                 'image25': 'Grouped, 3D, Embellished, Background element',
-                'image26': 'Radial, No gaps 2, Missing axis-label, Missing legend, Small values',
+                'image26': 'Radial, No gaps 2,  Missing labels, Missing values / axes, Missing legend, Small values',
             };
 
             const featureCount = {}; // Initialize feature count object
@@ -247,16 +205,19 @@ export default {
                             if (!featureCount[checkbox]) {
                                 featureCount[checkbox] = 0;
                             }
+                            const selectedCount = selectedCheckboxesCounts[checkbox];
                             featureCount[checkbox] += selectedCheckboxesCounts[checkbox];
 
-                            // Count incorrect selections
                             if (selectedCheckboxesCounts[checkbox] > 0 && !assignedFeatures.includes(checkbox)) {
                                 if (!incorrectFeatureCount[checkbox]) {
                                     incorrectFeatureCount[checkbox] = 0;
                                 }
                                 incorrectFeatureCount[checkbox] += selectedCheckboxesCounts[checkbox];
-                                console.log(`'${mappedImageName}' was incorrectly selected for '${checkbox}', count: ${selectedCheckboxesCounts[checkbox]}`);
+                                if (checkbox === 'Missing labels') {
+                                    console.log(`'${mappedImageName}' was incorrectly selected for '${checkbox}', count: ${selectedCount}`);
+                                }
                             }
+
                         });
                         resolve();
                     }).catch(error => {
@@ -275,8 +236,6 @@ export default {
                         console.error(error);
                     }
                 }
-
-                // Create the bar chart
                 const svgWidth = 640;
                 const svgHeight = 470;
                 const margin = { top: 20, right: 20, bottom: 90, left: 40 };
@@ -292,38 +251,31 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                // Extract all features from featuresAssigned
                 let allFeatures = Object.values(featuresAssigned)
                     .map(str => str.split(', '))
                     .flat()
                     .map(str => str.trim())
                     .filter(str => str !== '');
 
-                // Remove 'No gaps' from allFeatures
                 allFeatures = allFeatures.filter(feature => feature !== 'No gaps');
 
-                // After calculating feature counts, sort allFeatures based on featureCount values
-                const sortedFeatures = allFeatures.sort((a, b) => featureCount[b] - featureCount[a]);
+                const sortedFeatures = allFeatures.sort((a, b) => incorrectFeatureCount[b] - incorrectFeatureCount[a]);
 
-                // Use allFeatures as the domain for x axis
                 const x = d3.scaleBand()
                     .domain(sortedFeatures)
                     .range([0, width])
                     .padding(0.1);
 
                 const y = d3.scaleLinear()
-                    .domain([0, 160]) // Adjust domain as needed
+                    .domain([0, 180])
                     .range([height, 0]);
 
-                // Specify the number of ticks for the y-axis
                 const yAxis = d3.axisLeft(y)
-                    .ticks(15); // Adjust the number of ticks as needed
+                    .ticks(15);
 
-                // Append the y-axis to your SVG
                 svg.append('g')
                     .call(yAxis);
 
-                // Create bars including both correct and incorrect counts
                 svg.selectAll('.bar')
                     .data(sortedFeatures)
                     .enter()
@@ -335,7 +287,6 @@ export default {
                     .attr('height', d => height - y(featureCount[d] || 0))
                     .attr('fill', '#AED2D6');
 
-                // Create bars for incorrect counts (if available)
                 svg.selectAll('.incorrect-bar')
                     .data(sortedFeatures)
                     .enter()
@@ -346,14 +297,23 @@ export default {
                     .attr('y', d => y(incorrectFeatureCount[d] || 0))
                     .attr('height', d => height - y(incorrectFeatureCount[d] || 0))
                     .attr('fill', 'red')
-                    .style('opacity', 0.5); // Adjust opacity or styling as needed
+                    .style('opacity', 0.5);
 
                 svg.append('g')
                     .attr('transform', `translate(0,${height})`)
                     .call(d3.axisBottom(x))
                     .selectAll('text')
                     .attr('transform', 'rotate(-45)')
-                    .style('text-anchor', 'end');
+                    .style('text-anchor', 'end')
+                    .text(function (d) {
+                        if (d === 'Nested 1') {
+                            return 'Nested';
+                        } else if (d === 'No gaps 2') {
+                            return 'No gaps';
+                        } else {
+                            return d;
+                        }
+                    });
 
                 svg.append('g')
                     .call(d3.axisLeft(y).ticks(10));
@@ -367,8 +327,6 @@ export default {
                     .attr("transform", "rotate(-90)")
                     .style("font-size", "13px")
                     .text("frequency");
-
-                console.log('Total Feature counts:', featureCount);
             };
 
 
