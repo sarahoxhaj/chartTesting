@@ -1,7 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top" style="background-color: #C4E1D5;">
         <div class="container">
-
             <div style="float: left;" class="dropdown">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-left:-2rem;"
                     fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -27,7 +26,25 @@
             </div>
         </div>
     </nav>
-    <div id="bar-chart" style="margin-left:26rem; margin-top:5rem; border: 1px solid #DDD; width: 42rem; height: 30rem;">
+    <div class="container" style="position:relative; overflow-x: hidden; ">
+        <div class="row" style="margin-top:7rem;">
+            <h6 style="position: absolute; margin-top:-2rem; margin-left:-20rem;">
+                Overall result
+            </h6>
+            <div class="col"
+                style="margin-left:2rem; border: 1px solid #DDD; margin-right:2rem; width: 55rem; height: 30rem; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative;">
+                <div id="bar-chart"></div>
+            </div>
+
+            <h6 style="position: absolute; margin-top:-2rem; margin-left:22rem;">
+                Result for each visualization
+            </h6>
+
+            <div class="col"
+                style="margin-left:2rem; border: 1px solid #DDD; margin-right:2rem; width: 55rem; height: 30rem; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <div id="bar-chart2"></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -144,7 +161,7 @@ export default {
         },
         printAverageComplexity() {
             const featuresAssigned = {
-                'image1': 'Grouped, No gaps, Missing legend, Background element',
+                'image1': 'Grouped, No gaps 2, Missing legend, Background element',
                 'image2': 'Stacked, Nested 1, No gaps 2, Background element, Small values, Missing labels',
                 'image3': 'Grouped, Embellished, Missing legend, Background element',
                 'image4': 'Grouped, No gaps 2, Error bars',
@@ -175,6 +192,8 @@ export default {
             const featureCount = {}; // Initialize feature count object
 
             const incorrectFeatureCount = {};
+            const uniqueCheckboxes = new Set();
+            const uniqueIncorrect = new Set();
 
             // Process each image asynchronously
             const processImage = (imageName) => {
@@ -188,10 +207,14 @@ export default {
                     d3.csv('/pilotTest.csv').then(data => {
                         const filteredData = data.filter(row => row.key === mappedImageName);
 
+                        const uniqueCheckboxesForImage = new Set();
+
                         const selectedCheckboxesCounts = {};
                         filteredData.forEach(row => {
                             const parsedCheckboxes = JSON.parse(row.selectedCheckboxes);
                             parsedCheckboxes.forEach(checkbox => {
+                                uniqueCheckboxes.add(checkbox);
+                                uniqueCheckboxesForImage.add(checkbox);
                                 if (!selectedCheckboxesCounts[checkbox]) {
                                     selectedCheckboxesCounts[checkbox] = 0;
                                 }
@@ -205,20 +228,20 @@ export default {
                             if (!featureCount[checkbox]) {
                                 featureCount[checkbox] = 0;
                             }
-                            const selectedCount = selectedCheckboxesCounts[checkbox];
                             featureCount[checkbox] += selectedCheckboxesCounts[checkbox];
 
                             if (selectedCheckboxesCounts[checkbox] > 0 && !assignedFeatures.includes(checkbox)) {
-                                if (!incorrectFeatureCount[checkbox]) {
-                                    incorrectFeatureCount[checkbox] = 0;
-                                }
-                                incorrectFeatureCount[checkbox] += selectedCheckboxesCounts[checkbox];
-                                if (checkbox === 'Missing labels') {
-                                    console.log(`'${mappedImageName}' was incorrectly selected for '${checkbox}', count: ${selectedCount}`);
+                                if (checkbox !== 'Other (please comment)') {
+                                    if (!incorrectFeatureCount[checkbox]) {
+                                        incorrectFeatureCount[checkbox] = 0;
+                                    }
+                                    incorrectFeatureCount[checkbox] += selectedCheckboxesCounts[checkbox];
+                                    uniqueIncorrect.add(checkbox);
                                 }
                             }
 
                         });
+                        console.log(`For ${mappedImageName}, a total of ${uniqueCheckboxes.size} unique features are selected and ${uniqueIncorrect.size} of them are incorrect.`);
                         resolve();
                     }).catch(error => {
                         reject(`Error loading dataset for ${mappedImageName}: ${error}`);
@@ -236,8 +259,8 @@ export default {
                         console.error(error);
                     }
                 }
-                const svgWidth = 640;
-                const svgHeight = 470;
+                const svgWidth = 570;
+                const svgHeight = 430;
                 const margin = { top: 20, right: 20, bottom: 90, left: 40 };
                 const width = svgWidth - margin.left - margin.right;
                 const height = svgHeight - margin.top - margin.bottom;
@@ -259,7 +282,9 @@ export default {
 
                 allFeatures = allFeatures.filter(feature => feature !== 'No gaps');
 
-                const sortedFeatures = allFeatures.sort((a, b) => incorrectFeatureCount[b] - incorrectFeatureCount[a]);
+                const sortedFeatures = allFeatures.sort((a, b) => {
+                    return (incorrectFeatureCount[b] || 0) - (incorrectFeatureCount[a] || 0);
+                });
 
                 const x = d3.scaleBand()
                     .domain(sortedFeatures)
@@ -268,6 +293,7 @@ export default {
 
                 const y = d3.scaleLinear()
                     .domain([0, 180])
+                    .nice()
                     .range([height, 0]);
 
                 const yAxis = d3.axisLeft(y)
@@ -296,7 +322,7 @@ export default {
                     .attr('width', x.bandwidth())
                     .attr('y', d => y(incorrectFeatureCount[d] || 0))
                     .attr('height', d => height - y(incorrectFeatureCount[d] || 0))
-                    .attr('fill', 'red')
+                    .attr('fill', '#EF2929')
                     .style('opacity', 0.5);
 
                 svg.append('g')
@@ -322,10 +348,10 @@ export default {
                     .attr("class", "y label")
                     .attr("text-anchor", "end")
                     .attr("y", 2)
-                    .attr("dy", "-2.5em")
+                    .attr("dy", "-2.6em")
                     .attr("dx", "0.5em")
                     .attr("transform", "rotate(-90)")
-                    .style("font-size", "13px")
+                    .style("font-size", "12px")
                     .text("frequency");
             };
 
