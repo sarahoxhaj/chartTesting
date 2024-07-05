@@ -14,6 +14,7 @@
                     <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
                     <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
                     <a href="#" @click.prevent="error" style="margin-bottom:2px;"> Error evaluation </a>
+                    <a href="#" @click.prevent="friendTest"> Friend test </a>
                     <a href="#" @click.prevent="summary"> Summary </a>
                 </div>
             </div>
@@ -114,6 +115,9 @@ export default {
         },
         error() {
             this.$router.push('/errorEvaluation');
+        },
+        friendTest(){
+            this.$router.push('/friendTest');
         },
         calculateAverageComplexity() {
             d3.csv('/pilotTest.csv').then(data => {

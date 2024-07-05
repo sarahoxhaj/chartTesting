@@ -14,6 +14,7 @@
                     <a href="#" @click.prevent="changeViewTable" style="margin-bottom:2px;"> Complexity table </a>
                     <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
                     <a href="#" @click.prevent="error" style="margin-bottom:2px;"> Error evaluation </a>
+                    <a href="#" @click.prevent="friendTest" style="margin-bottom:2px;"> Friend test </a>
                     <a href="#" @click.prevent="summary"> Summary </a>
                 </div>
             </div>
@@ -103,6 +104,9 @@ export default {
         },
         summary() {
             this.$router.push('/summaryView');
+        },
+        friendTest(){
+            this.$router.push('/friendTest');
         },
         firstExp() {
             alert("Out of 15 participants, 10 of them think that the first bar chart (index 1 in row) is more or equally complex as the second bar chart (index 2 in column).")

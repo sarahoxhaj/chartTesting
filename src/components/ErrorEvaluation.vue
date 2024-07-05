@@ -12,6 +12,7 @@
                     <a href="#" @click.prevent="changeViewMatrix" style="margin-bottom:2px;"> Complexity matrix </a>
                     <a href="#" @click.prevent="changeView" style="margin-bottom:2px;"> Complexity table </a>
                     <a href="#" @click.prevent="deviation" style="margin-bottom:2px;"> Rating deviation </a>
+                    <a href="#" @click.prevent="friendTest"> Friend test </a>
                     <a href="#" @click.prevent="summary"> Summary </a>
                 </div>
             </div>
@@ -104,6 +105,9 @@ export default {
         },
         changeViewMatrix() {
             this.$router.push('/complexityMatrix');
+        },
+        friendTest(){
+            this.$router.push('/friendTest');
         },
         deviation() {
             this.$router.push('/ratingDeviation');
