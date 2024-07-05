@@ -16,21 +16,22 @@
                 </div>
             </div>
             <h5 class="my-0 mr-md-auto" style="margin-left:37rem; position:absolute;">Error evaluation</h5>
-            <div style="margin-left:47rem; position:absolute;">
-                <svg @click="handleSvgClickInfo" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                    fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                    <path
-                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                </svg>
-            </div>
         </div>
     </nav>
     <div class="container" style="position:relative; overflow-x: hidden; ">
         <div class="row" style="margin-top:7rem;">
-            <h6 style="position: absolute; margin-top:-2rem; margin-left:-20rem;">
-                Overall result
-            </h6>
+            <div>
+                <h6 style="position: absolute; margin-top:-2rem; margin-left:16rem; z-index: 10;">
+                    Overall result
+                    <svg @click="overallResultInfo" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                        style="margin-left:3px;" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                    </svg>
+                </h6>
+            </div>
+
             <div class="col"
                 style="margin-left:2rem; border: 1px solid #DDD; margin-right:2rem; width: 55rem; height: 30rem; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative;">
                 <div id="bar-chart"></div>
@@ -38,6 +39,12 @@
 
             <h6 style="position: absolute; margin-top:-2rem; margin-left:22rem;">
                 Result for each visualization
+                <svg @click="handleSvgClickInfo2" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                    style="margin-left:3px;" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                </svg>
             </h6>
 
             <div class="col"
@@ -61,6 +68,7 @@ export default {
             averageValue: '',
             commentComplexity: '',
             showButton: false,
+
         };
     },
     computed: {
@@ -100,8 +108,11 @@ export default {
         deviation() {
             this.$router.push('/ratingDeviation');
         },
-        handleSvgClickInfo() {
-            alert("This is an error histogram showing the total number a feature has been selected and the amount of times it has been selected incorrectly (red bar).")
+        overallResultInfo() {
+            alert("This error histogram shows the amount of times a feature has been selected (blue) and the times it has been selected wrong (red).")
+        },
+        handleSvgClickInfo2() {
+            alert("This error histogram shows how many features have been selected for each vis (blue) and how many of them are incorrect (red).")
         },
         handleSvgClick() {
             this.nextImage();
@@ -194,6 +205,8 @@ export default {
             const incorrectFeatureCount = {};
             const uniqueCheckboxes = new Set();
             const uniqueIncorrect = new Set();
+            const resultsSet = new Set();
+            const resultIncorrect = new Set();
 
             // Process each image asynchronously
             const processImage = (imageName) => {
@@ -239,8 +252,9 @@ export default {
                                     uniqueIncorrect.add(checkbox);
                                 }
                             }
-
                         });
+                        resultsSet.add({ [mappedImageName]: uniqueCheckboxes.size });
+                        resultIncorrect.add({ [mappedImageName]: uniqueIncorrect.size });
                         console.log(`For ${mappedImageName}, a total of ${uniqueCheckboxes.size} unique features are selected and ${uniqueIncorrect.size} of them are incorrect.`);
                         resolve();
                     }).catch(error => {
@@ -259,11 +273,96 @@ export default {
                         console.error(error);
                     }
                 }
+
+                const dataArray = Array.from(resultsSet);
+                dataArray.sort((a, b) => {
+                    const nameA = Object.keys(a)[0];
+                    const nameB = Object.keys(b)[0];
+                    return imageNames.indexOf(nameA) - imageNames.indexOf(nameB);
+                });
+
+                const dataArray2 = Array.from(resultIncorrect);
+                dataArray2.sort((a, b) => {
+                    const nameA = Object.keys(a)[0];
+                    const nameB = Object.keys(b)[0];
+                    return imageNames.indexOf(nameA) - imageNames.indexOf(nameB);
+                });
+
+
                 const svgWidth = 570;
                 const svgHeight = 430;
                 const margin = { top: 20, right: 20, bottom: 90, left: 40 };
                 const width = svgWidth - margin.left - margin.right;
                 const height = svgHeight - margin.top - margin.bottom;
+
+
+
+                d3.select('#bar-chart2').selectAll('*').remove();
+                const svg2 = d3.select('#bar-chart2')
+                    .append('svg')
+                    .attr('width', svgWidth)
+                    .attr('height', svgHeight)
+                    .append('g')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                const x2 = d3.scaleBand()
+                    .domain(dataArray.map(d => Object.keys(d)[0]))
+                    .range([0, width])
+                    .padding(0.1);
+
+                const y2 = d3.scaleLinear()
+                    .domain([0, d3.max(dataArray, d => Object.values(d)[0])])
+                    .nice()
+                    .range([height, 0]);
+
+                svg2.selectAll('.bar')
+                    .data(dataArray)
+                    .enter().append('rect')
+                    .attr('class', 'bar')
+                    .attr('x', d => x2(Object.keys(d)[0]))
+                    .attr('width', x2.bandwidth())
+                    .attr('y', d => y2(Object.values(d)[0]))
+                    .attr('height', d => height - y2(Object.values(d)[0]))
+                    .attr('fill', '#AED2D6');
+
+                svg2.selectAll('.incorrect-bar2')
+                    .data(dataArray2)
+                    .enter()
+                    .append('rect')
+                    .attr('class', 'incorrect-bar2')
+                    .attr('x', d => x2(Object.keys(d)[0]))
+                    .attr('width', x2.bandwidth())
+                    .attr('y', d => y2(Object.values(d)[0]))
+                    .attr('height', d => height - y2(Object.values(d)[0]))
+                    .attr('fill', '#EE2A2A')
+                    .style('opacity', 0.9);
+
+                // Add x-axis
+                svg2.append('g')
+                    .attr('transform', `translate(0,${height})`)
+                    .call(d3.axisBottom(x2))
+                    .selectAll('text')
+                    .attr('transform', 'rotate(-45)')
+                    .style('text-anchor', 'end')
+                    //.attr("dy", "-1em");
+                    .attr("dx", "-0.5em");
+
+                // Add y-axis
+                svg2.append('g')
+                    .call(d3.axisLeft(y2).ticks(10));
+
+                svg2.append("text")
+                    .attr("class", "y label")
+                    .attr("text-anchor", "end")
+                    .attr("y", 2)
+                    .attr("dy", "-2.6em")
+                    .attr("dx", "0.5em")
+                    .attr("transform", "rotate(-90)")
+                    .style("font-size", "12px")
+                    .text("nr. of features");
+
+
+
 
                 d3.select('#bar-chart').selectAll('*').remove();
 
@@ -322,8 +421,8 @@ export default {
                     .attr('width', x.bandwidth())
                     .attr('y', d => y(incorrectFeatureCount[d] || 0))
                     .attr('height', d => height - y(incorrectFeatureCount[d] || 0))
-                    .attr('fill', '#EF2929')
-                    .style('opacity', 0.5);
+                    .attr('fill', '#EE2A2A')
+                    .style('opacity', 0.9);
 
                 svg.append('g')
                     .attr('transform', `translate(0,${height})`)
@@ -353,13 +452,11 @@ export default {
                     .attr("transform", "rotate(-90)")
                     .style("font-size", "12px")
                     .text("frequency");
+
             };
-
-
             processAllImages();
-        }
 
-
+        },
     }
 };
 </script>
