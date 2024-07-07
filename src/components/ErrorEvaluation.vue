@@ -59,6 +59,7 @@
 
 <script>
 import * as d3 from 'd3';
+import router from '@/router';
 export default {
     name: "ErrorEvaluation",
     data() {
@@ -116,7 +117,7 @@ export default {
             alert("This error histogram shows the amount of times a feature has been selected (blue) and the times it has been selected wrong (red).")
         },
         handleSvgClickInfo2() {
-            alert("This error histogram shows how many features have been selected for each vis (blue) and how many of them are incorrect (red).")
+            alert("This error histogram shows how many features have been selected for each vis (blue) and how many of them are incorrect (red). You can click on the name of the image to check it out.")
         },
         handleSvgClick() {
             this.nextImage();
@@ -205,7 +206,7 @@ export default {
                 'image26': 'Radial, No gaps 2,  Missing labels, Missing values / axes, Missing legend, Small values',
             };
 
-            const featureCount = {}; 
+            const featureCount = {};
             const incorrectFeatureCount = {};
             const uniqueCheckboxes = new Set();
             const uniqueIncorrect = new Set();
@@ -234,11 +235,11 @@ export default {
                         const uniqueCheckboxesArray = [...uniqueCheckboxes];
                         const sizeOfUniqueCheckboxes = uniqueCheckboxesArray.length;
                         imageSizeSet.add({ imageName: imageName, size: sizeOfUniqueCheckboxes });
-                        console.log(` ${imageName} has in total ${sizeOfUniqueCheckboxes} features`);
+                        //console.log(` ${imageName} has in total ${sizeOfUniqueCheckboxes} features`);
 
                         const assignedFeaturesCount = (featuresAssigned[mappedImageName] || '').split(', ').length;
                         const difference = sizeOfUniqueCheckboxes - assignedFeaturesCount;
-                        console.log(`${imageName} has ${sizeOfUniqueCheckboxes} unique features, ${assignedFeaturesCount} declared features, with a difference of ${difference}`);
+                        //console.log(`${imageName} has ${sizeOfUniqueCheckboxes} unique features, ${assignedFeaturesCount} declared features, with a difference of ${difference}`);
                         imageIncorrectSet.add({ imageName: imageName, size: difference });
 
 
@@ -329,7 +330,8 @@ export default {
                     .call(d3.axisBottom(x2))
                     .selectAll('text')
                     .style('text-anchor', 'end')
-                    .attr('transform', 'rotate(-45)');
+                    .attr('transform', 'rotate(-45)')
+                    .on('click', handleClick);
 
                 svg2.append('g')
                     .call(d3.axisLeft(y2));
@@ -355,6 +357,12 @@ export default {
                     .attr('height', d => height - y2(d.size))
                     .attr('fill', '#EE2A2A')
                     .style('opacity', 0.9);
+
+
+                function handleClick(event, d) {
+                    const imageName = d; 
+                    router.push({ path: '/imageErrorDisplay', query: { number: imageName.replace('image', '') } });
+                }
 
 
                 d3.select('#bar-chart').selectAll('*').remove();

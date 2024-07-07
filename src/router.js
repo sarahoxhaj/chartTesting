@@ -10,6 +10,7 @@ import ImageDisplay from "./components/ImageDisplay.vue"
 import RatingDeviation from "./components/RatingDeviation.vue"
 import ErrorEvaluation from "./components/ErrorEvaluation.vue"
 import FriendTest from "./components/FriendTest.vue"
+import ImageErrorDisplay from "./components/ImageErrorDisplay.vue"
 
 const routes = [
   { path: "/", component: HelloWorld },
@@ -23,6 +24,7 @@ const routes = [
   { path: "/ratingDeviation", component: RatingDeviation}, 
   { path: "/errorEvaluation", component: ErrorEvaluation},
   { path: "/friendTest", component: FriendTest},
+  { path: "/imageErrorDisplay", component: ImageErrorDisplay}, 
 ];
 
 const router = createRouter({
