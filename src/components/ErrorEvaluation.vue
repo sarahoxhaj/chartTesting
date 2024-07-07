@@ -106,7 +106,7 @@ export default {
         changeViewMatrix() {
             this.$router.push('/complexityMatrix');
         },
-        friendTest(){
+        friendTest() {
             this.$router.push('/friendTest');
         },
         deviation() {
@@ -174,6 +174,7 @@ export default {
                 console.error('Error reading dataset:', error);
             });
         },
+
         printAverageComplexity() {
             const featuresAssigned = {
                 'image1': 'Grouped, No gaps 2, Missing legend, Background element',
@@ -204,15 +205,13 @@ export default {
                 'image26': 'Radial, No gaps 2,  Missing labels, Missing values / axes, Missing legend, Small values',
             };
 
-            const featureCount = {}; // Initialize feature count object
-
+            const featureCount = {}; 
             const incorrectFeatureCount = {};
             const uniqueCheckboxes = new Set();
             const uniqueIncorrect = new Set();
-            const resultsSet = new Set();
-            const resultIncorrect = new Set();
+            const imageSizeSet = new Set();
+            const imageIncorrectSet = new Set();
 
-            // Process each image asynchronously
             const processImage = (imageName) => {
                 return new Promise((resolve, reject) => {
                     const mappedImageName = this.mapImageName(imageName);
@@ -223,6 +222,25 @@ export default {
 
                     d3.csv('/pilotTest.csv').then(data => {
                         const filteredData = data.filter(row => row.key === mappedImageName);
+
+                        filteredData.forEach(row => {
+                            const parsedCheckboxes = JSON.parse(row.selectedCheckboxes);
+                            parsedCheckboxes.forEach(checkbox => {
+                                if (checkbox !== 'Other (please comment)') {
+                                    uniqueCheckboxes.add(checkbox);
+                                }
+                            });
+                        });
+                        const uniqueCheckboxesArray = [...uniqueCheckboxes];
+                        const sizeOfUniqueCheckboxes = uniqueCheckboxesArray.length;
+                        imageSizeSet.add({ imageName: imageName, size: sizeOfUniqueCheckboxes });
+                        console.log(` ${imageName} has in total ${sizeOfUniqueCheckboxes} features`);
+
+                        const assignedFeaturesCount = (featuresAssigned[mappedImageName] || '').split(', ').length;
+                        const difference = sizeOfUniqueCheckboxes - assignedFeaturesCount;
+                        console.log(`${imageName} has ${sizeOfUniqueCheckboxes} unique features, ${assignedFeaturesCount} declared features, with a difference of ${difference}`);
+                        imageIncorrectSet.add({ imageName: imageName, size: difference });
+
 
                         const uniqueCheckboxesForImage = new Set();
 
@@ -257,9 +275,7 @@ export default {
                                 }
                             }
                         });
-                        resultsSet.add({ [mappedImageName]: uniqueCheckboxes.size });
-                        resultIncorrect.add({ [mappedImageName]: uniqueIncorrect.size });
-                        console.log(`For ${mappedImageName}, a total of ${uniqueCheckboxes.size} unique features are selected and ${uniqueIncorrect.size} of them are incorrect.`);
+
                         resolve();
                     }).catch(error => {
                         reject(`Error loading dataset for ${mappedImageName}: ${error}`);
@@ -278,28 +294,11 @@ export default {
                     }
                 }
 
-                const dataArray = Array.from(resultsSet);
-                dataArray.sort((a, b) => {
-                    const nameA = Object.keys(a)[0];
-                    const nameB = Object.keys(b)[0];
-                    return imageNames.indexOf(nameA) - imageNames.indexOf(nameB);
-                });
-
-                const dataArray2 = Array.from(resultIncorrect);
-                dataArray2.sort((a, b) => {
-                    const nameA = Object.keys(a)[0];
-                    const nameB = Object.keys(b)[0];
-                    return imageNames.indexOf(nameA) - imageNames.indexOf(nameB);
-                });
-
-
                 const svgWidth = 570;
                 const svgHeight = 430;
                 const margin = { top: 20, right: 20, bottom: 90, left: 40 };
                 const width = svgWidth - margin.left - margin.right;
                 const height = svgHeight - margin.top - margin.bottom;
-
-
 
                 d3.select('#bar-chart2').selectAll('*').remove();
                 const svg2 = d3.select('#bar-chart2')
@@ -309,24 +308,40 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
+                const dataArray = Array.from(imageSizeSet, d => ({ imageName: d.imageName, size: d.size }));
+                const dataArray2 = Array.from(imageIncorrectSet, d2 => ({ imageName: d2.imageName, size: d2.size }));
+                dataArray2.sort((a, b) => b.size - a.size);
+                const sortedImageNames = dataArray2.map(d => d.imageName);
+
+
                 const x2 = d3.scaleBand()
-                    .domain(dataArray.map(d => Object.keys(d)[0]))
+                    .domain(sortedImageNames)
                     .range([0, width])
                     .padding(0.1);
 
                 const y2 = d3.scaleLinear()
-                    .domain([0, d3.max(dataArray, d => Object.values(d)[0])])
+                    .domain([0, d3.max(dataArray, d => d.size)])
                     .nice()
                     .range([height, 0]);
+
+                svg2.append('g')
+                    .attr('transform', `translate(0, ${height})`)
+                    .call(d3.axisBottom(x2))
+                    .selectAll('text')
+                    .style('text-anchor', 'end')
+                    .attr('transform', 'rotate(-45)');
+
+                svg2.append('g')
+                    .call(d3.axisLeft(y2));
 
                 svg2.selectAll('.bar')
                     .data(dataArray)
                     .enter().append('rect')
                     .attr('class', 'bar')
-                    .attr('x', d => x2(Object.keys(d)[0]))
+                    .attr('x', d => x2(d.imageName))
                     .attr('width', x2.bandwidth())
-                    .attr('y', d => y2(Object.values(d)[0]))
-                    .attr('height', d => height - y2(Object.values(d)[0]))
+                    .attr('y', d => y2(d.size))
+                    .attr('height', d => height - y2(d.size))
                     .attr('fill', '#AED2D6');
 
                 svg2.selectAll('.incorrect-bar2')
@@ -334,38 +349,12 @@ export default {
                     .enter()
                     .append('rect')
                     .attr('class', 'incorrect-bar2')
-                    .attr('x', d => x2(Object.keys(d)[0]))
+                    .attr('x', d => x2(d.imageName))
                     .attr('width', x2.bandwidth())
-                    .attr('y', d => y2(Object.values(d)[0]))
-                    .attr('height', d => height - y2(Object.values(d)[0]))
+                    .attr('y', d => y2(d.size))
+                    .attr('height', d => height - y2(d.size))
                     .attr('fill', '#EE2A2A')
                     .style('opacity', 0.9);
-
-                // Add x-axis
-                svg2.append('g')
-                    .attr('transform', `translate(0,${height})`)
-                    .call(d3.axisBottom(x2))
-                    .selectAll('text')
-                    .attr('transform', 'rotate(-45)')
-                    .style('text-anchor', 'end')
-                    //.attr("dy", "-1em");
-                    .attr("dx", "-0.5em");
-
-                // Add y-axis
-                svg2.append('g')
-                    .call(d3.axisLeft(y2).ticks(10));
-
-                svg2.append("text")
-                    .attr("class", "y label")
-                    .attr("text-anchor", "end")
-                    .attr("y", 2)
-                    .attr("dy", "-2.6em")
-                    .attr("dx", "0.5em")
-                    .attr("transform", "rotate(-90)")
-                    .style("font-size", "12px")
-                    .text("nr. of features");
-
-
 
 
                 d3.select('#bar-chart').selectAll('*').remove();
