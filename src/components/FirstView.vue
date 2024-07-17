@@ -55,7 +55,7 @@ export default {
       name: '',
       showAlert: false,
       showAlertCode: false,
-      validCodes: ['sara', 'Sara', 'laura', 'Laura', 'torsten', 'Torsten']
+      validCodes: ['sara', 'Sara', 'laura', 'Laura', 'torsten', 'Torsten', 'Michael','michael']
     };
   },
   methods: {
