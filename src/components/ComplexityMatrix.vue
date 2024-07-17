@@ -105,17 +105,17 @@ export default {
         summary() {
             this.$router.push('/summaryView');
         },
-        friendTest(){
+        friendTest() {
             this.$router.push('/friendTest');
         },
         firstExp() {
-            alert("Out of 15 participants, 10 of them think that the first bar chart (index 1 in row) is more or equally complex as the second bar chart (index 2 in column).")
+            alert("Out of 15 participants, 7 of them think that the first bar chart (index 1 in row) is more complex than the second bar chart (index 2 in column).")
         },
         secondExp() {
-            alert("Out of 15 participants, 8 of them think that the second bar chart (index 2 in row) is more or equally complex as the first bar chart (index 1 in column).")
+            alert("Out of 15 participants, 5 of them think that the second bar chart (index 2 in row) is more complex than the first bar chart (index 1 in column).")
         },
         generalExp() {
-            alert("This complexity matrix compares the complexity score given to the chart shown in the respective row with the one in the column.");
+            alert("This complexity matrix compares the complexity score given to the chart shown in the respective row with the one in the column. Since we do not consider the cases when the participants give equal complexity scores to the compared charts, the sum of values in symmetric positions does not always sum up to 15 (total nr of participants).");
         },
         imageDisplay(number) {
             this.$router.push({ path: '/imageDisplay', query: { number: number } });
@@ -147,7 +147,7 @@ export default {
                         const comparisonImageKey = `image${i}`;
 
                         users.forEach(userName => {
-                            if (imageScoresByUser[baseImageKey][userName] >= imageScoresByUser[comparisonImageKey][userName]) {
+                            if (imageScoresByUser[baseImageKey][userName] > imageScoresByUser[comparisonImageKey][userName]) {
                                 counter++;
                             }
                         });
