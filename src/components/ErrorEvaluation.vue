@@ -210,8 +210,8 @@ export default {
             const incorrectFeatureCount = {};
             const uniqueCheckboxes = new Set();
             const uniqueIncorrect = new Set();
-            const imageSizeSet = new Set();
-            const imageIncorrectSet = new Set();
+            const imageExtraFeatures = {};
+            const imageAllFeatures = {};
 
             const processImage = (imageName) => {
                 return new Promise((resolve, reject) => {
@@ -223,24 +223,28 @@ export default {
 
                     d3.csv('/pilotTest.csv').then(data => {
                         const filteredData = data.filter(row => row.key === mappedImageName);
-
+                        const uniqueSelectedCheckboxes = new Set();
+                        const checkboxPattern = /"([^"]*)"/g;
                         filteredData.forEach(row => {
-                            const parsedCheckboxes = JSON.parse(row.selectedCheckboxes);
-                            parsedCheckboxes.forEach(checkbox => {
-                                if (checkbox !== 'Other (please comment)') {
-                                    uniqueCheckboxes.add(checkbox);
+                            if (row.selectedCheckboxes) {
+                                let match;
+                                while ((match = checkboxPattern.exec(row.selectedCheckboxes)) !== null) {
+                                    const checkboxValue = match[1].trim();
+                                    if (checkboxValue !== "Other (please comment)") {
+                                        uniqueSelectedCheckboxes.add(checkboxValue);
+                                    }
                                 }
-                            });
+                            }
                         });
-                        const uniqueCheckboxesArray = [...uniqueCheckboxes];
-                        const sizeOfUniqueCheckboxes = uniqueCheckboxesArray.length;
-                        imageSizeSet.add({ imageName: imageName, size: sizeOfUniqueCheckboxes });
-                        //console.log(` ${imageName} has in total ${sizeOfUniqueCheckboxes} features`);
 
-                        const assignedFeaturesCount = (featuresAssigned[mappedImageName] || '').split(', ').length;
-                        const difference = sizeOfUniqueCheckboxes - assignedFeaturesCount;
-                        //console.log(`${imageName} has ${sizeOfUniqueCheckboxes} unique features, ${assignedFeaturesCount} declared features, with a difference of ${difference}`);
-                        imageIncorrectSet.add({ imageName: imageName, size: difference });
+                        const uniqueCheckboxesArray = Array.from(uniqueSelectedCheckboxes).sort();
+                        const assignedFeatures1 = featuresAssigned[mappedImageName].split(',').map(feature => feature.trim()).sort();
+                        const extraFeatures = uniqueCheckboxesArray.filter(feature => !assignedFeatures1.includes(feature))
+                        imageExtraFeatures[mappedImageName] = extraFeatures.length;
+                        console.log('Image Extra Features:', imageExtraFeatures);
+
+                        imageAllFeatures[mappedImageName] = uniqueCheckboxesArray.length;
+                        console.log('Image All Features:', imageAllFeatures);
 
 
                         const uniqueCheckboxesForImage = new Set();
@@ -309,10 +313,26 @@ export default {
                     .append('g')
                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                const dataArray = Array.from(imageSizeSet, d => ({ imageName: d.imageName, size: d.size }));
-                const dataArray2 = Array.from(imageIncorrectSet, d2 => ({ imageName: d2.imageName, size: d2.size }));
+
+                const dataArray = imageNames.map(imageName => ({
+                    imageName: imageName,
+                    size: imageAllFeatures[imageName] || 0
+                }));
+                const dataArray2 = imageNames.map(imageName => ({
+                    imageName: imageName,
+                    size: imageExtraFeatures[imageName] || 0
+                }));
+
                 dataArray2.sort((a, b) => b.size - a.size);
+
                 const sortedImageNames = dataArray2.map(d => d.imageName);
+
+                const sortedDataArray = sortedImageNames.map(name => ({
+                    imageName: name,
+                    size: imageAllFeatures[name] || 0
+                }));
+
+                const maxSize = d3.max([...sortedDataArray, ...dataArray2], d => d.size);
 
 
                 const x2 = d3.scaleBand()
@@ -321,7 +341,7 @@ export default {
                     .padding(0.1);
 
                 const y2 = d3.scaleLinear()
-                    .domain([0, d3.max(dataArray, d => d.size)])
+                    .domain([0, maxSize])
                     .nice()
                     .range([height, 0]);
 
@@ -360,7 +380,7 @@ export default {
 
 
                 function handleClick(event, d) {
-                    const imageName = d; 
+                    const imageName = d;
                     router.push({ path: '/imageErrorDisplay', query: { number: imageName.replace('image', '') } });
                 }
 
