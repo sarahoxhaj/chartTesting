@@ -433,7 +433,7 @@ export default {
         },
         printAverageComplexity(imagePath) {
             const customOrder = [
-                'Simple - 1D', 'Grouped', 'Stacked', 'Nested 1', 'Dot Bar Chart',
+                'Simple - 1D', 'Grouped', 'Stacked', 'Nested 1', 'Dot bar chart',
                 'Radial', 'No gaps 2', '3D', 'Embellished', 'Error bars',
                 'Missing labels', 'Missing legend', 'Background element', 'Missing values / axes',
                 'Monochrome', 'Small values', 'Gantt chart', 'Box plot', 'Other (please comment)'
@@ -463,7 +463,7 @@ export default {
                     const filteredData = data.filter(row => row.key === mappedImageName);
 
                     const selectedCheckboxesCounts = {
-                        'Simple - 1D': 0, 'Grouped': 0, 'Stacked': 0, 'Nested 1': 0, 'Dot Bar Chart': 0,
+                        'Simple - 1D': 0, 'Grouped': 0, 'Stacked': 0, 'Nested 1': 0, 'Dot bar chart': 0,
                         'Radial': 0, 'No gaps 2': 0, '3D': 0, 'Embellished': 0, 'Error bars': 0,
                         'Missing labels': 0, 'Missing legend': 0, 'Background element': 0, 'Missing values / axes': 0,
                         'Monochrome': 0, 'Small values': 0, 'Gantt chart': 0, 'Box plot': 0, 'Other (please comment)': 0,
